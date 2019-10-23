@@ -9,16 +9,117 @@
         />
 
         <!-- Bootstrap CSS -->
+
         <link
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous"
         />
+        <link
+            href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
 
         <title>Работа с массивами</title>
     </head>
     <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <br />
+                    <p class="h4">
+                        1. Поменять местами первый и последний символ массива.
+                    </p>
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-12">
+                <textarea
+                    class="form-control"
+                    id="textAreaT1"
+                    rows="3"
+                    readonly
+                ></textarea
+                ><br />
+                <button
+                    type="button"
+                    id="buttonT1"
+                    class="btn btn-outline-success btn-block"
+                >
+                    Начнём пожалуй :)
+                </button>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <br />
+                    <p class="h4">
+                        2. Сумма элементов массива с четными индексами.
+                    </p>
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-12">
+                <textarea
+                    class="form-control"
+                    id="textAreaT2"
+                    rows="3"
+                    readonly
+                ></textarea
+                ><br />
+                <button
+                    type="button"
+                    id="buttonT2"
+                    class="btn btn-outline-success btn-block"
+                >
+                    Понеслась :)
+                </button>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <br />
+                    <p class="h4">
+                        3. Удалить число из массива.
+                    </p>
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-4">
+                <p>Какое число удалить из массива?</p>
+                <input
+                    type="number"
+                    class="form-control"
+                    id="numberT3"
+                    value="5"
+                /><br />
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-12">
+                <textarea
+                    class="form-control"
+                    id="textAreaT3"
+                    rows="3"
+                    readonly
+                    placeholder="Массив будет сгенерирован случайно"
+                ></textarea
+                ><br />
+                <button
+                    type="button"
+                    id="buttonT3"
+                    class="btn btn-outline-success btn-block"
+                >
+                    Приступим :)
+                </button>
+            </div>
+        </div>
+        <hr />
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="app.js"></script>
