@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap&subset=cyrillic" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Задания с циклами - Основные задания</title>
+</head>
+
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+              <a class="nav-link active" id="top-menu-style" href="index.html">Основные задания</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="top-menu-style" href="othet-tasks.html">Дополнительные задания</a>
+            </li>
+
+          </ul>
+    </div>
+  </div>
+</div>
+    
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <br>
+        <p class="h3">1. Числа Фибоначчи</p>
+        <p>Сколько чисел Фибоначчи вывести?</p>
+        <input type="number" min="1" name="task_1" id="inputTask1" class="form-control" value="10" size="100"
+          required="required" title="Сколько чисел Фибоначчи вывести?">
+        <br>
+        <textarea class="form-control" id="task1TextArea" rows="5" readonly aria-label="With textarea"></textarea>
+        <p class="h6 timeT1" id="task1Time">&nbsp;</p>
+        <br>
+        <button type="button" id="task1Fibanachi" class="btn btn-outline-primary btn-block">Вывести числа</button>
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="h3">2. Найти факториал числа</p>
+        <p>Факториал какого числа будем искать?</p>
+        <input type="number" name="task_2" id="inputTask2" class="form-control" value="5" min="1" size="100"
+          required="required" title="Факториал какого числабудем искать?"><br>
+
+        <textarea class="form-control" id="task2TextArea" rows="2" readonly aria-label="With textarea"></textarea>
+        <p class="h6 timeT1" id="task2Time">&nbsp;</p>
+        <br>
+        <button type="button" id="task2Factorial" class="btn btn-outline-primary btn-block">Вывести числа</button>
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="h3">3. Матрица "Нули-Единички"</p>
+        <p>Количество рядов?</p>
+        <input type="number" name="task_2" id="inputTask3" class="form-control" value="5" size="100" required="required"
+          title="Сколько чисел Фибоначчи вывести?"><br>
+        <p>Какими символами выводить матрицу?</p>
+      </div>
+      <div class="w-100"></div>
+      <div class="col-md-1">
+        <input type="text" id="firstSimbol" class="form-control form-control-task3" value="0">
+      </div>
+      <div class="col-md-1">
+        <input type="text" id="secondSimbol" class="form-control form-control-task3" value="1">
+      </div>
+      <div class="col-md-12">
+        <br>
+        <button type="button" id="task3Stars" class="btn btn-outline-primary btn-block">Вывести числа</button><br>
+        <ul class="nav nav-pills" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+              aria-selected="true">Первый вариант</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#secondTab" role="tab" aria-controls="profile"
+              aria-selected="false">Второй вариант</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+              aria-selected="false">Третий вариант</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#fourthTab" role="tab" aria-controls="contact"
+              aria-selected="false">Четвертый вариант</a>
+          </li>
+        </ul>
+        <div class="tab-content stars" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><br>
+
+            <textarea class="form-control" rows="10" id="task3TextArea1" readonly
+              aria-label="With textarea">Вывод матрицы "Нули-единички" по левому краю</textarea>
+            <p class="h6 timeT1 timeT31" id="task3_1Time">&nbsp;</p>
+          </div>
+          <div class="tab-pane fade" id="secondTab" role="tabpanel" aria-labelledby="profile-tab"><br>
+            <textarea class="form-control" rows="10" id="task3TextArea2" readonly
+              aria-label="With textarea">Вывод матрицы "Нули-единички" по правому краю</textarea>
+            <p class="h6 timeT1" id="task3_2Time">&nbsp;</p></div>
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><br>
+
+            <textarea class="form-control" rows="10" id="task3TextArea3" readonly
+              aria-label="With textarea">Вывод матрицы "Нули-единички" по центру сверху вниз</textarea>
+            <p class="h6 timeT1" id="task3_3Time">&nbsp;</p></div>
+          <div class="tab-pane fade" id="fourthTab" role="tabpanel" aria-labelledby="contact-tab"><br>
+
+            <textarea class="form-control" rows="10" id="task3TextArea4" readonly
+              aria-label="With textarea">Вывод матрицы "Нули-единички" по центру снизу вверх</textarea>
+            <p class="h6 timeT1" id="task3_4Time">&nbsp;</p></div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <p class="h3">4. Найти одинаковые цифры в двух числах</p>
+      </div>
+      <div class="w-100"></div>
+      <div class="col-md-12">
+        <p>Введите два числа:</p>
+      </div>
+
+      <div class="w-100"></div>
+      <div class="col-md-2">
+        <input type="text" id="firstSimbolTask4" class="form-control form-control-task4" value="1234">
+      </div>
+      <div class="col-md-2">
+        <input type="text" id="secondSimbolTask4" class="form-control form-control-task4" value="4567">
+      </div>
+      <div class="col-md-2">
+        <button type="button" id="task4RandNumber" class="btn btn-outline-primary btn-block">Случайные числа</button>
+      </div>
+      <div class="col-md-12"><br>
+
+        <textarea class="form-control" id="task4TextArea" rows="4" readonly aria-label="With textarea"></textarea>
+        <p class="h6 timeT1" id="task4Time">&nbsp;</p><br>
+        
+        <button type="button" id="task4SameNumbers" class="btn btn-outline-primary btn-block">Вывести числа</button>
+        <hr>
+      </div>
+
+
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

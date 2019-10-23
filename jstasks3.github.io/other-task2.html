@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap&subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Задания с циклами - Основные задания</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item top-menu-style">
+                        <a class="nav-link" id="top-menu-style" href="index.html">Основные задания</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link active" id="top-menu-style" href="othet-tasks.html">Дополнительные
+                            задания</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <br>
+                <p class="h3">1. Диофантово уравнение</p>
+                <p>x^3+y^3+z^3=k</p>
+                <p>Суть задачи в том, чтобы выбрать целое число от одного до ста (например, 6) и подобрать к нему
+                    подходящие переменные (в нашем случае это 2, -1 и -1).</p>
+                <p>Какое число ищем?</p>
+                <input type="number" min="1" max="100" name="task_1" id="inputTask1" class="form-control" value="8"
+                    size="100" required="required">
+                <br>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-12">
+                <p>Укажите диапазон для поиска чисел</p>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">От и До</span>
+                    </div>
+                    <input type="number" id="startNumber" aria-label="Start" class="form-control" value="-10">
+                    <input type="number" id="endNumber" aria-label="End" class="form-control" value="10">
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-12">
+                    <br><textarea class="form-control" id="task1TextArea" rows="5" readonly
+                    aria-label="With textarea"></textarea>
+                <p class="h6 timeT1" id="task1Time">&nbsp;</p>
+                <br>
+                <button type="button" id="task1Diofant" class="btn btn-outline-primary btn-block">Попытаться найти
+                    решение :)</button>
+                <hr>
+            </div>
+                
+
+
+        </div>
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="script2.js"></script>
+</body>
+
+</html>
