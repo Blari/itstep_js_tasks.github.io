@@ -70,6 +70,77 @@ function searchAndDelete(x) {
         " "
     )}`;
 }
+function searchAndDelate2() {
+    let arr = [];
+    let arr2 = [];
+    let n;
+    for (let i = 0; n != 0; i++) {
+        n = parseInt(
+            prompt("Введите элемент массива", Math.floor(Math.random() * 10))
+        );
+        if (n == 0) {
+            break;
+        } else {
+            arr.push(n);
+        }
+    }
+    for (let i = 0; i <= arr.length - 1; i++) {
+        arr2.push(arr[i]);
+    }
+    let n2;
+    let str = "";
+    for (let i = 0; n2 != 0; i++) {
+        n2 = parseInt(
+            prompt(
+                "Введите элементы которые нужно удалить",
+                Math.floor(Math.random() * 10)
+            )
+        );
+
+        if (n2 == 0) {
+            break;
+        } else {
+            str += +n2 + " ";
+            for (let j = 0; j < arr2.length; j++) {
+                if (arr2[j] == n2) {
+                    arr2.splice(j, 1);
+                }
+            }
+        }
+    }
+
+    return `Исходный массив: ${arr}\nУдаляем числа: ${str}\nПолученный массив: ${arr2}`;
+}
+function searchSameElem() {
+    let arr = [];
+    let arr2 = [];
+    let n;
+    for (let i = 0; n != 0; i++) {
+        n = parseInt(
+            prompt("Введите элемент массива", Math.floor(Math.random() * 10))
+        );
+        if (n == 0) {
+            break;
+        } else {
+            arr.push(n);
+        }
+    }
+    let obj = {};
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[i] == arr[j]) {
+                sum++;
+                let s = +arr[i];
+                obj.s = +sum;
+            }
+            sum = 0;
+        }
+    }
+
+    return `sum ${sum}, obj ${Object.keys(obj)}`;
+}
+
 document.getElementById("buttonT1").onclick = function() {
     document.getElementById("textAreaT1").value = firstLastNumber();
 };
@@ -79,4 +150,10 @@ document.getElementById("buttonT2").onclick = function() {
 document.getElementById("buttonT3").onclick = function() {
     let x = document.getElementById("numberT3").value;
     document.getElementById("textAreaT3").value = searchAndDelete(x);
+};
+document.getElementById("buttonT4").onclick = function() {
+    document.getElementById("textAreaT4").value = searchAndDelate2();
+};
+document.getElementById("buttonT5").onclick = function() {
+    document.getElementById("textAreaT5").value = searchSameElem();
 };
