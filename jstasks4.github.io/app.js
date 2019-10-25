@@ -131,14 +131,15 @@ function searchSameElem() {
         for (let j = 0; j < arr.length; j++) {
             if (arr[i] == arr[j]) {
                 sum++;
-                let s = +arr[i];
-                obj.s = +sum;
+                obj[arr[i]] = sum;
             }
-            sum = 0;
         }
+        sum = 0;
     }
 
-    return `sum ${sum}, obj ${Object.keys(obj)}`;
+    return `Исходный массив: ${arr.join(
+        " "
+    )}, \nЭлементы массива и их количество: ${JSON.stringify(obj)}`;
 }
 
 document.getElementById("buttonT1").onclick = function() {
