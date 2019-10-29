@@ -53,7 +53,27 @@ function deleteEllems(arr) {
     return `Исходный массив: ${newArray}\nКонечный массив: ${newArray1}`;
 }
 
+//Удалить повторяющиеся элементы из массива
+
+function deleteSameElements(arr) {
+    let Arr1Copy = JSON.parse(JSON.stringify(arr));
+    let result = [];
+
+    for (let str of arr) {
+        if (!result.includes(str)) {
+            result.push(str);
+        }
+    }
+
+    return `Исходный массив: ${arr}\nИтоговый массив: ${result}`;
+}
+
 document.getElementById("buttonT1").onclick = function() {
     let r = genericRandomArr();
     document.getElementById("textAreaT1").value = deleteEllems(r);
+};
+
+document.getElementById("buttonT2").onclick = function() {
+    let r = genericRandomArr();
+    document.getElementById("textAreaT2").value = deleteSameElements(r);
 };
