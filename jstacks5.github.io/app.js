@@ -11,29 +11,46 @@ function genericRandomArr() {
 }
 
 function deleteEllems(arr) {
-    let k = 0;
-    let el = [];
-    let arr2 = [];
-    let newArr = [];
-    //Создаем копию массива
+    let newArray = [];
+    let newArray1 = [];
+    let newArray2 = [];
+    let newArray3 = [];
+    str = "";
+
     for (let i = 0; i < arr.length; i++) {
-        arr2.push(arr[i]);
+        newArray.push(arr[i]);
     }
 
-    //Ищем количество повторений
-
     for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length; j++) {
-            if (arr[i] === arr[j]) {
-                k++;
+        newArray1.push(arr[i]);
+    }
+
+    for (; arr.length != 0; ) {
+        var elem = arr.splice(0, 1);
+        elem[1] = 1;
+        for (var j = 0; j < arr.length; j++) {
+            if (elem[0] === arr[j]) {
+                elem[1]++;
+                arr.splice(j, 1);
+                j--;
             }
         }
-        newArr.push(k);
-        k = 0;
+
+        newArray2.push(elem);
     }
 
-    console.log(arr);
-    return `Исходный массив: ${arr2}\nПосле обработки: ${newArr}`;
+    for (let i = 0; i < newArray2.length; i++) {
+        if (newArray2[i][1] > 2) {
+            for (let j = 0; j < newArray1.length; j++) {
+                if (newArray2[i][0] === newArray1[j]) {
+                    newArray1.splice(j, 1);
+                    j--;
+                }
+            }
+        }
+    }
+
+    return `Исходный массив: ${newArray}\nКонечный массив: ${newArray1}`;
 }
 
 document.getElementById("buttonT1").onclick = function() {
