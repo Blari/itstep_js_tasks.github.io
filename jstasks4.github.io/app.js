@@ -155,6 +155,13 @@ document.getElementById("buttonT3").onclick = function() {
 document.getElementById("buttonT4").onclick = function() {
     document.getElementById("textAreaT4").value = searchAndDelate2();
 };
-document.getElementById("buttonT5").onclick = function() {
-    document.getElementById("textAreaT5").value = searchSameElem();
-};
+// document.getElementById("buttonT5").onclick = function() {
+//     document.getElementById("textAreaT5").value = searchSameElem();
+// };
+
+const btnT5 = document.querySelector("#buttonT5");
+const textAreaT5 = document.querySelector("#textAreaT5");
+
+btnT5.addEventListener("click", () => {
+    textAreaT5.value = searchSameElem();
+});

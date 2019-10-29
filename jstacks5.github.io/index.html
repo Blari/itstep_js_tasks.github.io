@@ -9,38 +9,52 @@
         />
 
         <!-- Bootstrap CSS -->
+
         <link
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous"
         />
+        <link
+            href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
 
-        <title>Домашка</title>
+        <title>Работа с массивами 2</title>
     </head>
     <body>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <ul class="nav justify-content-center">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="jstasks1.github.io/index.html">Первая домашка</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="jstasks2.github.io/index.html">Вторая домашка</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="jstasks3.github.io/index.html">Третья домашка</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="jstasks4.github.io/index.html">Четвертая домашка (работа с массивами)</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="jstasks5.github.io/index.html">Пятая домашка (работа с массивами 2)</a>
-                            </li>
-                    </ul>
+                    <br />
+                    <p class="h4">
+                        1. Удалить в массиве все числа, которые повторяются
+                        более двух раз.
+                    </p>
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-12">
+                <textarea
+                    class="form-control"
+                    id="textAreaT1"
+                    rows="3"
+                    readonly
+                ></textarea
+                ><br />
+                <button
+                    type="button"
+                    id="buttonT1"
+                    class="btn btn-success btn-block"
+                >
+                    Сгенерировать случайный массив
+                </button>
             </div>
         </div>
+        <hr />
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="app.js"></script>
