@@ -68,6 +68,63 @@ function deleteSameElements(arr) {
     return `Исходный массив: ${arr}\nИтоговый массив: ${result}`;
 }
 
+//Дан массив. Определить максимальную серию подряд элементов по возрастанию. Вывести ее
+function maxSerie(arr) {
+    let lens = [];
+    lens[1] = 0;
+    let max = 0;
+    let arr2 = [];
+    let str = "";
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > arr[i - 1]) {
+            lens[i] = lens[i - 1] + 1;
+        } else {
+            lens[i] = 0;
+        }
+        max = Math.max(lens[i], max);
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+        if (lens[i] === max) {
+            for (let j = i - lens[i]; j <= i; j++) {
+                str += String(arr[j]) + " ";
+            }
+            str += "\n";
+        }
+    }
+    return `Оригинальный массив: ${arr}\nМаксимальная последоательность = ${max +
+        1}\nВот она/они:\n${str}`;
+}
+
+//Найти два максимальных элемента массива
+function findTwoMaxNumber(arr) {
+    let max = arr[0];
+    let copyArr = JSON.parse(JSON.stringify(arr));
+    let max2 = arr[0];
+
+    if (arr.length == 1) {
+        return `Исходный массив: ${arr}\nМаксимум один: ${arr[0]}`;
+    } else {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > max) max = arr[i];
+        }
+        for (let i = 0; i < copyArr.length; i++) {
+            if (copyArr[i] === max) {
+                copyArr.splice(i, 1);
+                i--;
+            }
+        }
+        max2 = copyArr[0];
+
+        for (let i = 0; i < copyArr.length; i++) {
+            if (copyArr[i] > max2) max2 = copyArr[i];
+        }
+
+        return `Исходный массив: ${arr}\nПервый максимум: ${max}\nВторой максимум: ${max2}`;
+    }
+}
+
 document.getElementById("buttonT1").onclick = function() {
     let r = genericRandomArr();
     document.getElementById("textAreaT1").value = deleteEllems(r);
@@ -76,4 +133,14 @@ document.getElementById("buttonT1").onclick = function() {
 document.getElementById("buttonT2").onclick = function() {
     let r = genericRandomArr();
     document.getElementById("textAreaT2").value = deleteSameElements(r);
+};
+
+document.getElementById("buttonT3").onclick = function() {
+    let r = genericRandomArr();
+    document.getElementById("textAreaT3").value = maxSerie(r);
+};
+
+document.getElementById("buttonT4").onclick = function() {
+    let r = genericRandomArr();
+    document.getElementById("textAreaT4").value = findTwoMaxNumber(r);
 };
