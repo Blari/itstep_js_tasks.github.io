@@ -125,6 +125,44 @@ function findTwoMaxNumber(arr) {
     }
 }
 
+function unZip(arr) {
+    // console.log(typeof arr);
+    // let newArray = arr.split(",");
+    // console.log(typeof newAarry);
+    let str = "";
+    if (arr[0] != 0) {
+        for (let i = 0; i < arr.length; i++) {
+            if (i % 2 != 0) {
+                for (let j = 0; j < arr[i]; j++) {
+                    str += 1;
+                }
+            } else {
+                for (let j = 0; j < arr[i]; j++) {
+                    str += 0;
+                }
+            }
+
+            str += " ";
+        }
+    } else if (arr[0] === 0) {
+        for (let i = 0; i < arr.length; i++) {
+            if (i % 2 != 0) {
+                for (let j = 0; j < arr[i]; j++) {
+                    str += 1;
+                }
+            } else {
+                for (let j = 0; j < arr[i]; j++) {
+                    str += 0;
+                }
+            }
+
+            str += " ";
+        }
+    }
+
+    return `Шифр: ${arr}\nРасшифровка: ${str}`;
+}
+
 document.getElementById("buttonT1").onclick = function() {
     let r = genericRandomArr();
     document.getElementById("textAreaT1").value = deleteEllems(r);
@@ -143,4 +181,13 @@ document.getElementById("buttonT3").onclick = function() {
 document.getElementById("buttonT4").onclick = function() {
     let r = genericRandomArr();
     document.getElementById("textAreaT4").value = findTwoMaxNumber(r);
+};
+
+document.getElementById("buttonT5").onclick = function() {
+    let r = genericRandomArr();
+    document.getElementById("textAreaT5").value = unZip(r);
+};
+document.getElementById("buttonT5-1").onclick = function() {
+    let r = document.getElementById("inputT5-1").value;
+    document.getElementById("textAreaT5").value = unZip(r);
 };
