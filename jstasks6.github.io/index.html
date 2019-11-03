@@ -22,7 +22,7 @@
         />
         <link rel="stylesheet" href="style.css" />
 
-        <title>Работа с массивами 3</title>
+        <title>Работа с матрицей</title>
     </head>
     <body>
         <div class="container">
@@ -30,26 +30,45 @@
                 <div class="col-md-12">
                     <br />
                     <p class="h4">
-                        1. Сдвинуть матрицу на одно число
+                        1. Сортировка строк по возростанию
                     </p>
                 </div>
             </div>
-            <div class="w-100"></div>
-            <div class="col-md-12">
-                <textarea
-                    class="form-control"
-                    id="textAreaT1"
-                    rows="3"
-                    readonly
-                ></textarea
-                ><br />
-                <button
-                    type="button"
-                    id="buttonT1"
-                    class="btn btn-success btn-block"
-                >
-                    Сгенерировать случайный массив
-                </button>
+            <div class="row">
+                <div class="col-md-12">
+                    <textarea
+                        class="form-control"
+                        id="textAreaT1"
+                        rows="15"
+                        readonly
+                    ></textarea
+                    ><br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="h6">Размерность массива:</p>
+                    <input
+                        id="arrayNum"
+                        type="number"
+                        class="form-control"
+                        value="4"
+                        max="10"
+                        min="2"
+                    />
+                    <br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button
+                        type="button"
+                        id="buttonT1"
+                        class="btn btn-info btn-block"
+                    >
+                        Начать
+                    </button>
+                </div>
             </div>
         </div>
         <hr />
