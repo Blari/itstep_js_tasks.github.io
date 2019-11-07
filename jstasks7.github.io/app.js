@@ -11,9 +11,7 @@ function randomSring() {
 
     return str;
 }
-
-//Возростающие последовательности из массива
-
+//1. Возростающие последовательности из массива
 function arrSort(arr) {
     let arr3 = [];
     let str = "";
