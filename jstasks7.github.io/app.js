@@ -56,8 +56,16 @@ function arrSort(arr) {
             i--;
         }
     }
+    let maxArray = newArray[0];
+    //Ищем самую длинную последовательность
+    for (let i = 1; i < newArray.length; i++) {
+        if (newArray[i].length > maxArray.length) {
+            maxArray = newArray[i];
+        }
+    }
+    let str2 = maxArray.join(" ");
 
-    return `Исходный массив: ${arr3}\nСтроки по возростанию:\n${str}`;
+    return `Исходный массив:\n${arr3}\n\nСтроки по возростанию:\n${str}\nСамая длинная последовательность:\n${str2}`;
 }
 
 document.getElementById("buttonT1").onclick = function() {
