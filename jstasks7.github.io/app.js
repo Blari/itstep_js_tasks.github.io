@@ -14,8 +14,6 @@ function randomSring() {
 
 //Возростающие последовательности из массива
 
-let mainArr = [1, 2, 3, 4, 0, 0, 0, 0, 0, 0, -1, 5, 6];
-
 function arrSort(arr) {
     let arr3 = [];
     let str = "";
@@ -28,7 +26,7 @@ function arrSort(arr) {
     //Цикл для поиска всех возростающих последовательностей
     //Включает единичные элементы
 
-    for (let i = 0; i < arr2.length - 1; i++) {
+    for (let i = 0; i < arr2.length; i++) {
         i = 0; //Обнуляем счетчик цикла, каждый раз начиная с начала массива
         for (let i = 0; i < arr2.length - 1; i++) {
             if (arr2[i] < arr2[i + 1]) {
@@ -38,6 +36,7 @@ function arrSort(arr) {
         }
 
         el = arr2.splice(0, n + 1); //вырезаем из исходного массива и заносимв переменную возростающую последовательность
+
         newArray.push(el); //пушим эту последовательность в новый массив
         if (el.length > 1) {
             for (let k = 0; k < el.length; k++) {
@@ -59,10 +58,7 @@ function arrSort(arr) {
             i--;
         }
     }
-    // return (answer = {
-    //     start: arr,
-    //     end: newArray,
-    // });
+
     return `Исходный массив: ${arr3}\nСтроки по возростанию:\n${str}`;
 }
 
