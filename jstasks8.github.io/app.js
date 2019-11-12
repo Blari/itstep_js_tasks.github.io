@@ -9,56 +9,53 @@
 function numberOfString(str) {
   let n = 1;
   for (let i = 0; i < str.length; i++) {
-      if (str[i] == " ") n++;
+    if (str[i] == " ") n++;
   }
-  return `Количество слов в строке ${str}: ${n}`;
+  return `Количество слов в строке "${str}": ${n}\n\n`;
 }
-console.log(numberOfString('Hello world!'));
 
 function maxString(str) {
-  let newStr = str.split(' ');
+  let newStr = str.split(" ");
   let max = 0;
   let el = [];
 
   for (let i = 0; i < newStr.length; i++) {
-      if (newStr[i].length > max) {
-          max = newStr[i].length;
-          el = newStr[i];
-      }
+    if (newStr[i].length > max) {
+      max = newStr[i].length;
+      el = newStr[i];
+    }
   }
-  return `Длинна: ${max}, строка: ${el}`;
+  return `Самое длинное слово: "${el}", его длинна: ${max} символов\n\n`;
 }
-console.log(maxString('Hello world muther facker!'));
 
 function stringRevers(str) {
-  let mainStr = str.split('').reverse()
-  return `Оригинальная строка: ${str}\nПеревернули: ${mainStr.join('')}`;
+  let mainStr = str.split("").reverse();
+
+  return `Перевернутая строка: ${mainStr.join("")}\n\n`;
 }
-console.log(stringRevers('Hello world mother facker!'));
 
 function onRost(str) {
-  let newStr = str.split(' ');
+  let newStr = str.split(" ");
   let mainStr = [];
   let el = [];
 
   for (let i = 0; i < newStr.length - 1; i++) {
-      if (newStr[i].length <= newStr[i + 1].length) {
-          el = newStr[i + 1];
-      }
-      mainStr.push(el);
+    if (newStr[i].length <= newStr[i + 1].length) {
+      el = newStr[i + 1];
+    }
+    mainStr.push(el);
   }
-  return `Длинна:: ${mainStr}`;
+  return `Слова по возростанию длинны: ${mainStr}`;
 }
-console.log(onRost('1234 123 12 1'));
 
 document.getElementById("buttonT1").onclick = function() {
   let str = document.getElementById("inputT1").value;
 
-  document.getElementById("textAreaT1").value = arrSort(str);
-};
+  document.getElementById("textAreaT1").value = numberOfString(str);
 
-document.getElementById("buttonT1-0").onclick = function() {
-  let str = randomSring();
+  document.getElementById("textAreaT1").value += maxString(str);
 
-  document.getElementById("inputT1").value = str;
+  document.getElementById("textAreaT1").value += stringRevers(str);
+
+  document.getElementById("textAreaT1").value += onRost(str);
 };
