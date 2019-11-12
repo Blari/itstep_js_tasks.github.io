@@ -38,14 +38,29 @@ function onRost(str) {
   let newStr = str.split(" ");
   let mainStr = [];
   let el = [];
+  let minLet = newStr[0].length;
 
-  for (let i = 0; i < newStr.length - 1; i++) {
-    if (newStr[i].length <= newStr[i + 1].length) {
-      el = newStr[i + 1];
+  while (newStr.length > 0) {
+    for (let i = 0; i < newStr.length - 1; i++) {
+      if (minLet > newStr[i + 1].length) {
+        minLet = newStr[i + 1].length;
+        el = newStr[i + 1];
+        console.log(el);
+      }
+      mainStr.push(el);
     }
-    mainStr.push(el);
+    minLet = newStr[0].length;
+    //Вырезаем элемент массива
+
+    let p = newStr.indexOf(el);
+
+    for (; p > 0; ) {
+      newStr.splice(p, 1);
+      p = newStr.indexOf(el);
+    }
+    console.log(newStr);
   }
-  return `Слова по возростанию длинны: ${mainStr}`;
+  return `Слова по возростанию длинны: ${mainStr.join(" ")}`;
 }
 
 document.getElementById("buttonT1").onclick = function() {
