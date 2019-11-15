@@ -24,26 +24,36 @@
     <title>События</title>
   </head>
   <body>
-    <div class="box" id="box">
-      <a
-        name=""
-        id="btn2"
-        class="btn btn-primary justify-content-center"
-        href="#"
-        role="button"
-        >Вторая кнопка</a
-      >
+    <div class="box d-flex align-items-center justify-content-center" id="box">
+      <div class="cont d-flex flex-column">
+        <div class="alert alert-success" role="alert">
+          <h4 class="alert-heading">Модальное окно</h4>
+          <p>
+            это окно, которое блокирует работу пользователя с родительским
+            приложением до тех пор, пока это окно не закроют.
+          </p>
+        </div>
+        <a
+          name=""
+          id="btn2"
+          class="btn btn-success justify-content-center"
+          href="#"
+          role="button"
+          >Всё понятно</a
+        >
+      </div>
     </div>
-    <div class="container">
-      <div class="row d-flex align-items-center main-row">
+
+    <div class="container-fluid">
+      <div class="row main-row-col d-flex align-items-center main-row">
         <div class="col-md-12 d-flex justify-content-center">
           <a
             name=""
             id="btn"
-            class="btn btn-primary justify-content-center"
+            class="btn btn-primary btn-lg justify-content-center"
             href="#"
             role="button"
-            >Кнопка</a
+            >Вызвать модальное окно</a
           >
         </div>
       </div>
