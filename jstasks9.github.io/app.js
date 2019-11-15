@@ -1,3 +1,4 @@
 btn.addEventListener("click", () => {
-  box.style.display = "block";
+  box.style.opacity = "1";
+  box.style.visibility = "visible";
 });
