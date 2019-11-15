@@ -6,6 +6,9 @@
   width: 100vw;
   height: 100vh;
 }
+.row{
+  height: 100vh;
+}
 .main-row{
   height: 100vh;
 }
