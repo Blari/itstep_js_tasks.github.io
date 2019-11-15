@@ -12,3 +12,9 @@
 h1 {
   text-align: center;
 }
+.row{
+  height: 100vh;
+}
+.main-row{
+  height: 100vh;
+}
