@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  ti1.src = `https://picsum.photos/id/${Math.floor(
-    Math.random() * 1000
-  )}/800/600`;
+  ti1.src = `https://loremflickr.com/1920/1080/cat`;
+  // ti1.src = `https://picsum.photos/id/${Math.floor(
+  //   Math.random() * 1000
+  // )}/800/600`;
 });
 
 btn.addEventListener("click", () => {
@@ -21,9 +22,7 @@ tab1.addEventListener("click", () => {
   tab3.style.backgroundColor = "rgb(201, 201, 201)";
   tb2.style.display = "none";
   tb3.style.display = "none";
-  ti1.src = `https://picsum.photos/id/${Math.floor(
-    Math.random() * 1000
-  )}/800/600`;
+  ti1.src = `https://loremflickr.com/1920/1080/cat`;
 });
 
 tab2.addEventListener("click", () => {
@@ -33,9 +32,7 @@ tab2.addEventListener("click", () => {
   tab2.style.backgroundColor = "rgb(101, 101, 101)";
   tab3.style.backgroundColor = "rgb(201, 201, 201)";
   tb3.style.display = "none";
-  ti2.src = `https://picsum.photos/id/${Math.floor(
-    Math.random() * 1000
-  )}/800/600`;
+  ti2.src = `https://loremflickr.com/1920/1080/dog`;
 });
 tab3.addEventListener("click", () => {
   tb1.style.display = "none";
@@ -44,7 +41,5 @@ tab3.addEventListener("click", () => {
   tab1.style.backgroundColor = "rgb(201, 201, 201)";
   tab2.style.backgroundColor = "rgb(201, 201, 201)";
   tab3.style.backgroundColor = "rgb(101, 101, 101)";
-  ti3.src = `https://picsum.photos/id/${Math.floor(
-    Math.random() * 1000
-  )}/800/600`;
+  ti3.src = `https://loremflickr.com/1920/1080/birds`;
 });

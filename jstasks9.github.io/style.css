@@ -43,13 +43,21 @@
   background-color: #c9c9c9;
 }
 .container-fluid .tab-block .tab-cont {
-  width: 70vw;
+  width: 100%;
   border-top: 1px solid black;
   position: relative;
 }
-.container-fluid .tab-block .tab-cont img {
-  max-width: 100%;
-  height: auto;
+.container-fluid .tab-block .tab-cont .tab1cont {
+  width: 100%;
+  height: 100%;
+}
+.container-fluid .tab-block .tab-cont .tab2cont {
+  width: 100%;
+  height: 100%;
+}
+.container-fluid .tab-block .tab-cont .tab3cont {
+  width: 100%;
+  height: 100%;
 }
 .container-fluid .tab-block .tab-cont #tb1 {
   display: block;
