@@ -36,9 +36,10 @@
 }
 .container-fluid .tab-block .tabs ul li a {
   border-bottom: 1px solid black;
+  border-radius: 4px 4px 0 0;
   color: white;
   text-decoration: none;
-  padding: 4px 10px;
+  padding: 4px 25px;
   background-color: #c9c9c9;
 }
 .container-fluid .tab-block .tab-cont {
