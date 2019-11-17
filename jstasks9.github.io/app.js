@@ -3,6 +3,22 @@ document.addEventListener("DOMContentLoaded", () => {
   //   Math.random() * 1000
   // )}/800/600`;
   // ti1.src = `https://loremflickr.com/1920/1080/cat`;
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://loremflickr.com/1080/720/cat");
+  xhr.send();
+  xhr.onload = function() {
+    if (xhr.status != 200) {
+      // HTTP ошибка?
+      // обработаем ошибку
+      console.log("Ошибка: " + xhr.status);
+      return;
+    }
+    // получим ответ из xhr.response
+    ti1.src = `${xhr.responseURL}`;
+  };
+  xhr.onprogress = function(event) {
+    pb1.setAttribute("style", `width: ${(event.loaded / event.total) * 100}%`);
+  };
 });
 
 btn.addEventListener("click", () => {
@@ -39,11 +55,11 @@ tab1.addEventListener("click", () => {
   };
   xhr.onprogress = function(event) {
     pb1.setAttribute("style", `width: ${(event.loaded / event.total) * 100}%`);
-    console.log(`Загружено ${event.loaded} из ${event.total}`);
   };
 });
 
 tab2.addEventListener("click", () => {
+  pb2.setAttribute("style", `width: 0%`);
   tb1.style.display = "none";
   tb2.style.display = "block";
   tab1.style.backgroundColor = "rgb(201, 201, 201)";
@@ -65,10 +81,10 @@ tab2.addEventListener("click", () => {
   };
   xhr.onprogress = function(event) {
     pb2.setAttribute("style", `width: ${(event.loaded / event.total) * 100}%`);
-    console.log(`Загружено ${event.loaded} из ${event.total}`);
   };
 });
 tab3.addEventListener("click", () => {
+  pb3.setAttribute("style", `width: 0%`);
   tb1.style.display = "none";
   tb2.style.display = "none";
   tb3.style.display = "block";
@@ -90,6 +106,5 @@ tab3.addEventListener("click", () => {
   };
   xhr.onprogress = function(event) {
     pb3.setAttribute("style", `width: ${(event.loaded / event.total) * 100}%`);
-    console.log(`Загружено ${event.loaded} из ${event.total}`);
   };
 });
