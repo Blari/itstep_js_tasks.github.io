@@ -5,14 +5,59 @@
   position: absolute;
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.8);
-  width: 100vw;
+  width: 99vw;
   height: 100vh;
   transition: all 0.3s linear;
+  padding: 0;
+  margin: 0;
 }
-h1 {
-  text-align: center;
-}
-.container-fluid .main-row-col {
-  width: 100vw;
+.container-fluid {
+  padding-top: 10vh;
+  width: 90vw;
   height: 100vh;
+}
+.container-fluid .tab-block {
+  min-width: 70vw;
+}
+.container-fluid .tab-block .tabs {
+  position: relative;
+  top: 14px;
+  height: 40px;
+}
+.container-fluid .tab-block .tabs ul {
+  padding: 0;
+  margin: 0;
+}
+.container-fluid .tab-block .tabs ul li {
+  display: inline-block;
+}
+.container-fluid .tab-block .tabs ul li #tab1 {
+  background-color: #656565;
+}
+.container-fluid .tab-block .tabs ul li a {
+  border-bottom: 1px solid black;
+  color: white;
+  text-decoration: none;
+  padding: 4px 10px;
+  background-color: #c9c9c9;
+}
+.container-fluid .tab-block .tab-cont {
+  width: 70vw;
+  border-top: 1px solid black;
+  position: relative;
+}
+.container-fluid .tab-block .tab-cont #tb1 {
+  display: block;
+  position: absolute;
+  margin-top: 10px;
+}
+.container-fluid .tab-block .tab-cont #tb2 {
+  display: none;
+  position: absolute;
+  margin-top: 10px;
+}
+.container-fluid .tab-block .tab-cont #tb3 {
+  display: none;
+  position: absolute;
+  margin-top: 10px;
 }
