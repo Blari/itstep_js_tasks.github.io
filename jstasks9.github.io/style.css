@@ -47,6 +47,10 @@
   border-top: 1px solid black;
   position: relative;
 }
+.container-fluid .tab-block .tab-cont img {
+  height: auto;
+  width: 100%;
+}
 .container-fluid .tab-block .tab-cont #tb1 {
   display: block;
   position: absolute;
