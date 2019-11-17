@@ -48,8 +48,8 @@
   position: relative;
 }
 .container-fluid .tab-block .tab-cont img {
+  max-width: 100%;
   height: auto;
-  width: 100%;
 }
 .container-fluid .tab-block .tab-cont #tb1 {
   display: block;
