@@ -34,7 +34,7 @@ btn2.addEventListener("click", () => {
 tab1.addEventListener("click", () => {
   pb1.setAttribute("style", `width: 0%`);
   tb1.style.display = "block";
-  tab1.style.backgroundColor = "rgb(255, 191, 191)";
+  tab1.style.backgroundColor = "rgb(49, 49, 49)";
   tab2.style.backgroundColor = "rgb(201, 201, 201)";
   tab3.style.backgroundColor = "rgb(201, 201, 201)";
   tb2.style.display = "none";
@@ -63,7 +63,7 @@ tab2.addEventListener("click", () => {
   tb1.style.display = "none";
   tb2.style.display = "block";
   tab1.style.backgroundColor = "rgb(201, 201, 201)";
-  tab2.style.backgroundColor = "rgb(255, 191, 191)";
+  tab2.style.backgroundColor = "rgb(49, 49, 49)";
   tab3.style.backgroundColor = "rgb(201, 201, 201)";
   tb3.style.display = "none";
   let xhr = new XMLHttpRequest();
@@ -90,7 +90,7 @@ tab3.addEventListener("click", () => {
   tb3.style.display = "block";
   tab1.style.backgroundColor = "rgb(201, 201, 201)";
   tab2.style.backgroundColor = "rgb(201, 201, 201)";
-  tab3.style.backgroundColor = "rgb(255, 191, 191)";
+  tab3.style.backgroundColor = "rgb(49, 49, 49)";
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "https://loremflickr.com/1080/720/bird");
   xhr.send();
