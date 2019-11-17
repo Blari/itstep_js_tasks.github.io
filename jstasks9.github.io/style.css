@@ -17,7 +17,7 @@
   height: 100vh;
 }
 .container-fluid .tab-block {
-  min-width: 70vw;
+  min-width: 90vw;
 }
 .container-fluid .tab-block .tabs {
   position: relative;
@@ -32,7 +32,7 @@
   display: inline-block;
 }
 .container-fluid .tab-block .tabs ul li #tab1 {
-  background-color: #656565;
+  background-color: #ffbfbf;
 }
 .container-fluid .tab-block .tabs ul li a {
   border-bottom: 1px solid black;

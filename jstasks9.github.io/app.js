@@ -17,19 +17,20 @@ btn2.addEventListener("click", () => {
 
 tab1.addEventListener("click", () => {
   tb1.style.display = "block";
-  tab1.style.backgroundColor = "rgb(101, 101, 101)";
+  tab1.style.backgroundColor = "rgb(255, 191, 191)";
   tab2.style.backgroundColor = "rgb(201, 201, 201)";
   tab3.style.backgroundColor = "rgb(201, 201, 201)";
   tb2.style.display = "none";
   tb3.style.display = "none";
-  ti1.src = `https://loremflickr.com/1920/1080/cat`;
+  const cat = `https://loremflickr.com/1920/1080/cat`;
+  ti1.src = cat;
 });
 
 tab2.addEventListener("click", () => {
   tb1.style.display = "none";
   tb2.style.display = "block";
   tab1.style.backgroundColor = "rgb(201, 201, 201)";
-  tab2.style.backgroundColor = "rgb(101, 101, 101)";
+  tab2.style.backgroundColor = "rgb(255, 191, 191)";
   tab3.style.backgroundColor = "rgb(201, 201, 201)";
   tb3.style.display = "none";
   ti2.src = `https://loremflickr.com/1920/1080/dog`;
@@ -40,6 +41,6 @@ tab3.addEventListener("click", () => {
   tb3.style.display = "block";
   tab1.style.backgroundColor = "rgb(201, 201, 201)";
   tab2.style.backgroundColor = "rgb(201, 201, 201)";
-  tab3.style.backgroundColor = "rgb(101, 101, 101)";
+  tab3.style.backgroundColor = "rgb(255, 191, 191)";
   ti3.src = `https://loremflickr.com/1920/1080/birds`;
 });
