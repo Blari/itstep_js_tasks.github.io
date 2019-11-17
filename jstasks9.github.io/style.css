@@ -47,6 +47,9 @@
   border-top: 1px solid black;
   position: relative;
 }
+.container-fluid .tab-block .tab-cont .progress {
+  margin-bottom: 20px;
+}
 .container-fluid .tab-block .tab-cont .tab1cont {
   width: 100%;
   height: 100%;
