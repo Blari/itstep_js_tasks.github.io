@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>События</title>
+  </head>
+  <body>
+    <div class="box d-flex align-items-center justify-content-center" id="box">
+      <div class="cont d-flex flex-column">
+        <div class="alert alert-success" role="alert">
+          <h4 class="alert-heading">Модальное окно</h4>
+          <p>
+            это окно, которое блокирует работу пользователя с родительским
+            приложением до тех пор, пока это окно не закроют.
+          </p>
+        </div>
+        <a
+          name=""
+          id="btn2"
+          class="btn btn-success justify-content-center"
+          href="#"
+          role="button"
+          >Всё понятно</a
+        >
+      </div>
+    </div>
+    <div
+      class="container-fluid d-flex align-items-center justify-content-start flex-column"
+    >
+      <div class="row">
+        <div class="col-md-12 top-col">
+          <a
+            name=""
+            id="btn"
+            class="btn btn-primary btn-lg justify-content-center"
+            href="#"
+            role="button"
+            >Вызвать модальное окно</a
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 d-flex align-items-center seccol">
+          <div class="tab-block">
+            <div class="tabs">
+              <ul class="d-flex justify-content-between">
+                <li><a href="#" id="tab1">Cats</a></li>
+                <li><a href="#" id="tab2">Dogs</a></li>
+                <li><a href="#" id="tab3">Birds</a></li>
+              </ul>
+            </div>
+            <div class="tab-cont">
+              <div class="tab1cont text-center" id="tb1">
+                <div class="progress">
+                  <div
+                    id="pb1"
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 0%"
+                  ></div>
+                </div>
+                <img src="" alt="" class="img-fluid rounded" id="ti1" />
+              </div>
+              <div class="tab2cont text-center" id="tb2">
+                <div class="progress">
+                  <div
+                    id="pb2"
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 0%"
+                  ></div>
+                </div>
+                <img src="" alt="" class="img-fluid rounded" id="ti2" />
+              </div>
+              <div class="tab3cont text-center" id="tb3">
+                <div class="progress">
+                  <div
+                    id="pb3"
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 0%"
+                  ></div>
+                </div>
+                <img src="" alt="" class="img-fluid rounded" id="ti3" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
