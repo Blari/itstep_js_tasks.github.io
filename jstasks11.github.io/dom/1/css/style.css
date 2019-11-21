@@ -1,0 +1,194 @@
+body {
+	/*background:red;*/
+	margin:0px;
+	padding:0px;
+}
+
+.container {
+	width:960px;
+	margin:0px auto;
+}
+
+#buttonRun {
+	width:150px;
+	padding:10px;
+	border:1px solid #ccc;
+	background:transparent;
+	
+}
+
+.box {
+	width:550px;
+	padding:10px;
+	margin:20px 0 0 0;
+	border:1px solid #ccc;
+	//display:none;
+	
+}
+
+
+.head {
+	background:url("../images/head_bg.jpg");
+	width:100%;
+	padding: 15px 0px;
+	float:left;
+	min-height:61px;
+	position:fixed;
+	top:0px;
+	left:0px;
+	
+}
+
+.header {
+	background-color:#ccc;
+	width:100%;
+	float:left;
+	
+	
+}
+
+.logo  {
+	background-color:red;
+	width:216px;
+	min-height:60px;
+	float:left;
+}
+
+
+.main_menu  {
+	background-color:green;
+	width:540px;
+	min-height:60px;
+	float:right;
+}
+
+.main_menu ul {
+	list-style:none;
+	padding:0px;
+	float:right;
+	
+}
+
+
+.main_menu ul li:before{
+	content: "";
+    background: #fff;
+    display: inline-block;
+    position: absolute;
+	width:10px;
+	height:10px;
+	top:-15px;
+	left:45%;
+	
+}
+
+.main_menu > ul > li:hover:before {
+	background:pink;
+}
+
+.main_menu > ul > li{
+	float:left;
+	padding:0px 15px;
+	margin-right:12px;
+	position:relative;
+	
+}
+
+.main_menu ul li a {
+	color:#fff;
+}
+
+
+.main_menu ul li ul{
+	width:200px;
+	background:#000;
+	position:absolute;
+	display:none;
+	
+}
+
+.main_menu ul li ul li{
+	width:100%;
+	padding:10px;
+	
+}
+
+.main_menu ul li:hover ul{
+	display:block;
+	
+}
+
+/*
+	.main_menu ul li .sub li ul
+	.main_menu ul li:hover .sub li ul
+*/
+
+
+.slider {
+	background:url("../images/slider_bg.png");
+	width:100%;
+	padding: 20px 0px;
+	float:left;
+	min-height:458px;
+	margin-top: 75px;
+
+	
+}
+
+
+.slider_nav {
+
+}
+
+.slider_nav ul{
+	list-style:none;
+	padding:0px;
+}
+
+.slider_nav ul li {
+	float:left;
+	padding:10px;
+	margin:0px 5px;
+	background:url("../images/sprite_buttons.png") -32px 0px no-repeat;
+	
+}
+
+.slider_nav ul li:hover {
+	background-position:0px 0px;
+	cursor:pointer;
+}
+
+/*
+	modal styles
+*/
+
+.modal {
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.7);
+	position:fixed;
+	top:0px;
+	left:0px;
+	display:none;
+}
+
+.modal .content {
+	width:50%;
+	margin:0px auto;
+	min-height:300px;
+	background:#fff;
+	margin-top:20%;
+	position:relative;
+}
+
+.modal .content .close {
+	width:20px;
+	height:20px;
+	background:red;
+	position:absolute;
+	top:-10px;
+	right:-10px;
+}
+
+
+

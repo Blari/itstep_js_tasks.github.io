@@ -1,0 +1,17 @@
+.main-cont {
+  padding-top: 20px;
+  height: 300px;
+  width: 100%;
+  background: #c6f6ff;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+}
+.main-cont p {
+  font-size: 16px;
+}
+.progress-bar {
+  font-size: 16px;
+  color: black;
+}
