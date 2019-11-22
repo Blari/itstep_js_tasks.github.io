@@ -1,8 +1,24 @@
 .container-fluid {
-  padding-top: 50px;
+  margin-top: 1rem;
+}
+.container-fluid .modal-row {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: all 0.2s linear;
 }
 .container-fluid .img-big {
-  z-index: 100;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 3;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -10,6 +26,7 @@
   transform: translate(-50%, -50%);
   width: 80%;
   height: auto;
+  transition: all 0.2s linear;
 }
 .container-fluid img {
   display: inline-block;
