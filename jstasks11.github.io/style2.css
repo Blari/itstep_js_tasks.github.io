@@ -2,7 +2,9 @@
   margin-top: 1rem;
 }
 .container-fluid .modal-row {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   visibility: hidden;
   opacity: 0;
   z-index: 2;
@@ -13,6 +15,17 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
   transition: all 0.2s linear;
+}
+.container-fluid .modal-row .bigImgInfo {
+  position: absolute;
+  top: 75%;
+  z-index: 4;
+  width: 75%;
+  height: 10%;
+  background-color: rgba(0, 0, 0, 0.705);
+}
+.container-fluid .modal-row .bigImgInfo p {
+  color: white;
 }
 .container-fluid .img-big {
   display: block;

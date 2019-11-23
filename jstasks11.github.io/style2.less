@@ -1,7 +1,10 @@
 .container-fluid {
   margin-top: 1rem;
   .modal-row {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     visibility: hidden;
     opacity: 0;
     z-index: 2;
@@ -12,6 +15,17 @@
     left: 0;
     background-color: rgba(0, 0, 0, 0.8);
     transition: all 0.2s linear;
+    .bigImgInfo {
+      position: absolute;
+      top: 75%;
+      z-index: 4;
+      width: 75%;
+      height: 10%;
+      background-color: rgba(0, 0, 0, 0.705);
+      p {
+        color: white;
+      }
+    }
   }
   .img-big {
     display: block;
