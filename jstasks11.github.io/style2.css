@@ -23,8 +23,6 @@
   z-index: 5;
   bottom: 37px;
   left: 0;
-  width: 80%;
-  height: 100px;
   background-color: rgba(0, 148, 74, 0.5);
 }
 .container-fluid .modal-row .bigImgInfo p {
