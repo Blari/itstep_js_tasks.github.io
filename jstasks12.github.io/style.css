@@ -1,8 +1,7 @@
 .container {
   padding-top: 50px;
 }
-.container .table td {
-  font-size: 20px;
+.container td {
   text-align: center;
 }
 .active {
