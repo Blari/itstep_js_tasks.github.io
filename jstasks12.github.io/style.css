@@ -10,6 +10,9 @@
 .container td {
   text-align: center;
 }
+.summ {
+  background-color: rgba(138, 255, 163, 0.39);
+}
 .active {
   background-color: #cfcfcf;
 }
