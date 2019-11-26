@@ -13,6 +13,21 @@ for (let i = 0; i < 3; i++) {
     tr.append(td);
   }
 }
+
+//Подсчитываем сумму в стрках
+
+let tdSum = 0;
+for (let i = 0; i < table.children.length; i++) {
+  let td = document.createElement("td");
+  for (let j = 0; j < table.children.length; j++) {
+    tdSum += +table.children[i].children[j].innerHTML;
+  }
+  console.log(`Сумма чисел: ${tdSum}`);
+  td.innerHTML = tdSum;
+  table.children[i].append(td);
+  tdSum = 0;
+}
+
 //Находим кнопку добавления колонки
 const addCol = document.getElementsByClassName("add-col")[0];
 addCol.addEventListener("click", addColFun);
