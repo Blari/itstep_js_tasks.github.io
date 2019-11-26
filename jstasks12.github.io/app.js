@@ -2,6 +2,7 @@ const box = document.getElementsByClassName("box")[0];
 const table = document.createElement("table");
 table.classList.add("table");
 table.classList.add("table-bordered");
+
 // Создание таблицы
 for (let i = 0; i < 3; i++) {
   const tr = document.createElement("tr");
@@ -10,6 +11,17 @@ for (let i = 0; i < 3; i++) {
     const td = document.createElement("td");
     td.innerHTML = Math.floor(Math.random() * 10);
     tr.append(td);
+  }
+}
+//Находим кнопку добавления колонки
+const addCol = document.getElementsByClassName("add-col")[0];
+addCol.addEventListener("click", addColFun);
+
+function addColFun() {
+  for (let i = 0; i < table.children.length; i++) {
+    let td = document.createElement("td");
+    td.innerHTML = Math.floor(Math.random() * 10);
+    table.children[i].append(td);
   }
 }
 

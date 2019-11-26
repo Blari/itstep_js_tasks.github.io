@@ -1,6 +1,9 @@
 .container {
   padding-top: 50px;
 }
+.container .box {
+  margin-top: 20px;
+}
 .container td {
   text-align: center;
 }
