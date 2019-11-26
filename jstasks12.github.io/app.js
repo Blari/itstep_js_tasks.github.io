@@ -17,11 +17,26 @@ for (let i = 0; i < 3; i++) {
 const addCol = document.getElementsByClassName("add-col")[0];
 addCol.addEventListener("click", addColFun);
 
+//Находим кнопку добавления строк
+const addRow = document.getElementsByClassName("add-row")[0];
+addRow.addEventListener("click", addRowFun);
+
+//Добавление колонок
 function addColFun() {
   for (let i = 0; i < table.children.length; i++) {
     let td = document.createElement("td");
     td.innerHTML = Math.floor(Math.random() * 10);
     table.children[i].append(td);
+  }
+}
+
+function addRowFun() {
+  let tr = document.createElement("tr");
+  for (let i = 0; i < table.children[0].children.length; i++) {
+    let td = document.createElement("td");
+    td.innerHTML = Math.floor(Math.random() * 10);
+    tr.append(td);
+    table.append(tr);
   }
 }
 
