@@ -2,7 +2,7 @@ const box = document.getElementsByClassName("box")[0];
 const table = document.createElement("table");
 table.classList.add("table");
 table.classList.add("table-bordered");
-//Создание таблицы
+// Создание таблицы
 for (let i = 0; i < 3; i++) {
   const tr = document.createElement("tr");
   table.append(tr);
