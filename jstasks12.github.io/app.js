@@ -90,7 +90,7 @@ function addColFun() {
 function addRowFun() {
   //Удаляем последнюю строку с расчетами
   //let table = document.getElementsByTagName("table")[0];
-  table.lastChild.remove();
+  // table.lastChild.remove();
 
   //Добавляем новую строку
 
@@ -105,26 +105,26 @@ function addRowFun() {
   tr.insertAdjacentHTML("beforeend", `<td class="summ">${s}</td>`);
   table.append(tr);
 
-  //Добавляем строку с расчетами суммы
-  let tdSumCol = 0;
-  //var table = document.getElementsByTagName("table")[0];
-  let tr2 = document.createElement("tr");
-  for (let i = 0; i < table.children.length - 1; i++) {
-    let td2 = document.createElement("td");
+  // //Добавляем строку с расчетами суммы
+  // let tdSumCol = 0;
+  // //var table = document.getElementsByTagName("table")[0];
+  // let tr2 = document.createElement("tr");
+  // for (let i = 0; i < table[0].children.length - 1; i++) {
+  //   let td2 = document.createElement("td");
 
-    for (let j = 0; j < table.children[0].children.length; j++) {
-      tdSumCol += +table.children[j].children[i].innerHTML;
-    }
-    td2.innerHTML = tdSumCol;
-    td2.classList.add("summ");
-    tr2.append(td2);
-    console.log(tr2);
-    console.log(td2);
-    tdSumCol = 0;
-  }
+  //   for (let j = 0; j < table.children[0].children.length; j++) {
+  //     tdSumCol += +table.children[j].children[i].innerHTML;
+  //   }
+  //   td2.innerHTML = tdSumCol;
+  //   td2.classList.add("summ");
+  //   tr2.append(td2);
+  //   console.log(tr2);
+  //   console.log(td2);
+  //   tdSumCol = 0;
+  // }
 
-  tr2.insertAdjacentHTML("beforeend", `<td class="summ">-</td>`);
-  table.append(tr2);
+  // tr2.insertAdjacentHTML("beforeend", `<td class="summ">-</td>`);
+  // table.append(tr2);
 }
 
 box.append(table);
