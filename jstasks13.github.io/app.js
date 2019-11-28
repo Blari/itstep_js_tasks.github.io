@@ -75,6 +75,7 @@ function addUl() {
   ul.classList.add("list-group");
   li.classList.add("list-group-item");
   li.addEventListener("click", liClick);
+  li.addEventListener("contextmenu", licontextMenu);
   li.append(randomString());
   ul.append(li);
   btn2.removeAttribute("disabled");
@@ -93,12 +94,13 @@ function addLi() {
   li.append(randomString());
   li.addEventListener("click", liClick);
   li.addEventListener("keydown", liCtrl);
+  li.addEventListener("contextmenu", licontextMenu);
   li.classList.add("list-group-item");
   ul.append(li);
 }
 //Клик по элементу списка
 function liClick(e) {
-  e.ctrlKey ? liCtrl(e) : liActiveClear(e);
+  e.contextMenu ? licontextMenu(e) : e.ctrlKey ? liCtrl(e) : liActiveClear(e);
   this.classList.add("active");
 }
 //Нажатие клавишь
@@ -112,6 +114,11 @@ function liActiveClear(e) {
   for (let i = 0; i < li.length; i++) {
     li[i].classList.remove("active");
   }
+}
+//Обработчик нажатия правой кнопки мышки
+function licontextMenu(e) {
+  e.preventDefault();
+  console.log("Right mouse button");
 }
 
 bootGrid();
