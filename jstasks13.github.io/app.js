@@ -3,6 +3,34 @@ function randomInteger(min, max) {
   let rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
 }
+//Формируем bootstrap сетку
+function bootGrid() {
+  let body = document.querySelector("body");
+  let container = document.createElement("div");
+  let row = document.createElement("div");
+  let row2 = document.createElement("div");
+  let col = document.createElement("div");
+  let col1 = document.createElement("div");
+  let col2 = document.createElement("div");
+  col.classList.add("col-md-6");
+  col.classList.add("d-flex");
+  col.classList.add("justify-content-center");
+  col1.classList.add("col-md-6");
+  col1.classList.add("d-flex");
+  col1.classList.add("justify-content-center");
+  col2.classList.add("col-md-12");
+  col2.classList.add("box");
+  row.classList.add("row");
+  row2.classList.add("row");
+  container.classList.add("container");
+
+  row.append(col);
+  row.append(col1);
+  row2.append(col2);
+  container.append(row);
+  container.append(row2);
+  body.append(container);
+}
 //Первая кнопка
 function addBtn() {
   let col = document.querySelectorAll(".col-md-6")[0];
@@ -58,5 +86,6 @@ function liClick() {
   this.classList.add("active");
 }
 
+bootGrid();
 addBtn();
 addBtn2();
