@@ -3,6 +3,17 @@ function randomInteger(min, max) {
   let rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
 }
+//Случайная строка
+function randomString() {
+  let x =
+    Math.random()
+      .toString(36)
+      .substring(2, 15) +
+    Math.random()
+      .toString(36)
+      .substring(2, 15);
+  return x;
+}
 //Формируем bootstrap сетку
 function bootGrid() {
   let body = document.querySelector("body");
@@ -64,7 +75,7 @@ function addUl() {
   ul.classList.add("list-group");
   li.classList.add("list-group-item");
   li.addEventListener("click", liClick);
-  li.append(randomInteger(0, 100));
+  li.append(randomString());
   ul.append(li);
   btn2.removeAttribute("disabled");
 
@@ -79,23 +90,28 @@ function addUl() {
 function addLi() {
   let ul = document.querySelector("ul");
   let li = document.createElement("li");
-  li.append(randomInteger(1, 100));
+  li.append(randomString());
   li.addEventListener("click", liClick);
+  li.addEventListener("keydown", liCtrl);
   li.classList.add("list-group-item");
   ul.append(li);
 }
-//клик по элементу списка
-function liClick() {
-  liActiveCheck();
+//Клик по элементу списка
+function liClick(e) {
+  e.ctrlKey ? liCtrl(e) : liActiveClear(e);
   this.classList.add("active");
 }
+//Нажатие клавишь
+function liCtrl(e) {
+  e.target.classList.add("active");
+}
 
-function liActiveCheck() {
+//Очистка Activity
+function liActiveClear(e) {
   let li = document.querySelectorAll("li");
   for (let i = 0; i < li.length; i++) {
     li[i].classList.remove("active");
   }
-  //this.classList.add("active");
 }
 
 bootGrid();
