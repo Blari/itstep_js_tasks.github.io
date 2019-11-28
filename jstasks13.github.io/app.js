@@ -31,8 +31,9 @@ function addUl() {
   let li = document.createElement("li");
   let btn = document.querySelector(".add-ul");
   let col = document.querySelectorAll(".col-md-6");
-  ul.classList.add(".list-group");
+  ul.classList.add("list-group");
   li.classList.add("list-group-item");
+  li.addEventListener("click", liClick);
   li.append(randomInteger(0, 100));
   ul.append(li);
 
@@ -43,13 +44,18 @@ function addUl() {
   col[1].classList.remove("col-md-6");
   col[1].classList.add("col-md-12");
 }
-
+//Добавленеи элементов списка
 function addLi() {
   let ul = document.querySelector("ul");
   let li = document.createElement("li");
   li.append(randomInteger(1, 100));
+  li.addEventListener("click", liClick);
   li.classList.add("list-group-item");
   ul.append(li);
+}
+//клик по элементу списка
+function liClick() {
+  this.classList.add("active");
 }
 
 addBtn();
