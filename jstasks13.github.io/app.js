@@ -103,11 +103,10 @@ function liClick(e) {
   e.contextMenu ? licontextMenu(e) : e.ctrlKey ? liCtrl(e) : liActiveClear(e);
   this.classList.add("active");
 }
-//Нажатие клавишь
+//Нажатие клавиш CTRL
 function liCtrl(e) {
   e.target.classList.add("active");
 }
-
 //Очистка Activity
 function liActiveClear(e) {
   let li = document.querySelectorAll("li");
@@ -119,8 +118,45 @@ function liActiveClear(e) {
 function licontextMenu(e) {
   e.preventDefault();
   console.log("Right mouse button");
+  console.log(e.clientX);
+  console.log(e.clientY);
+  let dd = document.querySelector(".contextMenu");
+  //dd.setAttribute("visibility", "visible;");
+  dd.style.visibility = `visible`;
+  dd.style.top = `${e.pageY}px`;
+  dd.style.left = `${e.pageX}px`;
+}
+//Выподающий список
+function dropDownMenu() {
+  let body = document.querySelector("body");
+  let divBtn = document.createElement("div");
+  //let btn = document.createElement("button");
+  let dropDownMenu = document.createElement("div");
+  let dropDownItem = document.createElement("a");
+
+  divBtn.classList.add("dropdown");
+  divBtn.classList.add("show");
+  divBtn.classList.add("contextMenu");
+  // btn.classList.add("btn");
+  // btn.classList.add("btn-secondary");
+  // btn.classList.add("dropdown-toggle");
+  // btn.setAttribute("data-toggle", "dropdown");
+  // btn.setAttribute("aria-expanded", "true");
+  // btn.setAttribute("id", "dropdownMenuButton");
+  dropDownMenu.classList.add("dropdown-menu");
+  dropDownMenu.classList.add("show");
+  dropDownMenu.setAttribute("aria-labelledby", "dropdownMenuButton");
+  dropDownItem.classList.add("dropdown-item");
+  dropDownItem.setAttribute("href", "#");
+  dropDownItem.append("Remove");
+
+  dropDownMenu.append(dropDownItem);
+  divBtn.append(dropDownMenu);
+  // divBtn.prepend(btn);
+  body.append(divBtn);
 }
 
 bootGrid();
 addBtn2();
 addBtn();
+dropDownMenu();
