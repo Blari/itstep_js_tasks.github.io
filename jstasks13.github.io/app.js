@@ -83,7 +83,16 @@ function addLi() {
 }
 //клик по элементу списка
 function liClick() {
+  liActiveCheck();
   this.classList.add("active");
+}
+
+function liActiveCheck() {
+  let li = document.querySelectorAll("li");
+  for (let i = 0; i < li.length; i++) {
+    li[i].classList.remove("active");
+  }
+  //this.classList.add("active");
 }
 
 bootGrid();
