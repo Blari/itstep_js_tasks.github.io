@@ -29,7 +29,7 @@ function bootGrid() {
   row2.append(col2);
   container.append(row);
   container.append(row2);
-  body.append(container);
+  body.prepend(container);
 }
 //Первая кнопка
 function addBtn() {
@@ -49,11 +49,13 @@ function addBtn2() {
   button.addEventListener("click", addLi);
   button.classList.add("btn");
   button.classList.add("btn-primary");
+  button.setAttribute("disabled", "");
   button.append("Добавить элемент списка");
   col.append(button);
 }
 //Добавление списка
 function addUl() {
+  let btn2 = document.querySelectorAll("button")[1];
   let box = document.querySelector(".box");
   let ul = document.createElement("ul");
   let li = document.createElement("li");
@@ -64,6 +66,7 @@ function addUl() {
   li.addEventListener("click", liClick);
   li.append(randomInteger(0, 100));
   ul.append(li);
+  btn2.removeAttribute("disabled");
 
   box.append(ul);
 
@@ -96,5 +99,5 @@ function liActiveCheck() {
 }
 
 bootGrid();
-addBtn();
 addBtn2();
+addBtn();
