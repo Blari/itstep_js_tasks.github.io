@@ -1,18 +1,6 @@
 .container {
   padding-top: 50px;
 }
-.container a {
-  margin-top: 20px;
-}
-.container .box {
-  margin-top: 20px;
-}
-.container td {
-  text-align: center;
-}
-.summ {
-  background-color: rgba(138, 255, 163, 0.39);
-}
-.active {
-  background-color: #cfcfcf;
+.container .row {
+  padding-top: 20px;
 }
