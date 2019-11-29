@@ -152,12 +152,29 @@ function dropDownMenu() {
   dropDownItem.classList.add("dropdown-item");
   dropDownItem2.classList.add("dropdown-item");
   dropDownItem.setAttribute("href", "#");
+
   dropDownItem2.setAttribute("href", "#");
   dropDownItem2.setAttribute("data-toggle", "modal");
   dropDownItem2.setAttribute("data-target", "#exampleModal");
+  dropDownItem.setAttribute("href", "#");
+  dropDownItem.setAttribute("data-toggle", "modal");
+  dropDownItem.setAttribute("data-target", "#exampleModal");
   dropDownItem.append("Remove");
   dropDownItem2.append("Update");
-  dropDownItem2.addEventListener("click", runModal);
+  dropDownItem.addEventListener(
+    "click",
+    function() {
+      runModal("Удаление данных");
+    },
+    false
+  );
+  // dropDownItem2.addEventListener(
+  //   "click",
+  //   function() {
+  //     runModal("Обновление данных");
+  //   },
+  //   false
+  // );
 
   dropDownMenu.append(dropDownItem);
   dropDownMenu.append(dropDownItem2);
@@ -166,7 +183,7 @@ function dropDownMenu() {
   body.append(divBtn);
 }
 //Запуск модального окна
-function runModal(e) {
+function runModal(title) {
   let active = document.querySelector(".active").innerHTML;
   let body = document.querySelector("body");
   let modal = document.createElement("div");
@@ -198,8 +215,7 @@ function runModal(e) {
   modalHeader.classList.add("modal-header");
 
   modalTitle.classList.add("modal-title");
-  modalTitle.append(`Изменить данные ${active}`);
-  console.log(active);
+  modalTitle.append(title);
 
   btn.setAttribute("type", "button");
   btn.classList.add("close");
@@ -210,7 +226,10 @@ function runModal(e) {
   span.insertAdjacentHTML("beforeend", "&times;");
 
   modalBody.classList.add("modal-body");
-  modalBody.insertAdjacentHTML("beforeend", `<p>выбранные данные: ${active}</p>`);
+  modalBody.insertAdjacentHTML(
+    "beforeend",
+    `<p>Хотите удалить ${sumActive()} строк?</p>`
+  );
 
   modalFooter.classList.add("modal-footer");
 
@@ -218,12 +237,14 @@ function runModal(e) {
   btnFooter.classList.add("btn-secondary");
   btnFooter.setAttribute("type", "button");
   btnFooter.setAttribute("data-dismiss", "modal");
+  btnFooter.addEventListener("click", removeModal);
   btnFooter.append("Закрыть окно");
 
   btnFooter2.classList.add("btn");
   btnFooter2.classList.add("btn-primary");
   btnFooter2.setAttribute("type", "button");
-  btnFooter2.append("Внести изменения");
+  btnFooter2.addEventListener("click", delActive);
+  btnFooter2.append("Применить");
 
   modalFooter.append(btnFooter);
   modalFooter.append(btnFooter2);
@@ -240,6 +261,28 @@ function runModal(e) {
 
   modal.append(modalDialog);
   body.append(modal);
+}
+//Удаляем модальное окно
+function removeModal() {
+  document.querySelector(".modal").remove();
+}
+//Подсчет активных элементов
+function sumActive() {
+  let li = document.getElementsByClassName("active");
+  return li.length;
+}
+//Удаление активных элементов
+function delActive() {
+  let li = document.querySelectorAll(".active");
+  for (let i = 0; i < li.length; i++) {
+    li[i].remove("active");
+  }
+  let modal = document.querySelector(".modal");
+  let modalBg = document.querySelector(".modal-backdrop");
+  modal.remove("show");
+  modalBg.remove("show");
+  modal.style.display = "none";
+  removeModal();
 }
 
 bootGrid();
