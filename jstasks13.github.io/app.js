@@ -17,6 +17,7 @@ function randomString() {
 //Формируем bootstrap сетку
 function bootGrid() {
   let body = document.querySelector("body");
+  body.addEventListener('click', ddHide);
   let container = document.createElement("div");
   let row = document.createElement("div");
   let row2 = document.createElement("div");
@@ -42,6 +43,12 @@ function bootGrid() {
   container.append(row2);
   body.prepend(container);
 }
+//Прячем меню по клику на body
+function ddHide(){
+  let dd = document.querySelector(".contextMenu");
+  dd.style.visibility = `hide`;
+}
+
 //Первая кнопка
 function addBtn() {
   let col = document.querySelectorAll(".col-md-6")[0];
@@ -98,6 +105,7 @@ function addLi() {
   li.addEventListener("keydown", liCtrl);
   li.addEventListener("contextmenu", licontextMenu);
   li.classList.add("list-group-item");
+  li.setAttribute('draggable',"true");
   ul.append(li);
 }
 //Клик по элементу списка
@@ -132,7 +140,6 @@ function licontextMenu(e) {
 function dropDownMenu() {
   let body = document.querySelector("body");
   let divBtn = document.createElement("div");
-  //let btn = document.createElement("button");
   let dropDownMenu = document.createElement("div");
   let dropDownItem = document.createElement("a");
   let dropDownItem2 = document.createElement('a');
@@ -140,12 +147,6 @@ function dropDownMenu() {
   divBtn.classList.add("dropdown");
   divBtn.classList.add("show");
   divBtn.classList.add("contextMenu");
-  // btn.classList.add("btn");
-  // btn.classList.add("btn-secondary");
-  // btn.classList.add("dropdown-toggle");
-  // btn.setAttribute("data-toggle", "dropdown");
-  // btn.setAttribute("aria-expanded", "true");
-  // btn.setAttribute("id", "dropdownMenuButton");
   dropDownMenu.classList.add("dropdown-menu");
   dropDownMenu.classList.add("show");
   dropDownMenu.setAttribute("aria-labelledby", "dropdownMenuButton");
@@ -153,14 +154,94 @@ function dropDownMenu() {
   dropDownItem2.classList.add('dropdown-item');
   dropDownItem.setAttribute("href", "#");
   dropDownItem2.setAttribute("href", "#");
+  dropDownItem2.setAttribute('data-toggle', 'modal');
+  dropDownItem2.setAttribute('data-target', '#exampleModal');
   dropDownItem.append("Remove");
   dropDownItem2.append("Update");
+  dropDownItem2.addEventListener('click', runModal);
 
   dropDownMenu.append(dropDownItem);
   dropDownMenu.append(dropDownItem2);
   divBtn.append(dropDownMenu);
-  // divBtn.prepend(btn);
+  
   body.append(divBtn);
+}
+//Запуск модального окна
+function runModal(e){
+  
+  let active = document.getElementsByClassName('active');
+  let body = document.querySelector('body');
+  let modal = document.createElement('div');
+  let modalDialog = document.createElement('div');
+  let modalContent = document.createElement('div');
+  let modalHeader = document.createElement('div');
+  let modalTitle = document.createElement('h5');
+  let btn = document.createElement('button');
+  let span = document.createElement('span');
+  let modalBody = document.createElement('div');
+  let modalFooter = document.createElement('div');
+  let btnFooter = document.createElement('button');
+  let btnFooter2 = document.createElement('button');
+
+  modal.classList.add('modal');
+  modal.classList.add('fade');
+  modal.setAttribute('id', 'exampleModal');
+  modal.setAttribute('tabindex', '-1');
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-labelledby', 'exampleModalLabel');
+  modal.setAttribute('aria-hidden', 'true');
+
+  modalDialog.classList.add('modal-dialog');
+  modalDialog.classList.add('modal-dialog-centered');
+  modalDialog.setAttribute('role', 'document');
+
+  modalContent.classList.add('modal-content');
+
+  modalHeader.classList.add("modal-header");
+
+  modalTitle.classList.add('modal-title');
+  modalTitle.append(`Изменить данные ${active[0].innerHTML}`);
+
+  btn.setAttribute('type', 'button');
+  btn.classList.add('close');
+  btn.setAttribute('data-dismiss', 'modal');
+  btn.setAttribute('aria-label', 'Close');
+
+  span.setAttribute('aria-hidden', 'true');
+  span.insertAdjacentHTML('beforeend', '&times;');
+
+  modalBody.classList.add('modal-body');
+  modalBody.insertAdjacentHTML('beforeend','<p>Текст модалки</p>');
+
+  modalFooter.classList.add('modal-footer');
+
+  btnFooter.classList.add('btn');
+  btnFooter.classList.add('btn-secondary');
+  btnFooter.setAttribute('type', 'button');
+  btnFooter.setAttribute('data-dismiss', 'modal');
+  btnFooter.append('Закрыть окно');
+
+  btnFooter2.classList.add('btn');
+  btnFooter2.classList.add('btn-primary');
+  btnFooter2.setAttribute('type', 'button');
+  btnFooter2.append('Внести изменения');
+
+  
+  modalFooter.append(btnFooter);
+  modalFooter.append(btnFooter2);
+
+  modalHeader.append(modalTitle);
+  btn.append(span);
+  modalHeader.append(btn);
+
+  modalContent.append(modalHeader);
+  modalContent.append(modalBody);
+  modalContent.append(modalFooter);
+  
+  modalDialog.append(modalContent);
+
+  modal.append(modalDialog);
+  body.append(modal);
 }
 
 bootGrid();
