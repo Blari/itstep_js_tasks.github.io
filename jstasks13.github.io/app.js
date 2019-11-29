@@ -15,9 +15,9 @@ function randomString() {
   return x;
 }
 //Формируем bootstrap сетку
-function bootGrid() {
+function bootGrid(e) {
   let body = document.querySelector("body");
-  body.addEventListener('click', ddHide);
+  body.addEventListener("click", ddHide);
   let container = document.createElement("div");
   let row = document.createElement("div");
   let row2 = document.createElement("div");
@@ -44,9 +44,10 @@ function bootGrid() {
   body.prepend(container);
 }
 //Прячем меню по клику на body
-function ddHide(){
-  let dd = document.querySelector(".contextMenu");
-  dd.style.visibility = `hide`;
+function ddHide(e) {
+  let dd = document.getElementsByClassName("contextMenu")[0];
+  dd.style.visibility = "hidden";
+  console.log(dd);
 }
 
 //Первая кнопка
@@ -105,7 +106,7 @@ function addLi() {
   li.addEventListener("keydown", liCtrl);
   li.addEventListener("contextmenu", licontextMenu);
   li.classList.add("list-group-item");
-  li.setAttribute('draggable',"true");
+  li.setAttribute("draggable", "true");
   ul.append(li);
 }
 //Клик по элементу списка
@@ -142,7 +143,7 @@ function dropDownMenu() {
   let divBtn = document.createElement("div");
   let dropDownMenu = document.createElement("div");
   let dropDownItem = document.createElement("a");
-  let dropDownItem2 = document.createElement('a');
+  let dropDownItem2 = document.createElement("a");
 
   divBtn.classList.add("dropdown");
   divBtn.classList.add("show");
@@ -151,82 +152,80 @@ function dropDownMenu() {
   dropDownMenu.classList.add("show");
   dropDownMenu.setAttribute("aria-labelledby", "dropdownMenuButton");
   dropDownItem.classList.add("dropdown-item");
-  dropDownItem2.classList.add('dropdown-item');
+  dropDownItem2.classList.add("dropdown-item");
   dropDownItem.setAttribute("href", "#");
   dropDownItem2.setAttribute("href", "#");
-  dropDownItem2.setAttribute('data-toggle', 'modal');
-  dropDownItem2.setAttribute('data-target', '#exampleModal');
+  dropDownItem2.setAttribute("data-toggle", "modal");
+  dropDownItem2.setAttribute("data-target", "#exampleModal");
   dropDownItem.append("Remove");
   dropDownItem2.append("Update");
-  dropDownItem2.addEventListener('click', runModal);
+  dropDownItem2.addEventListener("click", runModal);
 
   dropDownMenu.append(dropDownItem);
   dropDownMenu.append(dropDownItem2);
   divBtn.append(dropDownMenu);
-  
+
   body.append(divBtn);
 }
 //Запуск модального окна
-function runModal(e){
-  
-  let active = document.getElementsByClassName('active');
-  let body = document.querySelector('body');
-  let modal = document.createElement('div');
-  let modalDialog = document.createElement('div');
-  let modalContent = document.createElement('div');
-  let modalHeader = document.createElement('div');
-  let modalTitle = document.createElement('h5');
-  let btn = document.createElement('button');
-  let span = document.createElement('span');
-  let modalBody = document.createElement('div');
-  let modalFooter = document.createElement('div');
-  let btnFooter = document.createElement('button');
-  let btnFooter2 = document.createElement('button');
+function runModal(e) {
+  let active = document.getElementsByClassName("active");
+  let body = document.querySelector("body");
+  let modal = document.createElement("div");
+  let modalDialog = document.createElement("div");
+  let modalContent = document.createElement("div");
+  let modalHeader = document.createElement("div");
+  let modalTitle = document.createElement("h5");
+  let btn = document.createElement("button");
+  let span = document.createElement("span");
+  let modalBody = document.createElement("div");
+  let modalFooter = document.createElement("div");
+  let btnFooter = document.createElement("button");
+  let btnFooter2 = document.createElement("button");
 
-  modal.classList.add('modal');
-  modal.classList.add('fade');
-  modal.setAttribute('id', 'exampleModal');
-  modal.setAttribute('tabindex', '-1');
-  modal.setAttribute('role', 'dialog');
-  modal.setAttribute('aria-labelledby', 'exampleModalLabel');
-  modal.setAttribute('aria-hidden', 'true');
+  modal.classList.add("modal");
+  modal.classList.add("fade");
+  modal.setAttribute("id", "exampleModal");
+  modal.setAttribute("tabindex", "-1");
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-labelledby", "exampleModalLabel");
+  modal.setAttribute("aria-hidden", "true");
 
-  modalDialog.classList.add('modal-dialog');
-  modalDialog.classList.add('modal-dialog-centered');
-  modalDialog.setAttribute('role', 'document');
+  modalDialog.classList.add("modal-dialog");
+  modalDialog.classList.add("modal-dialog-centered");
+  modalDialog.setAttribute("role", "document");
 
-  modalContent.classList.add('modal-content');
+  modalContent.classList.add("modal-content");
 
   modalHeader.classList.add("modal-header");
 
-  modalTitle.classList.add('modal-title');
+  modalTitle.classList.add("modal-title");
   modalTitle.append(`Изменить данные ${active[0].innerHTML}`);
 
-  btn.setAttribute('type', 'button');
-  btn.classList.add('close');
-  btn.setAttribute('data-dismiss', 'modal');
-  btn.setAttribute('aria-label', 'Close');
+  btn.setAttribute("type", "button");
+  btn.classList.add("close");
+  btn.setAttribute("data-dismiss", "modal");
+  btn.setAttribute("aria-label", "Close");
 
-  span.setAttribute('aria-hidden', 'true');
-  span.insertAdjacentHTML('beforeend', '&times;');
+  span.setAttribute("aria-hidden", "true");
+  span.insertAdjacentHTML("beforeend", "&times;");
 
-  modalBody.classList.add('modal-body');
-  modalBody.insertAdjacentHTML('beforeend','<p>Текст модалки</p>');
+  modalBody.classList.add("modal-body");
+  modalBody.insertAdjacentHTML("beforeend", "<p>Текст модалки</p>");
 
-  modalFooter.classList.add('modal-footer');
+  modalFooter.classList.add("modal-footer");
 
-  btnFooter.classList.add('btn');
-  btnFooter.classList.add('btn-secondary');
-  btnFooter.setAttribute('type', 'button');
-  btnFooter.setAttribute('data-dismiss', 'modal');
-  btnFooter.append('Закрыть окно');
+  btnFooter.classList.add("btn");
+  btnFooter.classList.add("btn-secondary");
+  btnFooter.setAttribute("type", "button");
+  btnFooter.setAttribute("data-dismiss", "modal");
+  btnFooter.append("Закрыть окно");
 
-  btnFooter2.classList.add('btn');
-  btnFooter2.classList.add('btn-primary');
-  btnFooter2.setAttribute('type', 'button');
-  btnFooter2.append('Внести изменения');
+  btnFooter2.classList.add("btn");
+  btnFooter2.classList.add("btn-primary");
+  btnFooter2.setAttribute("type", "button");
+  btnFooter2.append("Внести изменения");
 
-  
   modalFooter.append(btnFooter);
   modalFooter.append(btnFooter2);
 
@@ -237,7 +236,7 @@ function runModal(e){
   modalContent.append(modalHeader);
   modalContent.append(modalBody);
   modalContent.append(modalFooter);
-  
+
   modalDialog.append(modalContent);
 
   modal.append(modalDialog);
