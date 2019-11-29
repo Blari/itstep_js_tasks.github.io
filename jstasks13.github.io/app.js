@@ -100,8 +100,11 @@ function addLi() {
 }
 //Клик по элементу списка
 function liClick(e) {
+  let dd = document.querySelector(".contextMenu");
   e.contextMenu ? licontextMenu(e) : e.ctrlKey ? liCtrl(e) : liActiveClear(e);
   this.classList.add("active");
+  dd.style.visibility = "hidden";
+  dd.style.opacity = 0;
 }
 //Нажатие клавиш CTRL
 function liCtrl(e) {
@@ -117,9 +120,6 @@ function liActiveClear(e) {
 //Обработчик нажатия правой кнопки мышки
 function licontextMenu(e) {
   e.preventDefault();
-  console.log("Right mouse button");
-  console.log(e.clientX);
-  console.log(e.clientY);
   let dd = document.querySelector(".contextMenu");
   //dd.setAttribute("visibility", "visible;");
   dd.style.visibility = `visible`;
