@@ -4,6 +4,9 @@
 .container .row {
   padding-top: 20px;
 }
+.container .row button {
+  margin-bottom: 10px;
+}
 .contextMenu {
   z-index: 999;
   position: fixed;

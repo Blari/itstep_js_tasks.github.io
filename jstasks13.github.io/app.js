@@ -47,9 +47,7 @@ function bootGrid(e) {
 function ddHide(e) {
   let dd = document.getElementsByClassName("contextMenu")[0];
   dd.style.visibility = "hidden";
-  console.log(dd);
 }
-
 //Первая кнопка
 function addBtn() {
   let col = document.querySelectorAll(".col-md-6")[0];
@@ -169,7 +167,7 @@ function dropDownMenu() {
 }
 //Запуск модального окна
 function runModal(e) {
-  let active = document.getElementsByClassName("active");
+  let active = document.querySelector(".active").innerHTML;
   let body = document.querySelector("body");
   let modal = document.createElement("div");
   let modalDialog = document.createElement("div");
@@ -200,7 +198,8 @@ function runModal(e) {
   modalHeader.classList.add("modal-header");
 
   modalTitle.classList.add("modal-title");
-  modalTitle.append(`Изменить данные ${active[0].innerHTML}`);
+  modalTitle.append(`Изменить данные ${active}`);
+  console.log(active);
 
   btn.setAttribute("type", "button");
   btn.classList.add("close");
@@ -211,7 +210,7 @@ function runModal(e) {
   span.insertAdjacentHTML("beforeend", "&times;");
 
   modalBody.classList.add("modal-body");
-  modalBody.insertAdjacentHTML("beforeend", "<p>Текст модалки</p>");
+  modalBody.insertAdjacentHTML("beforeend", `<p>выбранные данные: ${active}</p>`);
 
   modalFooter.classList.add("modal-footer");
 
