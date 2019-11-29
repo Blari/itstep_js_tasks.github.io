@@ -89,8 +89,10 @@ function addUl() {
 }
 //Добавленеи элементов списка
 function addLi() {
+  let dd = document.querySelector(".contextMenu");
   let ul = document.querySelector("ul");
   let li = document.createElement("li");
+  dd.style.visibility = "hidden";
   li.append(randomString());
   li.addEventListener("click", liClick);
   li.addEventListener("keydown", liCtrl);
@@ -101,10 +103,10 @@ function addLi() {
 //Клик по элементу списка
 function liClick(e) {
   let dd = document.querySelector(".contextMenu");
+
   e.contextMenu ? licontextMenu(e) : e.ctrlKey ? liCtrl(e) : liActiveClear(e);
   this.classList.add("active");
   dd.style.visibility = "hidden";
-  dd.style.opacity = 0;
 }
 //Нажатие клавиш CTRL
 function liCtrl(e) {
@@ -126,13 +128,14 @@ function licontextMenu(e) {
   dd.style.top = `${e.pageY}px`;
   dd.style.left = `${e.pageX}px`;
 }
-//Выподающий список
+//Выпадающий список
 function dropDownMenu() {
   let body = document.querySelector("body");
   let divBtn = document.createElement("div");
   //let btn = document.createElement("button");
   let dropDownMenu = document.createElement("div");
   let dropDownItem = document.createElement("a");
+  let dropDownItem2 = document.createElement('a');
 
   divBtn.classList.add("dropdown");
   divBtn.classList.add("show");
@@ -147,10 +150,14 @@ function dropDownMenu() {
   dropDownMenu.classList.add("show");
   dropDownMenu.setAttribute("aria-labelledby", "dropdownMenuButton");
   dropDownItem.classList.add("dropdown-item");
+  dropDownItem2.classList.add('dropdown-item');
   dropDownItem.setAttribute("href", "#");
+  dropDownItem2.setAttribute("href", "#");
   dropDownItem.append("Remove");
+  dropDownItem2.append("Update");
 
   dropDownMenu.append(dropDownItem);
+  dropDownMenu.append(dropDownItem2);
   divBtn.append(dropDownMenu);
   // divBtn.prepend(btn);
   body.append(divBtn);
