@@ -129,11 +129,20 @@ function liActiveClear(e) {
 //Обработчик нажатия правой кнопки мышки
 function licontextMenu(e) {
   e.preventDefault();
-  let dd = document.querySelector(".contextMenu");
-  //dd.setAttribute("visibility", "visible;");
-  dd.style.visibility = `visible`;
-  dd.style.top = `${e.pageY}px`;
-  dd.style.left = `${e.pageX}px`;
+
+  if (this.classList.contains("active")) {
+    let dd = document.querySelector(".contextMenu");
+    dd.style.visibility = `visible`;
+    dd.style.top = `${e.pageY}px`;
+    dd.style.left = `${e.pageX}px`;
+  } else {
+    liActiveClear(e);
+    this.classList.add("active");
+    let dd = document.querySelector(".contextMenu");
+    dd.style.visibility = `visible`;
+    dd.style.top = `${e.pageY}px`;
+    dd.style.left = `${e.pageX}px`;
+  }
 }
 //Выпадающий список
 function dropDownMenu() {
