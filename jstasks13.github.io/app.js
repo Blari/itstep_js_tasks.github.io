@@ -143,6 +143,11 @@ function licontextMenu(e) {
     dd.style.top = `${e.pageY}px`;
     dd.style.left = `${e.pageX}px`;
   }
+
+  let act = document.getElementsByClassName("active").length;
+  let btn = document.getElementsByClassName("dropdown-item")[1];
+  console.log(act);
+  act != 1 ? btn.classList.add("disabled") : btn.classList.remove("disabled");
 }
 //Выпадающий список
 function dropDownMenu() {
@@ -170,6 +175,7 @@ function dropDownMenu() {
   dropDownItem.setAttribute("data-target", "#exampleModal");
   dropDownItem.append("Remove");
   dropDownItem2.append("Update");
+
   dropDownItem.addEventListener(
     "click",
     function() {
