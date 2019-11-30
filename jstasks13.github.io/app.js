@@ -378,7 +378,7 @@ function delActive() {
   modal.remove("show");
   modalBg.remove("show");
   modal.style.display = "none";
-  removeModal();
+  //removeModal();
 }
 //Оновление данных
 function updActive() {
