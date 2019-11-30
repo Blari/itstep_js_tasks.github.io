@@ -177,13 +177,13 @@ function dropDownMenu() {
     },
     false
   );
-  // dropDownItem2.addEventListener(
-  //   "click",
-  //   function() {
-  //     runModal("Обновление данных");
-  //   },
-  //   false
-  // );
+  dropDownItem2.addEventListener(
+    "click",
+    function() {
+      runModal2("Обновление данных");
+    },
+    false
+  );
 
   dropDownMenu.append(dropDownItem);
   dropDownMenu.append(dropDownItem2);
@@ -271,6 +271,93 @@ function runModal(title) {
   modal.append(modalDialog);
   body.append(modal);
 }
+//Запуск модального окна для обновления данных
+function runModal2(title) {
+  let active = document.querySelector(".active").innerHTML;
+  let body = document.querySelector("body");
+  let modal = document.createElement("div");
+  let modalDialog = document.createElement("div");
+  let modalContent = document.createElement("div");
+  let modalHeader = document.createElement("div");
+  let modalTitle = document.createElement("h5");
+  let btn = document.createElement("button");
+  let span = document.createElement("span");
+  let modalBody = document.createElement("div");
+  let modalFooter = document.createElement("div");
+  let btnFooter = document.createElement("button");
+  let btnFooter2 = document.createElement("button");
+  let input = document.createElement("input");
+
+  modal.classList.add("modal");
+  modal.classList.add("fade");
+  modal.setAttribute("id", "exampleModal");
+  modal.setAttribute("tabindex", "-1");
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-labelledby", "exampleModalLabel");
+  modal.setAttribute("aria-hidden", "true");
+  input.setAttribute("type", "text");
+  input.classList.add("form-control");
+
+  modalDialog.classList.add("modal-dialog");
+  modalDialog.classList.add("modal-dialog-centered");
+  modalDialog.setAttribute("role", "document");
+
+  modalContent.classList.add("modal-content");
+
+  modalHeader.classList.add("modal-header");
+
+  modalTitle.classList.add("modal-title");
+  modalTitle.append(title);
+
+  btn.setAttribute("type", "button");
+  btn.classList.add("close");
+  btn.setAttribute("data-dismiss", "modal");
+  btn.setAttribute("aria-label", "Close");
+
+  span.setAttribute("aria-hidden", "true");
+  span.insertAdjacentHTML("beforeend", "&times;");
+
+  modalBody.classList.add("modal-body");
+  modalBody.insertAdjacentHTML(`beforeend`, `<p>Начальные данные: ${active}`);
+  modalBody.insertAdjacentElement("beforeend", input);
+
+  modalFooter.classList.add("modal-footer");
+
+  btnFooter.classList.add("btn");
+  btnFooter.classList.add("btn-secondary");
+  btnFooter.setAttribute("type", "button");
+  btnFooter.setAttribute("data-dismiss", "modal");
+  btnFooter.addEventListener("click", removeModal);
+  btnFooter.append("Закрыть окно");
+
+  btnFooter2.classList.add("btn");
+  btnFooter2.classList.add("btn-primary");
+  btnFooter2.setAttribute("type", "button");
+  btnFooter2.addEventListener(
+    "click",
+    function() {
+      updActive();
+    },
+    false
+  );
+  btnFooter2.append("Применить");
+
+  modalFooter.append(btnFooter);
+  modalFooter.append(btnFooter2);
+
+  modalHeader.append(modalTitle);
+  btn.append(span);
+  modalHeader.append(btn);
+
+  modalContent.append(modalHeader);
+  modalContent.append(modalBody);
+  modalContent.append(modalFooter);
+
+  modalDialog.append(modalContent);
+
+  modal.append(modalDialog);
+  body.append(modal);
+}
 //Удаляем модальное окно
 function removeModal() {
   document.querySelector(".modal").remove();
@@ -292,6 +379,18 @@ function delActive() {
   modalBg.remove("show");
   modal.style.display = "none";
   removeModal();
+}
+//Оновление данных
+function updActive() {
+  let input = document.getElementsByTagName("input")[0].value;
+  let act = document.querySelector(".active");
+  act.innerHTML = input;
+  let modal = document.querySelector(".modal");
+  let modalBg = document.querySelector(".modal-backdrop");
+  modal.remove("show");
+  modalBg.remove("show");
+  modal.style.display = "none";
+  //removeModal();
 }
 
 bootGrid();
