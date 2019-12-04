@@ -3,27 +3,23 @@ function randomInteger(min, max) {
   let rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
 }
-//Случайная строка
-function randomString() {
-  let x =
-    Math.random()
-      .toString(36)
-      .substring(2, 15) +
-    Math.random()
-      .toString(36)
-      .substring(2, 15);
-  return x;
-}
+
 //Формируем bootstrap сетку
 function bootGrid(e) {
   let body = document.querySelector("body");
-  body.addEventListener("click", ddHide);
   let container = document.createElement("div");
   let row = document.createElement("div");
   let row2 = document.createElement("div");
   let col = document.createElement("div");
   let col1 = document.createElement("div");
   let col2 = document.createElement("div");
+  let form = document.createElement("form");
+  let formDiv = document.createElement("div");
+  let input = document.createElement("input");
+  input.classList.add("form-control-file");
+  input.setAttribute("type", "file");
+  input.setAttribute("id", "exampleFormControlFile1");
+  formDiv.classList.add("form-group");
   col.classList.add("col-md-6");
   col.classList.add("d-flex");
   col.classList.add("justify-content-center");
@@ -36,6 +32,9 @@ function bootGrid(e) {
   row2.classList.add("row");
   container.classList.add("container");
 
+  formDiv.append(input);
+  form.append(formDiv);
+  col.append(form);
   row.append(col);
   row.append(col1);
   row2.append(col2);
@@ -43,5 +42,12 @@ function bootGrid(e) {
   container.append(row2);
   body.prepend(container);
 }
+// <form>
+// <div class="form-group">
+// <label for="exampleFormControlFile1">Example file input</label>
+// <input type="file" class="form-control-file" id="exampleFormControlFile1">
+// </div>
+// </form>
+function addBtn() {}
 
 bootGrid();
