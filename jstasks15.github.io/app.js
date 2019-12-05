@@ -28,10 +28,10 @@ function bootGrid(e) {
   input.setAttribute("id", "inputGroupFile04");
   input.setAttribute("type", "file");
   input.setAttribute("aria-describedby", "inputGroupFileAddon04");
-  input.addEventListener("click", fileLoad);
+  input.addEventListener("change", fileLoad);
   label.classList.add("custom-file-label");
   label.setAttribute("for", "inputGroupFile04");
-  //label.append("Choose file");
+  label.append("Choose file");
 
   formDiv1.classList.add("input-group-append");
   btn.classList.add("btn");
@@ -84,6 +84,7 @@ function addBtn() {
   input.setAttribute("type", "file");
   input.setAttribute("id", "inputGroupFile04");
   input.setAttribute("aria-describedby", "inputGroupFileAddon04");
+  input.addEventListener("change", fileLoad);
   label.classList.add("custom-file-label");
   label.setAttribute("for", "inputGroupFile04");
   label.append("Choose file");
@@ -105,8 +106,7 @@ function addBtn() {
 }
 
 function fileLoad() {
-  let file = inputGroupFile04;
-  console.log(file.value);
+  this.nextSibling.innerHTML = this.files[0].name;
 }
 
 bootGrid();
