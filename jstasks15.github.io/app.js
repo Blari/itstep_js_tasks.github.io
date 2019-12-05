@@ -25,12 +25,13 @@ function bootGrid(e) {
   mainDiv.classList.add("input-group");
   formDiv.classList.add("custom-file");
   input.classList.add("custom-file-input");
-  input.setAttribute("type", "file");
   input.setAttribute("id", "inputGroupFile04");
+  input.setAttribute("type", "file");
   input.setAttribute("aria-describedby", "inputGroupFileAddon04");
+  input.addEventListener("click", fileLoad);
   label.classList.add("custom-file-label");
   label.setAttribute("for", "inputGroupFile04");
-  label.append("Choose file");
+  //label.append("Choose file");
 
   formDiv1.classList.add("input-group-append");
   btn.classList.add("btn");
@@ -38,6 +39,7 @@ function bootGrid(e) {
   btn.setAttribute("type", "button");
   btn.setAttribute("id", "inputGroupFileAddon04");
   btn.append("+");
+  btn.addEventListener("click", addBtn);
 
   col.classList.add("col-md-6");
   col.classList.add("d-flex");
@@ -67,25 +69,44 @@ function bootGrid(e) {
   body.prepend(container);
 }
 
-/* <div class="input-group">
-
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-  </div>
-
-  <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Кнопка</button>
-  </div>
-
-</div> */
-
 function addBtn() {
+  let form = document.querySelector("form");
+  let mainDiv = document.createElement("div");
+  let formDiv = document.createElement("div");
+  let formDiv1 = document.createElement("div");
   let input = document.createElement("input");
+  let label = document.createElement("label");
+  let btn = document.createElement("button");
 
-  input.classList.add("form-control-file");
+  mainDiv.classList.add("input-group");
+  formDiv.classList.add("custom-file");
+  input.classList.add("custom-file-input");
   input.setAttribute("type", "file");
-  input.setAttribute("id", "exampleFormControlFile1");
+  input.setAttribute("id", "inputGroupFile04");
+  input.setAttribute("aria-describedby", "inputGroupFileAddon04");
+  label.classList.add("custom-file-label");
+  label.setAttribute("for", "inputGroupFile04");
+  label.append("Choose file");
+
+  formDiv1.classList.add("input-group-append");
+  btn.classList.add("btn");
+  btn.classList.add("btn-success");
+  btn.setAttribute("type", "button");
+  btn.setAttribute("id", "inputGroupFileAddon04");
+  btn.append("+");
+  btn.addEventListener("click", addBtn);
+
+  formDiv.append(input);
+  formDiv.append(label);
+  formDiv1.append(btn);
+  mainDiv.append(formDiv);
+  mainDiv.append(formDiv1);
+  form.append(mainDiv);
+}
+
+function fileLoad() {
+  let file = inputGroupFile04;
+  console.log(file.value);
 }
 
 bootGrid();
