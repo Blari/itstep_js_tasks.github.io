@@ -3,7 +3,6 @@ function randomInteger(min, max) {
   let rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
 }
-
 //Формируем bootstrap сетку
 function bootGrid(e) {
   let body = document.querySelector("body");
@@ -23,12 +22,11 @@ function bootGrid(e) {
   let btn = document.createElement("button");
   let formDiv2 = document.createElement("div");
   let btnDel = document.createElement("button");
-  /* <div class="input-group-prepend">
-    <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon03">Кнопка</button>
-  </div> */
+
+  let ul = document.createElement('ul');
+  ul.classList.add('list-group');
 
   btnDel.classList.add("btn");
-  //btnDel.classList.add("btn-outline-secondary");
   btnDel.classList.add("btn-warning");
   btnDel.setAttribute("type", "button");
   mainDiv.classList.add("input-group");
@@ -65,6 +63,7 @@ function bootGrid(e) {
   row2.classList.add("row");
   container.classList.add("container");
 
+  col1.append(ul);
   formDiv2.append(btnDel);
   formDiv.append(input);
   formDiv.append(label);
@@ -81,8 +80,10 @@ function bootGrid(e) {
   container.append(row);
   container.append(row2);
   body.prepend(container);
-}
 
+  addLi();
+}
+//Добавляем инпут и кнопки
 function addBtn() {
   let form = document.querySelector("form");
   let mainDiv = document.createElement("div");
@@ -108,7 +109,6 @@ function addBtn() {
 
   btnDel.classList.add("btn");
   btnDel.addEventListener("click", delFoo);
-  //btnDel.classList.add("btn-outline-secondary");
   btnDel.classList.add("btn-warning");
   formDiv1.classList.add("input-group-append");
   btn.classList.add("btn");
@@ -126,12 +126,48 @@ function addBtn() {
   mainDiv.append(formDiv);
   mainDiv.append(formDiv1);
   form.append(mainDiv);
+  addLi();
+}
+//Забираем имя файла. Добавляем имя файла в список
+function fileLoad() {
+  //let i = 0;
+  this.classList.add('one');
+
+  let li = document.getElementsByTagName('li');
+  let input = document.getElementsByTagName('input');
+
+  for (let i = 0; i < input.length; i++){
+    if (input[i].classList.contains('one')) {
+      this.nextSibling.innerHTML = this.files[0].name;
+      li[i].innerHTML = (this.files[0].name);
+      input[i].className = 'custom-file-input';
+      break;
+    }
+  }
+}
+//Удаление кнопок
+function delFoo(e) {
+  let li = document.querySelectorAll('li')[0];
+  li.remove();
+  e.preventDefault();
+  this.parentNode.parentNode.remove();
+
+}
+//Добавление пунктов в список
+function addLi(){
+  let ul = document.querySelector('ul');
+  let li = document.createElement('li');
+  li.classList.add('list-group-item');
+  x = randomInteger(1,2);
+  li.append('Choose file');
+  ul.append(li);
+}
+//Отрисовка списка
+function listDrav(){
+  let col = document.querySelectorAll('.col-md-6')[1];
+  let ul = document.querySelector('ul');
+  col.append(ul);
 }
 
-function fileLoad() {
-  this.nextSibling.innerHTML = this.files[0].name;
-}
-function delFoo(e) {
-  e.preventDefault();
-}
 bootGrid();
+listDrav();
