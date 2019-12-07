@@ -39,7 +39,7 @@ function bootGrid(e) {
   input.setAttribute("data-toggle", "modal");
   input.setAttribute("data-target", "#exampleModal");
   input.addEventListener("change", fileLoad);
-  input.addEventListener("click", runModal);
+  //input.addEventListener("click", runModal);
   label.classList.add("custom-file-label");
   label.setAttribute("for", "inputGroupFile04");
   label.append("Choose file");
@@ -132,24 +132,26 @@ function addBtn() {
   addLi();
 }
 //Забираем имя файла. Добавляем имя файла в список
-function fileLoad(runModal) {
-  //let i = 0;
-  this.classList.add("one");
+function fileLoad() {
+  const promise = new Promise((resolve, reject) => {
+    this.classList.add("one");
+    console.log(this);
+    let li = document.getElementsByTagName("li");
+    let input = document.getElementsByTagName("input");
 
-  let li = document.getElementsByTagName("li");
-  let input = document.getElementsByTagName("input");
+    let fileName = this.files[0].name;
 
-  let fileName = this.files[0].name;
-
-  for (let i = 0; i < input.length; i++) {
-    if (input[i].classList.contains("one")) {
-      this.nextSibling.innerHTML = this.files[0].name;
-      li[i].innerHTML = this.files[0].name;
-      input[i].className = "custom-file-input";
-      break;
+    for (let i = 0; i < input.length; i++) {
+      if (input[i].classList.contains("one")) {
+        this.nextSibling.innerHTML = this.files[0].name;
+        li[i].innerHTML = this.files[0].name;
+        input[i].className = "custom-file-input";
+        break;
+      }
     }
-  }
-  runModal(fileName);
+    resolve(fileName);
+  });
+  promise.then(x => runModal(x));
 }
 //Удаление кнопок
 function delFoo(e) {
@@ -175,7 +177,6 @@ function listDrav() {
 }
 //Запуск модального окна
 function runModal(fileName) {
-  //let active = document.querySelector(".active").innerHTML;
   let body = document.querySelector("body");
   let modal = document.createElement("div");
   let modalDialog = document.createElement("div");
@@ -206,7 +207,7 @@ function runModal(fileName) {
   modalHeader.classList.add("modal-header");
 
   modalTitle.classList.add("modal-title");
-  //modalTitle.append(title);
+  modalTitle.append(fileName);
 
   btn.setAttribute("type", "button");
   btn.classList.add("close");
