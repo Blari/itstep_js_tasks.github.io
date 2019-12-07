@@ -132,12 +132,14 @@ function addBtn() {
   addLi();
 }
 //Забираем имя файла. Добавляем имя файла в список
-function fileLoad() {
+function fileLoad(runModal) {
   //let i = 0;
   this.classList.add("one");
 
   let li = document.getElementsByTagName("li");
   let input = document.getElementsByTagName("input");
+
+  let fileName = this.files[0].name;
 
   for (let i = 0; i < input.length; i++) {
     if (input[i].classList.contains("one")) {
@@ -147,6 +149,7 @@ function fileLoad() {
       break;
     }
   }
+  runModal(fileName);
 }
 //Удаление кнопок
 function delFoo(e) {
@@ -171,7 +174,7 @@ function listDrav() {
   col.append(ul);
 }
 //Запуск модального окна
-function runModal() {
+function runModal(fileName) {
   //let active = document.querySelector(".active").innerHTML;
   let body = document.querySelector("body");
   let modal = document.createElement("div");
@@ -216,7 +219,7 @@ function runModal() {
   modalBody.classList.add("modal-body");
   modalBody.insertAdjacentHTML(
     "beforeend",
-    `<p>Вы загрузили файл: имя файла</p>`
+    `<p>Вы загрузили файл: ${fileName}</p>`
   );
 
   modalFooter.classList.add("modal-footer");
