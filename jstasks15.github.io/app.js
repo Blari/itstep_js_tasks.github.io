@@ -1,8 +1,3 @@
-//Случайное число
-function randomInteger(min, max) {
-  let rand = min + Math.random() * (max + 1 - min);
-  return Math.floor(rand);
-}
 //Формируем bootstrap сетку
 function bootGrid(e) {
   let body = document.querySelector("body");
@@ -36,12 +31,8 @@ function bootGrid(e) {
   input.setAttribute("id", "inputGroupFile04");
   input.setAttribute("type", "file");
   input.setAttribute("aria-describedby", "inputGroupFileAddon04");
-  input.setAttribute("data-toggle", "modal");
-  input.setAttribute("data-target", "#exampleModal");
 
-  input.addEventListener("change", function() {
-    test(modalStart);
-  });
+  input.addEventListener("change", fileLoad);
 
   label.classList.add("custom-file-label");
   label.setAttribute("for", "inputGroupFile04");
@@ -90,13 +81,6 @@ function bootGrid(e) {
   addLi();
   runModal();
 }
-
-function test(callBack) {
-  let th = this;
-  fileLoad(th);
-  callBack();
-}
-
 //Добавляем инпут и кнопки
 function addBtn() {
   let form = document.querySelector("form");
@@ -116,9 +100,9 @@ function addBtn() {
   input.setAttribute("type", "file");
   input.setAttribute("id", "inputGroupFile04");
   input.setAttribute("aria-describedby", "inputGroupFileAddon04");
-  input.addEventListener("change", function() {
-    fileLoad(modalStart);
-  });
+
+  input.addEventListener("change", fileLoad);
+
   label.classList.add("custom-file-label");
   label.setAttribute("for", "inputGroupFile04");
   label.append("Choose file");
@@ -145,35 +129,48 @@ function addBtn() {
   addLi();
 }
 //Забираем имя файла. Добавляем имя файла в список
-function fileLoad(th) {
-  th.classList.add("one");
+function fileLoad() {
+  this.classList.add("one");
   let li = document.getElementsByTagName("li");
   let input = document.getElementsByTagName("input");
+  let modalBody = document.getElementsByClassName("modal-body")[0];
 
-  let fileName = th.files[0].name;
+  let fileName = this.files[0].name;
 
   for (let i = 0; i < input.length; i++) {
     if (input[i].classList.contains("one")) {
-      th.nextSibling.innerHTML = fileName;
+      this.nextSibling.innerHTML = fileName;
       li[i].innerHTML = fileName;
       input[i].className = "custom-file-input";
+      input[i].setAttribute("data-toggle", "modal");
+      input[i].setAttribute("data-target", "#exampleModal");
       break;
     }
   }
-}
 
-//Функция запуска модалки
-function modalStart() {
-  console.log(222);
+  //Открываем модаль
+  $("#exampleModal").modal();
+  modalBody.innerHTML = `<p>Вы загрузили файл: ${fileName}</p>`;
 
-  //$("#exampleModal").modal();
+  //Закрываем модаль
+  setTimeout(function() {
+    $("#exampleModal").modal("hide");
+  }, 2500);
 }
-//Удаление кнопок
+//Удаление кнопки и элемента списка
 function delFoo(e) {
-  let li = document.querySelectorAll("li")[0];
-  li.remove();
+  let btn = document.getElementsByClassName("btn-warning");
+  let li = document.querySelectorAll("li");
+  this.classList.add("litarg");
+
+  for (let i = 0; i < btn.length; i++) {
+    if (btn[i].classList.contains("litarg")) {
+      li[i].remove();
+      this.parentNode.parentNode.remove();
+      break;
+    }
+  }
   e.preventDefault();
-  this.parentNode.parentNode.remove();
 }
 //Добавление пунктов в список
 function addLi() {
@@ -190,7 +187,7 @@ function listDrav() {
   let ul = document.querySelector("ul");
   col.append(ul);
 }
-//Запуск модального окна
+//Отрисовка модального окна
 function runModal(fileName = "none") {
   let body = document.querySelector("body");
   let modal = document.createElement("div");
@@ -203,7 +200,7 @@ function runModal(fileName = "none") {
   let modalBody = document.createElement("div");
   let modalFooter = document.createElement("div");
   let btnFooter = document.createElement("button");
-  let btnFooter2 = document.createElement("button");
+  //let btnFooter2 = document.createElement("button");
 
   modal.classList.add("modal");
   modal.classList.add("fade");
@@ -222,12 +219,12 @@ function runModal(fileName = "none") {
   modalHeader.classList.add("modal-header");
 
   modalTitle.classList.add("modal-title");
-  modalTitle.append(fileName);
+  //modalTitle.append(fileName);
 
-  btn.setAttribute("type", "button");
-  btn.classList.add("close");
-  btn.setAttribute("data-dismiss", "modal");
-  btn.setAttribute("aria-label", "Close");
+  // btn.setAttribute("type", "button");
+  // btn.classList.add("close");
+  //btn.setAttribute("data-dismiss", "modal");
+  //btn.setAttribute("aria-label", "Close");
 
   span.setAttribute("aria-hidden", "true");
   span.insertAdjacentHTML("beforeend", "&times;");
@@ -246,17 +243,17 @@ function runModal(fileName = "none") {
   btnFooter.setAttribute("data-dismiss", "modal");
   btnFooter.append("Закрыть окно");
 
-  btnFooter2.classList.add("btn");
-  btnFooter2.classList.add("btn-primary");
-  btnFooter2.setAttribute("type", "button");
-  btnFooter2.append("Применить");
+  // btnFooter2.classList.add("btn");
+  // btnFooter2.classList.add("btn-primary");
+  // btnFooter2.setAttribute("type", "button");
+  // btnFooter2.append("Применить");
 
-  modalFooter.append(btnFooter);
-  modalFooter.append(btnFooter2);
+  //modalFooter.append(btnFooter);
+  //modalFooter.append(btnFooter2);
 
   modalHeader.append(modalTitle);
-  btn.append(span);
-  modalHeader.append(btn);
+  //btn.append(span);
+  //modalHeader.append(btn);
 
   modalContent.append(modalHeader);
   modalContent.append(modalBody);
