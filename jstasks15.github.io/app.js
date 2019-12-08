@@ -38,8 +38,11 @@ function bootGrid(e) {
   input.setAttribute("aria-describedby", "inputGroupFileAddon04");
   input.setAttribute("data-toggle", "modal");
   input.setAttribute("data-target", "#exampleModal");
-  input.addEventListener("change", fileLoad);
-  //input.addEventListener("click", runModal);
+
+  input.addEventListener("change", function() {
+    fileLoad(modalStart);
+  });
+
   label.classList.add("custom-file-label");
   label.setAttribute("for", "inputGroupFile04");
   label.append("Choose file");
@@ -105,7 +108,9 @@ function addBtn() {
   input.setAttribute("type", "file");
   input.setAttribute("id", "inputGroupFile04");
   input.setAttribute("aria-describedby", "inputGroupFileAddon04");
-  input.addEventListener("change", fileLoad);
+  input.addEventListener("change", function() {
+    fileLoad(modalStart);
+  });
   label.classList.add("custom-file-label");
   label.setAttribute("for", "inputGroupFile04");
   label.append("Choose file");
@@ -132,26 +137,28 @@ function addBtn() {
   addLi();
 }
 //Забираем имя файла. Добавляем имя файла в список
-function fileLoad() {
-  const promise = new Promise((resolve, reject) => {
-    this.classList.add("one");
-    console.log(this);
-    let li = document.getElementsByTagName("li");
-    let input = document.getElementsByTagName("input");
+function fileLoad(callBack) {
+  this.classList.add("one");
+  let li = document.getElementsByTagName("li");
+  let input = document.getElementsByTagName("input");
 
-    let fileName = this.files[0].name;
+  let fileName = this.files[0].name;
 
-    for (let i = 0; i < input.length; i++) {
-      if (input[i].classList.contains("one")) {
-        this.nextSibling.innerHTML = this.files[0].name;
-        li[i].innerHTML = this.files[0].name;
-        input[i].className = "custom-file-input";
-        break;
-      }
+  for (let i = 0; i < input.length; i++) {
+    if (input[i].classList.contains("one")) {
+      this.nextSibling.innerHTML = fileName;
+      li[i].innerHTML = fileName;
+      input[i].className = "custom-file-input";
+      break;
     }
-    resolve(fileName);
-  });
-  promise.then(x => runModal(x));
+  }
+  callBack();
+}
+
+//Функция запуска модалки
+function modalStart() {
+  console.log(222);
+  //$("#exampleModal").modal();
 }
 //Удаление кнопок
 function delFoo(e) {
@@ -176,7 +183,7 @@ function listDrav() {
   col.append(ul);
 }
 //Запуск модального окна
-function runModal(fileName) {
+function runModal(fileName = "none") {
   let body = document.querySelector("body");
   let modal = document.createElement("div");
   let modalDialog = document.createElement("div");
@@ -229,13 +236,11 @@ function runModal(fileName) {
   btnFooter.classList.add("btn-secondary");
   btnFooter.setAttribute("type", "button");
   btnFooter.setAttribute("data-dismiss", "modal");
-  //btnFooter.addEventListener("click", removeModal);
   btnFooter.append("Закрыть окно");
 
   btnFooter2.classList.add("btn");
   btnFooter2.classList.add("btn-primary");
   btnFooter2.setAttribute("type", "button");
-  //btnFooter2.addEventListener("click", delActive);
   btnFooter2.append("Применить");
 
   modalFooter.append(btnFooter);
@@ -256,3 +261,4 @@ function runModal(fileName) {
 }
 
 bootGrid();
+runModal();
