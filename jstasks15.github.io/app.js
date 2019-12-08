@@ -77,7 +77,7 @@ function bootGrid(e) {
   container.append(row);
   container.append(row2);
   body.prepend(container);
-  listDrav();
+  listDraw();
   addLi();
   runModal();
 }
@@ -157,7 +157,7 @@ function fileLoad() {
     $("#exampleModal").modal("hide");
   }, 2500);
 }
-//Удаление кнопки и элемента списка
+//Удаление кнопки
 function delFoo(e) {
   let btn = document.getElementsByClassName("btn-warning");
   let li = document.querySelectorAll("li");
@@ -177,12 +177,11 @@ function addLi() {
   let ul = document.querySelector("ul");
   let li = document.createElement("li");
   li.classList.add("list-group-item");
-  x = randomInteger(1, 2);
   li.append("Choose file");
   ul.append(li);
 }
 //Отрисовка списка
-function listDrav() {
+function listDraw() {
   let col = document.querySelectorAll(".col-md-6")[1];
   let ul = document.querySelector("ul");
   col.append(ul);
