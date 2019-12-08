@@ -40,7 +40,7 @@ function bootGrid(e) {
   input.setAttribute("data-target", "#exampleModal");
 
   input.addEventListener("change", function() {
-    fileLoad(modalStart);
+    test(modalStart);
   });
 
   label.classList.add("custom-file-label");
@@ -88,7 +88,15 @@ function bootGrid(e) {
   body.prepend(container);
   listDrav();
   addLi();
+  runModal();
 }
+
+function test(callBack) {
+  let th = this;
+  fileLoad(th);
+  callBack();
+}
+
 //Добавляем инпут и кнопки
 function addBtn() {
   let form = document.querySelector("form");
@@ -137,27 +145,27 @@ function addBtn() {
   addLi();
 }
 //Забираем имя файла. Добавляем имя файла в список
-function fileLoad(callBack) {
-  this.classList.add("one");
+function fileLoad(th) {
+  th.classList.add("one");
   let li = document.getElementsByTagName("li");
   let input = document.getElementsByTagName("input");
 
-  let fileName = this.files[0].name;
+  let fileName = th.files[0].name;
 
   for (let i = 0; i < input.length; i++) {
     if (input[i].classList.contains("one")) {
-      this.nextSibling.innerHTML = fileName;
+      th.nextSibling.innerHTML = fileName;
       li[i].innerHTML = fileName;
       input[i].className = "custom-file-input";
       break;
     }
   }
-  callBack();
 }
 
 //Функция запуска модалки
 function modalStart() {
   console.log(222);
+
   //$("#exampleModal").modal();
 }
 //Удаление кнопок
@@ -261,4 +269,3 @@ function runModal(fileName = "none") {
 }
 
 bootGrid();
-runModal();
