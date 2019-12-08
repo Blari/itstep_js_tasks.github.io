@@ -200,7 +200,6 @@ function runModal(fileName = "none") {
   let modalBody = document.createElement("div");
   let modalFooter = document.createElement("div");
   let btnFooter = document.createElement("button");
-  //let btnFooter2 = document.createElement("button");
 
   modal.classList.add("modal");
   modal.classList.add("fade");
@@ -219,12 +218,6 @@ function runModal(fileName = "none") {
   modalHeader.classList.add("modal-header");
 
   modalTitle.classList.add("modal-title");
-  //modalTitle.append(fileName);
-
-  // btn.setAttribute("type", "button");
-  // btn.classList.add("close");
-  //btn.setAttribute("data-dismiss", "modal");
-  //btn.setAttribute("aria-label", "Close");
 
   span.setAttribute("aria-hidden", "true");
   span.insertAdjacentHTML("beforeend", "&times;");
@@ -243,17 +236,7 @@ function runModal(fileName = "none") {
   btnFooter.setAttribute("data-dismiss", "modal");
   btnFooter.append("Закрыть окно");
 
-  // btnFooter2.classList.add("btn");
-  // btnFooter2.classList.add("btn-primary");
-  // btnFooter2.setAttribute("type", "button");
-  // btnFooter2.append("Применить");
-
-  //modalFooter.append(btnFooter);
-  //modalFooter.append(btnFooter2);
-
   modalHeader.append(modalTitle);
-  //btn.append(span);
-  //modalHeader.append(btn);
 
   modalContent.append(modalHeader);
   modalContent.append(modalBody);
