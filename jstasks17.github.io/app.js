@@ -61,17 +61,16 @@ function task1Fun() {
     }
   }
 
-  let h5_4 = document.querySelector(".task1_4");
+  setInterval(secondOfLife, 1000);
+}
 
-  setInterval(() => {
-    let timeZero = new Date();
-    timeZero.setHours(0);
-    timeZero.setMinutes(0);
-    timeZero.setSeconds(0);
-    h5_4.innerHTML = `За сегодня вы прожили: ${(
-      (dateNow - timeZero) /
-      1000 /
-      60
-    ).toFixed(3)} минут`;
-  }, 1000);
+function secondOfLife() {
+  let h5_4 = document.querySelector(".task1_4");
+  let dateNow = new Date();
+  let timeZero = new Date();
+  timeZero.setHours(0);
+  timeZero.setMinutes(0);
+  timeZero.setSeconds(0);
+  h5_4.innerHTML = `За сегодня вы прожили: ${(dateNow - timeZero) /
+    1000} секунд`;
 }
