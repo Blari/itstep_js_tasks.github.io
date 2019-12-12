@@ -7,7 +7,10 @@
 .container .row button {
   margin-bottom: 10px;
 }
-#text1HelpText{
+#text1HelpText {
   color: #6c757d;
   transition: color 0.2s linear;
+}
+.progress-bar {
+  font-size: 20px;
 }

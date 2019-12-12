@@ -83,9 +83,22 @@ function secondOfLife() {
 
 function newYearTime() {
   let btn = document.getElementsByClassName("disable");
+  let pb = document.querySelector(".progress-bar");
+
   let date = new Date();
+  let start = new Date("January 01, 2019 00:00:00");
   let nyDate = new Date("January 01, 2020 00:00:00");
-  let distance = nyDate - date;
+  let distance = nyDate.getTime() - date.getTime();
+  let year = nyDate.getTime() - start.getTime();
+
+  pb.setAttribute("aria-valuemax", nyDate.getTime());
+  pb.setAttribute("aria-valuemin", start.getTime());
+  pb.setAttribute("aria-valuenow", distance);
+
+  let prc = (((year - distance) * 100) / year).toFixed(5);
+  pb.setAttribute("style", `width: ${prc}%;`);
+  pb.innerHTML = `${prc}%`;
+
   let days = Math.floor(distance / (1000 * 60 * 60 * 24));
   let hours = distance % (1000 * 60 * 60 * 24);
   let mins = (distance % (1000 * 60 * 60)) / (1000 * 60);
@@ -95,10 +108,22 @@ function newYearTime() {
   btn[1].innerHTML = `${Math.floor(hours / (1000 * 60 * 60))} часов`;
   btn[2].innerHTML = `${Math.floor(mins)} минут`;
   btn[3].innerHTML = `${Math.floor(sec)} секунд`;
+
   setInterval(() => {
     let date = new Date();
+    let start = new Date("January 01, 2019 00:00:00");
     let nyDate = new Date("January 01, 2020 00:00:00");
     let distance = nyDate - date;
+    let year = nyDate.getTime() - start.getTime();
+
+    pb.setAttribute("aria-valuemax", nyDate.getTime());
+    pb.setAttribute("aria-valuemin", start.getTime());
+    pb.setAttribute("aria-valuenow", distance);
+
+    let prc = (((year - distance) * 100) / year).toFixed(5);
+    pb.setAttribute("style", `width: ${prc}%;`);
+    pb.innerHTML = `${prc}%`;
+
     let days = Math.floor(distance / (1000 * 60 * 60 * 24));
     let hours = distance % (1000 * 60 * 60 * 24);
     let mins = (distance % (1000 * 60 * 60)) / (1000 * 60);
