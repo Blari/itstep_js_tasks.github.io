@@ -20,9 +20,15 @@ function task1Fun(){
     }, 3000);
     
   } else {
-    let h5 = document.querySelector('h5');
+    let h5 = document.querySelector('.task1_1');
+    let h5_2 = document.querySelector('.task1_2');
     let arr = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
     formtext.innerHTML = 'Отлично... Давай посмотрим...';
     h5.innerHTML = `День вашего рождения: ${arr[mainDate.getDay() - 1]}`;
+  
+    let dateNow = new Date();
+    let time = dateNow.getDay() - mainDate.getDay();
+    console.log(mainDate.getDay());
   }
+
 }
