@@ -1,7 +1,6 @@
 let btn1 = document.getElementById('buttonT1');
 btn1.addEventListener('click', task1Fun);
 
-
 function task1Fun(){
   
   let date = document.querySelector('#text1').value;
@@ -44,11 +43,5 @@ function task1Fun(){
       time2.setFullYear(time3.getFullYear() + 1);
       h5_3.innerHTML = `До вашего дня рождения осталось: ${(((time2 - time3) / 1000) / 60) / 60 /24} дней`;
     }
-    
-   
-    console.log(time3);
-    console.log(time2);
-    console.log((time3 - time2) / 1000);
   }
-
 }
