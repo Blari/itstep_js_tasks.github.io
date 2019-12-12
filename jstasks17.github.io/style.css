@@ -9,4 +9,5 @@
 }
 #text1HelpText{
   color: #6c757d;
+  transition: color 0.2s linear;
 }
