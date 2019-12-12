@@ -32,12 +32,19 @@ function task1Fun(){
     let time = dateNow - mainDate.getTime();
     h5_2.innerHTML = `Cо дня рождения прошло: ${parseInt(((time / 1000) / 60) / 60/ 24)} дней`;
 
-    let time2 = new Date;
-    let time3 = new Date;
+    let time2 = new Date; //Дата ближайшего дня рождения
+    let time3 = new Date; //Текущая дата
+    
     time2.setMonth(mainDate.getMonth());
     time2.setDate(mainDate.getDate());
 
-    h5_3.innerHTML = `До вашего дня рождения осталось: ${(((time3 - time2) / 1000) / 60) / 60 /24} дней`;
+    if (time3 < time2) {
+      h5_3.innerHTML = `До вашего дня рождения осталось: ${(((time2 - time3) / 1000) / 60) / 60 /24} дней`;
+    }else {
+      time2.setFullYear(time3.getFullYear() + 1);
+      h5_3.innerHTML = `До вашего дня рождения осталось: ${(((time2 - time3) / 1000) / 60) / 60 /24} дней`;
+    }
+    
    
     console.log(time3);
     console.log(time2);
