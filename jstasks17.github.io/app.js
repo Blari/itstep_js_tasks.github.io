@@ -9,7 +9,7 @@ function task1Fun(){
   let formtext = document.querySelector('#text1HelpText');
   let text = `Ну и с каких пор '${date}' соответствует формату xxxx-xx-xx?`;
   let mainText = 'Дата рождения должна быть в формате год-месяц-число (2017-01-26)';
-  let re = /^\d{4}(-\d{2}){2}$/;
+  let re = /^\d{4}((-|:| )\d{2}){2}$/;
   
   if (!re.test(date)) {
     formtext.style.color = 'red';
@@ -26,7 +26,6 @@ function task1Fun(){
     let arr = [ 'воскресенье','понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
     formtext.innerHTML = 'Отлично... Давай посмотрим...';
     h5.innerHTML = `День вашего рождения: ${arr[mainDate.getDay()]}`;
-    console.log(mainDate.getDay());
   
     let time = dateNow - mainDate.getTime();
     h5_2.innerHTML = `Cо дня рождения прошло: ${parseInt(((time / 1000) / 60) / 60/ 24)} дней`;
