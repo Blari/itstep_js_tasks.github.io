@@ -31,7 +31,12 @@ function task1Fun() {
       "пятница",
       "суббота"
     ];
+    formtext.style.color = "green";
     formtext.innerHTML = "Отлично... Давай посмотрим...";
+    setTimeout(() => {
+      formtext.style.color = "#6c757d";
+      formtext.innerHTML = "Отлично... Давай посмотрим...";
+    }, 3000);
     h5.innerHTML = `День вашего рождения: ${arr[mainDate.getDay()]}`;
 
     let time = dateNow - mainDate.getTime();
@@ -71,6 +76,39 @@ function secondOfLife() {
   timeZero.setHours(0);
   timeZero.setMinutes(0);
   timeZero.setSeconds(0);
-  h5_4.innerHTML = `За сегодня вы прожили: ${(dateNow - timeZero) /
-    1000} секунд`;
+  h5_4.innerHTML = `За сегодня вы прожили: ${Math.round(
+    (dateNow - timeZero) / 1000 / 60
+  )} минут. Это ${Math.floor(dateNow - timeZero) / 1000} секунд`;
 }
+
+function newYearTime() {
+  let btn = document.getElementsByClassName("disable");
+  let date = new Date();
+  let nyDate = new Date("January 01, 2020 00:00:00");
+  let distance = nyDate - date;
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = distance % (1000 * 60 * 60 * 24);
+  let mins = (distance % (1000 * 60 * 60)) / (1000 * 60);
+  let sec = (distance % (1000 * 60)) / 1000;
+
+  btn[0].innerHTML = `${days} дней`;
+  btn[1].innerHTML = `${Math.floor(hours / (1000 * 60 * 60))} часов`;
+  btn[2].innerHTML = `${Math.floor(mins)} минут`;
+  btn[3].innerHTML = `${Math.floor(sec)} секунд`;
+  setInterval(() => {
+    let date = new Date();
+    let nyDate = new Date("January 01, 2020 00:00:00");
+    let distance = nyDate - date;
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let hours = distance % (1000 * 60 * 60 * 24);
+    let mins = (distance % (1000 * 60 * 60)) / (1000 * 60);
+    let sec = (distance % (1000 * 60)) / 1000;
+
+    btn[0].innerHTML = `${days} дней`;
+    btn[1].innerHTML = `${Math.floor(hours / (1000 * 60 * 60))} часов`;
+    btn[2].innerHTML = `${Math.floor(mins)} минут`;
+    btn[3].innerHTML = `${Math.floor(sec)} секунд`;
+  }, 1000);
+}
+
+newYearTime();
