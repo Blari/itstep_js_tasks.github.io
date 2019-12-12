@@ -5,6 +5,7 @@ btn1.addEventListener('click', task1Fun);
 function task1Fun(){
   
   let date = document.querySelector('#text1').value;
+  let dateNow = Date.now();
   let mainDate = new Date(date);
   let formtext = document.querySelector('#text1HelpText');
   let text = `Ну и с каких пор '${date}' соответствует формату xxxx-xx-xx?`;
@@ -27,10 +28,19 @@ function task1Fun(){
     formtext.innerHTML = 'Отлично... Давай посмотрим...';
     h5.innerHTML = `День вашего рождения: ${arr[mainDate.getDay() - 1]}`;
   
-    let dateNow = Date.now();
-
     let time = dateNow - mainDate.getTime();
     h5_2.innerHTML = `Cо дня рождения прошло: ${parseInt(((time / 1000) / 60) / 60/ 24)} дней`;
+
+    let time2 = new Date;
+    let time3 = new Date;
+    time2.setMonth(mainDate.getMonth());
+    time2.setDate(mainDate.getDate());
+
+    h5_3.innerHTML = `До вашего дня рождения осталось: ${(((time3 - time2) / 1000) / 60) / 60 /24} дней`;
+   
+    console.log(time3);
+    console.log(time2);
+    console.log((time3 - time2) / 1000);
   }
 
 }
