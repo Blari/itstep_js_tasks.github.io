@@ -22,13 +22,15 @@ function task1Fun(){
   } else {
     let h5 = document.querySelector('.task1_1');
     let h5_2 = document.querySelector('.task1_2');
+    let h5_3 = document.querySelector('.task1_3');
     let arr = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
     formtext.innerHTML = 'Отлично... Давай посмотрим...';
     h5.innerHTML = `День вашего рождения: ${arr[mainDate.getDay() - 1]}`;
   
-    let dateNow = new Date();
-    let time = dateNow.getDay() - mainDate.getDay();
-    console.log(mainDate.getDay());
+    let dateNow = Date.now();
+
+    let time = dateNow - mainDate.getTime();
+    h5_2.innerHTML = `Cо дня рождения прошло: ${parseInt(((time / 1000) / 60) / 60/ 24)} дней`;
   }
 
 }
