@@ -23,6 +23,6 @@ function task1Fun(){
     let h5 = document.querySelector('h5');
     let arr = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
     formtext.innerHTML = 'Отлично... Давай посмотрим...';
-    h5.innerHTML += arr[mainDate.getDay() - 1];
+    h5.innerHTML = `День вашего рождения: ${arr[mainDate.getDay() - 1]}`;
   }
 }
