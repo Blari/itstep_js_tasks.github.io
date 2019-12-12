@@ -1,0 +1,12 @@
+.container {
+  padding-top: 50px;
+}
+.container .row {
+  padding-top: 20px;
+}
+.container .row button {
+  margin-bottom: 10px;
+}
+#text1HelpText{
+  color: #6c757d;
+}
