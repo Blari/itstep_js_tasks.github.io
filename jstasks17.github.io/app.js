@@ -60,7 +60,7 @@ function task1Fun() {
         24} дней`;
     }
   }
-
+  secondOfLife();
   setInterval(secondOfLife, 1000);
 }
 
