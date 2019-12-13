@@ -1,5 +1,13 @@
 let btn1 = document.getElementById("buttonT1");
+let input = document.querySelector(".form-control");
 btn1.addEventListener("click", task1Fun);
+input.addEventListener("keypress", task1FunE);
+
+function task1FunE(e) {
+  if (e.keyCode == 13) {
+    task1Fun();
+  }
+}
 
 function task1Fun() {
   let date = document.querySelector("#text1").value;
