@@ -35,29 +35,30 @@
           </p>
         </div>
       </div>
-      <div class="w-100"></div>
-      <div class="col-md-12">
-        <label for="text1">Введите дату рождения</label>
-        <input
-          id="text1"
-          class="form-control"
-          type="text"
-          value="1986-03-07"
-          placeholder="XXXX-XX-XX"
-        />
-        <small id="text1HelpText" class="form-text">
-          Дата рождения должна быть в формате год-месяц-число (2017-01-26) </small
-        ><br />
-        <h6 class="task1_1">День вашего рождения:</h6>
-        <h6 class="task1_2">Со дня рождения прошло:</h6>
-        <h6 class="task1_3">До вашего дня рождения осталось:</h6>
-        <h6 class="task1_4">За сегодня вы прожили:</h6>
-        <br />
-        <button type="button" id="buttonT1" class="btn btn-success btn-block">
-          Узнать день недели
-        </button>
+      <div class="row">
+        <div class="col-md-12">
+          <label for="text1">Введите дату рождения</label>
+          <input
+            id="text1"
+            class="form-control"
+            type="text"
+            value="1986-03-07"
+            placeholder="XXXX-XX-XX"
+          />
+          <small id="text1HelpText" class="form-text">
+            Дата рождения должна быть в формате год-месяц-число (2017-01-26) </small
+          ><br />
+          <h6 class="task1_1">День вашего рождения:</h6>
+          <h6 class="task1_2">Со дня рождения прошло:</h6>
+          <h6 class="task1_3">До вашего дня рождения осталось:</h6>
+          <h6 class="task1_4">За сегодня вы прожили:</h6>
+          <br />
+          <button type="button" id="buttonT1" class="btn btn-success btn-block">
+            Узнать день недели
+          </button>
+        </div>
+        <hr />
       </div>
-      <hr />
       <div class="row">
         <div class="col-md-12">
           <br />
@@ -67,29 +68,38 @@
           </p>
         </div>
       </div>
-      <div class="w-100"></div>
-      <div class="col-md-12">
-        <button type="button" class="btn btn-primary btn-lg disable"></button>
-        <button type="button" class="btn btn-primary btn-lg disable"></button>
-        <button type="button" class="btn btn-primary btn-lg disable"></button>
-        <button type="button" class="btn btn-primary btn-lg disable"></button>
-        <br />
-        <br />
-        <div class="progress" style="height: 40px;">
-          <div
-            class="progress-bar progress-bar-striped progress-bar-animated"
-            role="progressbar"
-            style="width: 25%;"
-            aria-valuenow="25"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          >
-            25%
+
+      <div class="row">
+        <div class="col-auto">
+          <button type="button" class="btn btn-primary btn-lg disable"></button>
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-primary btn-lg disable"></button>
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-primary btn-lg disable"></button>
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-primary btn-lg disable"></button>
+        </div>
+
+        <div class="col-md-12">
+          <div class="progress" style="height: 40px;">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              style="width: 25%;"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              25%
+            </div>
           </div>
         </div>
-        <br /><br />
+
+        <hr />
       </div>
-      <hr />
     </div>
 
     <script src="app.js"></script>
