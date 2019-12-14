@@ -3,8 +3,13 @@
 //     task1Fun();
 //   }
 // }
-
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
+let start = document.querySelector(".start");
+start.addEventListener("click", task1Fun);
 function task1Fun() {
-  let time = new Date(0, 0, 0, 0, 0, 0, 0);
+  let time = new Date().getTime();
   let buttons = document.querySelectorAll(".disable");
+  console.log(time);
 }
