@@ -11,29 +11,43 @@ doc.addEventListener("keydown", spaceBtn);
 
 let btnS = document.querySelector(".start");
 let btnP = document.querySelector(".pause");
+let btnR = document.querySelector(".reset");
 
 btnS.addEventListener("click", startFu);
 btnP.addEventListener("click", pauseFu);
-
+btnR.addEventListener("click", resetFu);
+//Нажание пробела
 function spaceBtn(e) {
   if (e.keyCode === 32) {
     run === false ? startFu() : pauseFu();
-  }
+  } else if (e.keyCode === 82) resetFu();
 }
-
+//Запуск секундомера
 function startFu() {
   run = true;
+  btnR.disabled = false;
   btnS.disabled = true;
   btnP.disabled = false;
   tic = setInterval(render, 10);
 }
-
 //Остановка секундомра
 function pauseFu() {
   run = false;
   btnS.disabled = false;
   btnP.disabled = true;
   clearInterval(tic);
+}
+//Обработка ресета
+function resetFu() {
+  let buttons = document.querySelectorAll(".disable");
+  clearInterval(tic);
+  run = false;
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].innerHTML = "00";
+  }
+  btnS.disabled = false;
+  btnP.disabled = true;
+  btnR.disabled = true;
 }
 //Отрисовка в дом
 function render() {
