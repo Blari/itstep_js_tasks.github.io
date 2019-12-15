@@ -63,11 +63,9 @@ function render() {
     } else {
       seconds = 0;
       minutes++;
-      if (minutes < 10) {
-        buttons[1].innerHTML = "0" + minutes;
-      } else {
-        buttons[1].innerHTML = "0" + minutes;
-      }
+      minutes < 10
+        ? (buttons[1].innerHTML = "0" + minutes)
+        : (buttons[1].innerHTML = minutes);
     }
   }
 }
