@@ -9,6 +9,7 @@ let run = false;
 let doc = document.querySelector("body");
 doc.addEventListener("keydown", spaceBtn);
 
+let alerts = document.getElementsByClassName("alert");
 let btnS = document.querySelector(".start");
 let btnL = document.querySelector(".pause");
 let btnR = document.querySelector(".reset");
@@ -58,15 +59,23 @@ function startFu() {
 // //Обработка ресета
 function resetFu() {
   let buttons = document.querySelectorAll(".disable");
+
   clearInterval(tic);
   run = false;
+
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].innerHTML = "00";
   }
+  console.log(alerts);
+  for (let j = 0; j <= alerts.length; j++) {
+    $(alerts[j]).alert("close");
+  }
+
   btnS.disabled = false;
   btnL.disabled = true;
   btnR.disabled = true;
 }
+
 function alertFu(time = "00:00") {
   let col = document.querySelector(".alerts");
 
