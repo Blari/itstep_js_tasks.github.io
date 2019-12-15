@@ -20,7 +20,13 @@ btnL.addEventListener("click", function() {
 btnR.addEventListener("click", resetFu);
 //Нажание пробела
 function spaceBtn(e) {
-  e.keyCode === 32 ? startFu() : e.keyCode === 82 ? resetFu() : null;
+  e.keyCode === 32
+    ? startFu()
+    : e.keyCode === 82
+    ? resetFu()
+    : e.keyCode === 76
+    ? alertFu(timeData())
+    : null;
 }
 
 //Получаем значени секундомера
@@ -61,12 +67,13 @@ function resetFu() {
   btnL.disabled = true;
   btnR.disabled = true;
 }
-function alertFu(time = "00:00:00:00") {
+function alertFu(time = "00:00") {
   let col = document.querySelector(".alerts");
 
   let mainDiv = document.createElement("div");
   let btn = document.createElement("button");
   let span = document.createElement("span");
+
   mainDiv.classList.add("alert");
   mainDiv.classList.add("alert-success");
   mainDiv.classList.add("alert-dismissible");
@@ -83,7 +90,6 @@ function alertFu(time = "00:00:00:00") {
   btn.append(span);
   mainDiv.append(time);
   mainDiv.append(btn);
-
   col.append(mainDiv);
 }
 //Отрисовка в дом
