@@ -26,8 +26,9 @@ function startFu() {
 function render() {
   let buttons = document.querySelectorAll(".disable");
   ms++;
+
   if (ms < 100) {
-    ms >= 0 && ms < 10
+    ms < 10
       ? (buttons[3].innerHTML = "00" + ms)
       : ms >= 10 && ms < 100
       ? (buttons[3].innerHTML = ms + "0")
@@ -36,7 +37,7 @@ function render() {
     ms = 0;
     seconds++;
     if (seconds < 60) {
-      if (seconds >= 0 && seconds < 10) {
+      if (seconds < 10) {
         buttons[2].innerHTML = "0" + seconds;
         buttons[3].innerHTML = ms + "00";
       } else if (seconds >= 10 && seconds < 60) {
