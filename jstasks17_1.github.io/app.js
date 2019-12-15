@@ -1,9 +1,26 @@
 let doc = document.querySelector("body");
 doc.addEventListener("keydown", task1FunE);
 
+let run = false;
+let btnS = document.querySelector(".start");
+let btnC = document.querySelector(".continue");
+let spiner = document.querySelector(".spinner");
+
 function task1FunE(e) {
   if (e.keyCode == 32) {
-    console.log(222);
+    if (run == false) {
+      startFu();
+      btnS.classList.toggle("disabled");
+      btnC.classList.toggle("disabled");
+      spiner.classList.toggle("spinner-grow");
+      spiner.classList.toggle("spinner-grow-sm");
+    } else {
+      stopFu();
+      btnS.classList.toggle("disabled");
+      btnC.classList.toggle("disabled");
+      spiner.classList.toggle("spinner-grow");
+      spiner.classList.toggle("spinner-grow-sm");
+    }
   }
 }
 
@@ -20,8 +37,12 @@ start.addEventListener("click", startFu);
 stop.addEventListener("click", stopFu);
 
 function startFu() {
+  run = true;
+  
+  console.log(run);
   tic = setInterval(render, 10);
 }
+
 //Отрисовка в дом
 function render() {
   let buttons = document.querySelectorAll(".disable");
@@ -47,7 +68,7 @@ function render() {
     } else {
       seconds = 0;
       minutes++;
-      if (minutes >= 0 && minutes < 10) {
+      if (wminutes < 10) {
         buttons[1].innerHTML = "0" + minutes;
         buttons[2].innerHTML = "0" + seconds;
         buttons[3].innerHTML = ms + "00";
@@ -61,5 +82,7 @@ function render() {
 }
 //Остановка секундомра
 function stopFu() {
+  run = false;
+  console.log(run);
   clearInterval(tic);
 }
