@@ -10,34 +10,46 @@ let doc = document.querySelector("body");
 doc.addEventListener("keydown", spaceBtn);
 
 let btnS = document.querySelector(".start");
-let btnP = document.querySelector(".pause");
+let btnL = document.querySelector(".pause");
 let btnR = document.querySelector(".reset");
 
 btnS.addEventListener("click", startFu);
-btnP.addEventListener("click", pauseFu);
+btnL.addEventListener("click", function() {
+  alertFu(timeData());
+});
 btnR.addEventListener("click", resetFu);
 //Нажание пробела
 function spaceBtn(e) {
-  if (e.keyCode === 32) {
-    run === false ? startFu() : pauseFu();
-  } else if (e.keyCode === 82) resetFu();
+  e.keyCode === 32 ? startFu() : e.keyCode === 82 ? resetFu() : null;
+}
+
+//Получаем значени секундомера
+function timeData() {
+  let time = "";
+  let btn = document.querySelectorAll(".disable");
+  for (let i = 0; i < btn.length; i++) {
+    if (i == 3) {
+      time += btn[i].innerText;
+    } else {
+      time = btn[i].innerText + ":";
+    }
+  }
+  return time;
 }
 //Запуск секундомера
 function startFu() {
-  run = true;
-  btnR.disabled = false;
-  btnS.disabled = true;
-  btnP.disabled = false;
-  tic = setInterval(render, 10);
+  if (run == false) {
+    run = true;
+    btnL.disabled = false;
+    btnR.disabled = false;
+    tic = setInterval(render, 10);
+  } else if (run == true) {
+    run = false;
+    clearInterval(tic);
+  }
 }
-//Остановка секундомра
-function pauseFu() {
-  run = false;
-  btnS.disabled = false;
-  btnP.disabled = true;
-  clearInterval(tic);
-}
-//Обработка ресета
+
+// //Обработка ресета
 function resetFu() {
   let buttons = document.querySelectorAll(".disable");
   clearInterval(tic);
@@ -46,13 +58,37 @@ function resetFu() {
     buttons[i].innerHTML = "00";
   }
   btnS.disabled = false;
-  btnP.disabled = true;
+  btnL.disabled = true;
   btnR.disabled = true;
+}
+function alertFu(time = "00:00:00:00") {
+  let col = document.querySelector(".alerts");
+
+  let mainDiv = document.createElement("div");
+  let btn = document.createElement("button");
+  let span = document.createElement("span");
+  mainDiv.classList.add("alert");
+  mainDiv.classList.add("alert-success");
+  mainDiv.classList.add("alert-dismissible");
+  mainDiv.classList.add("fade");
+  mainDiv.classList.add("show");
+  mainDiv.setAttribute("role", "alert");
+  btn.classList.add("close");
+  btn.setAttribute("type", "button");
+  btn.setAttribute("data-dismiss", "alert");
+  btn.setAttribute("aria-label", "Close");
+  span.setAttribute("aria-hidden", "true");
+
+  span.innerHTML = "&times";
+  btn.append(span);
+  mainDiv.append(time);
+  mainDiv.append(btn);
+
+  col.append(mainDiv);
 }
 //Отрисовка в дом
 function render() {
   let buttons = document.querySelectorAll(".disable");
-
   ms++;
   if (ms < 100) {
     ms < 10
