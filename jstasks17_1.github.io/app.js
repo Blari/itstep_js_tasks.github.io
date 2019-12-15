@@ -1,44 +1,33 @@
-let doc = document.querySelector("body");
-doc.addEventListener("keydown", task1FunE);
-
-let run = false;
-let btnS = document.querySelector(".start");
-let btnC = document.querySelector(".continue");
-let spiner = document.querySelector(".spinner");
-
-function task1FunE(e) {
-  if (e.keyCode == 32) {
-    if (run == false) {
-      startFu();
-      btnS.classList.toggle("disabled");
-      btnC.classList.toggle("disabled");
-      spiner.classList.toggle("spinner-grow");
-      spiner.classList.toggle("spinner-grow-sm");
-    } else {
-      stopFu();
-      btnS.classList.toggle("disabled");
-      btnC.classList.toggle("disabled");
-      spiner.classList.toggle("spinner-grow");
-      spiner.classList.toggle("spinner-grow-sm");
-    }
-  }
-}
-
 let seconds = 0;
 let minutes = 0;
 let hours = 0;
 let ms = 0;
 
 let tic;
+let run = false;
 
-let start = document.querySelector(".start");
-let stop = document.querySelector(".stop");
-start.addEventListener("click", startFu);
-stop.addEventListener("click", stopFu);
+let doc = document.querySelector("body");
+doc.addEventListener("keydown", task1FunE);
+
+let btnS = document.querySelector(".start");
+let btnC = document.querySelector(".continue");
+let spiner = document.querySelector(".spinner");
+
+btnS.addEventListener("click", startFu);
+btnC.addEventListener("click", stopFu);
+
+function task1FunE(e) {
+  if (e.keyCode == 32) {
+    run == false ? startFu() : stopFu();
+  }
+}
 
 function startFu() {
   run = true;
-  
+  btnS.classList.toggle("disabled");
+  btnC.classList.toggle("disabled");
+  spiner.classList.toggle("spinner-grow");
+  spiner.classList.toggle("spinner-grow-sm");
   console.log(run);
   tic = setInterval(render, 10);
 }
@@ -46,8 +35,8 @@ function startFu() {
 //Отрисовка в дом
 function render() {
   let buttons = document.querySelectorAll(".disable");
-  ms++;
 
+  ms++;
   if (ms < 100) {
     ms < 10
       ? (buttons[3].innerHTML = "00" + ms)
@@ -80,9 +69,14 @@ function render() {
     }
   }
 }
+
 //Остановка секундомра
 function stopFu() {
   run = false;
+  btnS.classList.toggle("disabled");
+  btnC.classList.toggle("disabled");
+  spiner.classList.toggle("spinner-grow");
+  spiner.classList.toggle("spinner-grow-sm");
   console.log(run);
   clearInterval(tic);
 }
