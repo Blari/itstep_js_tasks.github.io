@@ -25,7 +25,7 @@ function startFu() {
   run = true;
   btnS.disabled = true;
   btnP.disabled = false;
-  tic = setInterval(render, 1);
+  tic = setInterval(render, 10);
 }
 
 //Остановка секундомра
