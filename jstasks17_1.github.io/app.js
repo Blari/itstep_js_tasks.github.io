@@ -7,31 +7,39 @@ let tic;
 let run = false;
 
 let doc = document.querySelector("body");
-doc.addEventListener("keydown", task1FunE);
+doc.addEventListener("keydown", spaceBtn);
 
 let btnS = document.querySelector(".start");
-let btnC = document.querySelector(".continue");
+let btnP = document.querySelector(".pause");
 let spiner = document.querySelector(".spinner");
 
 btnS.addEventListener("click", startFu);
-btnC.addEventListener("click", stopFu);
+btnP.addEventListener("click", pauseFu);
 
-function task1FunE(e) {
-  if (e.keyCode == 32) {
-    run == false ? startFu() : stopFu();
+function spaceBtn(e) {
+  if (e.keyCode === 32) {
+    run === false ? startFu() : pauseFu();
   }
 }
 
 function startFu() {
   run = true;
-  btnS.classList.toggle("disabled");
-  btnC.classList.toggle("disabled");
+  btnS.disabled = true;
+  btnP.disabled = false;
   spiner.classList.toggle("spinner-grow");
   spiner.classList.toggle("spinner-grow-sm");
-  console.log(run);
   tic = setInterval(render, 10);
 }
 
+//Остановка секундомра
+function pauseFu() {
+  run = false;
+  btnS.disabled = false;
+  btnP.disabled = true;
+  spiner.classList.toggle("spinner-grow");
+  spiner.classList.toggle("spinner-grow-sm");
+  clearInterval(tic);
+}
 //Отрисовка в дом
 function render() {
   let buttons = document.querySelectorAll(".disable");
@@ -47,36 +55,19 @@ function render() {
     ms = 0;
     seconds++;
     if (seconds < 60) {
-      if (seconds < 10) {
-        buttons[2].innerHTML = "0" + seconds;
-        buttons[3].innerHTML = ms + "00";
-      } else if (seconds >= 10 && seconds < 60) {
-        buttons[2].innerHTML = seconds;
-        buttons[3].innerHTML = ms;
-      }
+      seconds < 10
+        ? (buttons[2].innerHTML = "0" + seconds)
+        : seconds >= 10 && seconds < 60
+        ? (buttons[2].innerHTML = seconds)
+        : seconds;
     } else {
       seconds = 0;
       minutes++;
-      if (wminutes < 10) {
+      if (minutes < 10) {
         buttons[1].innerHTML = "0" + minutes;
-        buttons[2].innerHTML = "0" + seconds;
-        buttons[3].innerHTML = ms + "00";
       } else {
         buttons[1].innerHTML = "0" + minutes;
-        buttons[2].innerHTML = "0" + seconds;
-        buttons[3].innerHTML = ms + "00";
       }
     }
   }
-}
-
-//Остановка секундомра
-function stopFu() {
-  run = false;
-  btnS.classList.toggle("disabled");
-  btnC.classList.toggle("disabled");
-  spiner.classList.toggle("spinner-grow");
-  spiner.classList.toggle("spinner-grow-sm");
-  console.log(run);
-  clearInterval(tic);
 }
