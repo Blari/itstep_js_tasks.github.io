@@ -21,11 +21,12 @@ function timeDay() {
 
 function cookSet() {
   let input = document.querySelectorAll("input");
-  Cookies.set("name", input[0].value, { expires: 14 });
-  Cookies.set("sername", input[1].value, { expires: 14 });
+  Cookies.set("name", input[0].value, { expires: 365 });
+  Cookies.set("sername", input[1].value, { expires: 365 });
 }
 
 function cookGet() {
+  console.log("Куки");
   console.log(Cookies.get());
 }
 
