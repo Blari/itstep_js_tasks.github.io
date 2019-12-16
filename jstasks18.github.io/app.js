@@ -17,12 +17,11 @@ function timeDay() {
     : (day = "");
   p.innerHTML = `${day}, пользователь! Представся и мы продолжим.`;
 }
+
 function cookSet() {
   let input = document.querySelectorAll("input");
-  console.log(input[0].value);
-  console.log(input[1].value);
-  Cookies.set("name", input[0].value);
-  Cookies.set("sername", input[1].value);
+  Cookies.set("name", input[0].value, { expires: 14 });
+  Cookies.set("sername", input[1].value, { expires: 14 });
 }
 
 timeDay();
