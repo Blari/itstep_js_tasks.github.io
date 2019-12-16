@@ -1,5 +1,6 @@
-let btn = document.querySelector(".btn");
-btn.addEventListener("click", cookSet);
+let btn = document.querySelectorAll(".btn");
+btn[0].addEventListener("click", cookSet);
+btn[1].addEventListener("click", cookGet);
 let arr = ["Доброго утра", "Доброго дня", "Доброго вечера", "Доброй ночи"];
 //Приветствие в зависимости от времени
 function timeDay() {
@@ -22,6 +23,10 @@ function cookSet() {
   let input = document.querySelectorAll("input");
   Cookies.set("name", input[0].value, { expires: 14 });
   Cookies.set("sername", input[1].value, { expires: 14 });
+}
+
+function cookGet() {
+  console.log(Cookies.get());
 }
 
 timeDay();
