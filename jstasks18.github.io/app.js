@@ -39,12 +39,21 @@ function cookSet() {
   Cookies.set("sername", input[1].value, { expires: 14 });
   Cookies.set("date", dateStr(), { expires: 14 });
 }
+function cookSet2() {
+  let vis = Cookies.get("count");
 
+  vis === undefined
+    ? Cookies.set("count", 0, { expires: 14 })
+    : Cookies.set("count", +Cookies.get("count") + 1);
+
+  Cookies.set("date", dateStr(), { expires: 14 });
+}
 function cookGet() {
   console.log(`Куки: ${Cookies.get()}`);
 }
 
 function jumbotron() {
+  cookSet2();
   let form = document.querySelector("form");
   form.remove();
   let app = document.querySelector(".app");
