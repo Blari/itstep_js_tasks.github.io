@@ -39,7 +39,8 @@ function cookGet() {
 }
 
 function jumbotron() {
-  Cookies.set("count", 1, { expires: 14 });
+  Cookies.set("date", dateStr());
+
   let app = document.querySelector(".app");
   let div = document.createElement("div");
   let h1 = document.createElement("h1");
@@ -55,9 +56,9 @@ function jumbotron() {
   h1.append(`Привет, ${Cookies.get("name")} ${Cookies.get("sername")}`);
   p.classList.add("lead");
   hr.classList.add("my-4");
-  Cookies.set("date", dateStr());
-  p.append(`Последний раз ты сюда заходил ${Cookies.get("date")}. `);
 
+  p.append(`Последний раз ты сюда заходил ${Cookies.get("date")}. `);
+  Cookies.set("count", 1, { expires: 14 });
   p.append(`И это твой ${Cookies.get("count")} заход.`);
 
   //увеличиваем счетчик посещений
