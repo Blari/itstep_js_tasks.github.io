@@ -21,7 +21,7 @@ function timeDay() {
 }
 
 function cookSet() {
-  let date = new Date().now;
+  let date = new Date();
   let input = document.querySelectorAll("input");
   Cookies.set("name", input[0].value, { expires: 14 });
   Cookies.set("sername", input[1].value, { expires: 14 });
