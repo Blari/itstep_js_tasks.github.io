@@ -54,9 +54,10 @@ function jumbotron() {
   h1.append(`Привет, ${Cookies.get("name")} ${Cookies.get("sername")}`);
   p.classList.add("lead");
   hr.classList.add("my-4");
+  Cookies.set("date", dateStr());
   p.append(`Последний раз ты сюда заходил ${Cookies.get("date")}. `);
   p.append(`И это твой ${Cookies.get("count")} заход.`);
-  Cookies.set("date", dateStr());
+
   Cookies.set("count", +Cookies.get("count") + 1);
   p2.classList.add("lead");
   p2.append(
