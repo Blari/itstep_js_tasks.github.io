@@ -73,11 +73,8 @@ function jumbotron() {
   hr.classList.add("my-4");
 
   p.append(`Последний раз ты сюда заходил ${Cookies.get("date")}. `);
-  Cookies.set("count", 1, { expires: 14 });
-  p.append(`И это твой ${Cookies.get("count")} заход.`);
 
-  //увеличиваем счетчик посещений
-  Cookies.set("count", +Cookies.get("count") + 1);
+  p.append(`И это твой ${Cookies.get("count")} заход.`);
 
   a.classList.add("btn");
   a.classList.add("btn-primary");
