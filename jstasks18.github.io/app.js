@@ -1,6 +1,7 @@
 let btn = document.querySelectorAll(".btn");
 btn[0].addEventListener("click", cookSet);
 btn[0].addEventListener("click", jumbotron);
+
 btn[1].addEventListener("click", cookGet);
 let arr = ["Доброго утра", "Доброго дня", "Доброго вечера", "Доброй ночи"];
 
@@ -94,4 +95,10 @@ function cookClean() {
   Cookies.remove("date");
 }
 
-timeDay();
+//timeDay();
+
+function auth() {
+  Cookies.get("name") != undefined && Cookies.get("sername") != undefined
+    ? jumbotron()
+    : timeDay();
+}
