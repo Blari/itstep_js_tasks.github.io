@@ -2,7 +2,6 @@ let btn = document.querySelectorAll(".btn");
 btn[0].addEventListener("click", cookSet);
 btn[0].addEventListener("click", jumbotron);
 
-btn[1].addEventListener("click", cookGet);
 let arr = ["Доброго утра", "Доброго дня", "Доброго вечера", "Доброй ночи"];
 
 //Приветствие в зависимости от времени
@@ -48,9 +47,6 @@ function cookSet2() {
     : Cookies.set("count", +Cookies.get("count") + 1);
 
   Cookies.set("date", dateStr(), { expires: 14 });
-}
-function cookGet() {
-  console.log(`Куки: ${Cookies.get()}`);
 }
 
 function jumbotron() {
