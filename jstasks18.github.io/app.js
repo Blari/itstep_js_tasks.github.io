@@ -86,7 +86,6 @@ function jumbotron() {
 
   div.append(p3);
   app.append(div);
-  document.location.reload(true);
 }
 
 function cookClean() {
