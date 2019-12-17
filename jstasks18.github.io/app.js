@@ -2,7 +2,6 @@ let btn = document.querySelectorAll(".btn");
 btn[0].addEventListener("click", cookSet);
 btn[1].addEventListener("click", cookGet);
 let arr = ["Доброго утра", "Доброго дня", "Доброго вечера", "Доброй ночи"];
-Cookies.set("count", 1, { expires: 14 });
 
 //Приветствие в зависимости от времени
 function timeDay() {
@@ -39,6 +38,7 @@ function cookGet() {
 }
 
 function jumbotron() {
+  Cookies.set("count", 1, { expires: 14 });
   let app = document.querySelector(".app");
   let div = document.createElement("div");
   let h1 = document.createElement("h1");
@@ -56,8 +56,9 @@ function jumbotron() {
   hr.classList.add("my-4");
   Cookies.set("date", dateStr());
   p.append(`Последний раз ты сюда заходил ${Cookies.get("date")}. `);
-  p.append(`И это твой ${Cookies.get("count")} заход.`);
 
+  p.append(`И это твой ${Cookies.get("count")} заход.`);
+  //увеличиваем счетчик посещений
   Cookies.set("count", +Cookies.get("count") + 1);
   p2.classList.add("lead");
   p2.append(
