@@ -29,7 +29,7 @@ function dateStr() {
 
 function cookSet() {
   let input = document.querySelectorAll("input");
-  let vis = Cookies.set("count");
+  let vis = Cookies.get("count");
 
   vis === undefined
     ? Cookies.set("count", 0, { expires: 14 })
