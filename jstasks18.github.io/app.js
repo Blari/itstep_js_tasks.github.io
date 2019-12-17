@@ -102,3 +102,5 @@ function auth() {
     ? jumbotron()
     : timeDay();
 }
+
+auth();
