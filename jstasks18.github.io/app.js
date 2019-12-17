@@ -22,7 +22,7 @@ function timeDay() {
 }
 function dateStr() {
   let date = new Date();
-  return (dateStr = `${date.getFullYear()} ${date.getMonth()} ${date.getHours()} ${date.getMinutes()} ${date.getSeconds()}`);
+  return (dateStr = `${date.getFullYear()} года ${date.getMonth()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
 }
 
 function cookSet() {
