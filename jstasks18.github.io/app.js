@@ -39,7 +39,7 @@ function cookGet() {
 }
 
 function jumbotron() {
-  Cookies.set("date", dateStr());
+  //Cookies.set("date", dateStr());
 
   let app = document.querySelector(".app");
   let div = document.createElement("div");
@@ -63,10 +63,7 @@ function jumbotron() {
 
   //увеличиваем счетчик посещений
   Cookies.set("count", +Cookies.get("count") + 1);
-  p2.classList.add("lead");
-  p2.append(
-    "Использются служебные классы для типографики и расстояния содержимого в контейнере большего размера."
-  );
+
   a.classList.add("btn");
   a.classList.add("btn-primary");
   a.classList.add("btn-lg");
@@ -79,7 +76,7 @@ function jumbotron() {
   div.append(h1);
   div.append(p);
   div.append(hr);
-  div.append(p2);
+
   div.append(p3);
   app.append(div);
 }
