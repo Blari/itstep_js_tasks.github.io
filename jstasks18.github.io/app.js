@@ -21,7 +21,7 @@ function timeDay() {
 }
 
 function cookSet() {
-  let date = new Date();
+  let date = new Date().now;
   let input = document.querySelectorAll("input");
   Cookies.set("name", input[0].value, { expires: 14 });
   Cookies.set("sername", input[1].value, { expires: 14 });
@@ -77,6 +77,8 @@ function jumbotron() {
 function cookClean() {
   Cookies.remove("name");
   Cookies.remove("surname");
+  Cookies.remove("count");
+  Cookies.remove("date");
 }
 
 timeDay();
