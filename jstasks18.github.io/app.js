@@ -28,10 +28,15 @@ function dateStr() {
 
 function cookSet() {
   let input = document.querySelectorAll("input");
+  let vis = Cookies.set("count");
+
+  vis === undefined
+    ? Cookies.set("count", 0, { expires: 14 })
+    : Cookies.set("count", +Cookies.get("count") + 1);
+
   Cookies.set("name", input[0].value, { expires: 14 });
   Cookies.set("sername", input[1].value, { expires: 14 });
   Cookies.set("date", dateStr(), { expires: 14 });
-  Cookies.set("count", 0, { expires: 14 });
 }
 
 function cookGet() {
@@ -53,7 +58,7 @@ function jumbotron() {
 
   div.classList.add("jumbotron");
   h1.classList.add("display-4");
-
+  //Приветствие
   h1.append(`Привет, ${Cookies.get("name")} ${Cookies.get("sername")}`);
   p.classList.add("lead");
   hr.classList.add("my-4");
