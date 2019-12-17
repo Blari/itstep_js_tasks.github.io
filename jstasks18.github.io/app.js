@@ -21,11 +21,11 @@ function timeDay() {
 }
 
 function cookSet() {
-  let date = new Date(Date().now);
+  let date = new Date();
   let input = document.querySelectorAll("input");
   Cookies.set("name", input[0].value, { expires: 14 });
   Cookies.set("sername", input[1].value, { expires: 14 });
-  Cookies.set("date", date, { expires: 14 });
+  Cookies.set("date", date.toLocaleDateString, { expires: 14 });
   Cookies.set("count", 0, { expires: 14 });
 }
 
@@ -50,9 +50,9 @@ function jumbotron() {
   h1.append(`Привет, ${Cookies.get("name")} ${Cookies.get("sername")}`);
   p.classList.add("lead");
   hr.classList.add("my-4");
-  p.append(`Последний раз ты сюда заходил ${Cookies.get("date")}.`);
+  p.append(`Последний раз ты сюда заходил ${Cookies.get("date")}. `);
   p.append(`И это твой ${Cookies.get("count")} заход.`);
-  Cookies.set("count", Cookies.get("count") + 1);
+  Cookies.set("count", +Cookies.get("count") + 1);
   p2.classList.add("lead");
   p2.append(
     "Использются служебные классы для типографики и расстояния содержимого в контейнере большего размера."
