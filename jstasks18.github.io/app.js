@@ -2,6 +2,7 @@ let btn = document.querySelectorAll(".btn");
 btn[0].addEventListener("click", cookSet);
 btn[1].addEventListener("click", cookGet);
 let arr = ["Доброго утра", "Доброго дня", "Доброго вечера", "Доброй ночи"];
+
 //Приветствие в зависимости от времени
 function timeDay() {
   let p = document.querySelector(".greetings");
@@ -20,9 +21,12 @@ function timeDay() {
 }
 
 function cookSet() {
+  let date = new Date(Date().now);
   let input = document.querySelectorAll("input");
-  Cookies.set("name", input[0].value, { expires: 365 });
-  Cookies.set("sername", input[1].value, { expires: 365 });
+  Cookies.set("name", input[0].value, { expires: 14 });
+  Cookies.set("sername", input[1].value, { expires: 14 });
+  Cookies.set("date", date, { expires: 14 });
+  Cookies.set("count", 0, { expires: 14 });
 }
 
 function cookGet() {
@@ -30,12 +34,7 @@ function cookGet() {
   console.log(Cookies.get());
 }
 
-function jumbotron(
-  name = "Имя",
-  surname = "Фамилия",
-  date = "17.10.21019",
-  count = 0
-) {
+function jumbotron() {
   let app = document.querySelector(".app");
   let div = document.createElement("div");
   let h1 = document.createElement("h1");
@@ -47,11 +46,13 @@ function jumbotron(
 
   div.classList.add("jumbotron");
   h1.classList.add("display-4");
-  h1.append(`Привет, ${name} ${surname}`);
+
+  h1.append(`Привет, ${Cookies.get("name")} ${Cookies.get("sername")}`);
   p.classList.add("lead");
   hr.classList.add("my-4");
-  p.append(`Последний раз ты сюда заходил ${date}.`);
-  p.append(`И это твой ${count} заход.`);
+  p.append(`Последний раз ты сюда заходил ${Cookies.get("date")}.`);
+  p.append(`И это твой ${Cookies.get("count")} заход.`);
+  Cookies.set("count", Cookies.get("count") + 1);
   p2.classList.add("lead");
   p2.append(
     "Использются служебные классы для типографики и расстояния содержимого в контейнере большего размера."
@@ -75,6 +76,7 @@ function jumbotron(
 
 function cookClean() {
   Cookies.remove("name");
+  Cookies.remove("surname");
 }
 
 timeDay();
