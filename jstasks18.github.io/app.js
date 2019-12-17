@@ -43,8 +43,6 @@ function cookSet2() {
   vis === undefined
     ? Cookies.set("count", 0, { expires: 14 })
     : Cookies.set("count", +Cookies.get("count") + 1);
-
-  Cookies.set("date", dateStr(), { expires: 14 });
 }
 function jumbotron() {
   cookSet2();
@@ -68,6 +66,7 @@ function jumbotron() {
 
   p.append(`Последний раз ты сюда заходил ${Cookies.get("date")}. `);
 
+  Cookies.set("date", dateStr(), { expires: 14 });
   p.append(`И это твой ${Cookies.get("count")} заход.`);
 
   a.classList.add("btn");
@@ -95,6 +94,8 @@ function cookClean() {
 }
 
 function auth() {
-  Cookies.get("name") && Cookies.get("sername") ? jumbotron() : timeDay();
+  Cookies.get("name") != undefined && Cookies.get("sername") != undefined
+    ? jumbotron()
+    : timeDay();
 }
 auth();
