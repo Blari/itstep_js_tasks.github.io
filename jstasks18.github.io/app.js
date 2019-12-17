@@ -21,7 +21,8 @@ function timeDay() {
 }
 function dateStr() {
   let date = new Date();
-  return (dateStr = `${date.getFullYear()} года ${date.getMonth()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+  return (dateStr = `${date.getFullYear()} года ${date.getMonth() +
+    1} месяца в ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
 }
 
 function cookSet() {
@@ -58,6 +59,7 @@ function jumbotron() {
   p.append(`Последний раз ты сюда заходил ${Cookies.get("date")}. `);
 
   p.append(`И это твой ${Cookies.get("count")} заход.`);
+
   //увеличиваем счетчик посещений
   Cookies.set("count", +Cookies.get("count") + 1);
   p2.classList.add("lead");
