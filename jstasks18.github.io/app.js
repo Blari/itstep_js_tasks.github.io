@@ -40,7 +40,8 @@ function cookGet() {
 
 function jumbotron() {
   //Cookies.set("date", dateStr());
-
+  let form = document.querySelector("form");
+  form.remove();
   let app = document.querySelector(".app");
   let div = document.createElement("div");
   let h1 = document.createElement("h1");
