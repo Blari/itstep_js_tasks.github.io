@@ -1,9 +1,7 @@
 let btn = document.querySelectorAll(".btn");
 btn[0].addEventListener("click", cookSet);
+btn[0].addEventListener("click", jumbotron);
 btn[1].addEventListener("click", cookGet);
-let send = document.querySelector(".send");
-send.addEventListener("click", jumbotron);
-
 let arr = ["Доброго утра", "Доброго дня", "Доброго вечера", "Доброй ночи"];
 
 //Приветствие в зависимости от времени
