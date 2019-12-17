@@ -25,7 +25,7 @@ function cookSet() {
   let input = document.querySelectorAll("input");
   Cookies.set("name", input[0].value, { expires: 14 });
   Cookies.set("sername", input[1].value, { expires: 14 });
-  Cookies.set("date", date.toLocaleDateString, { expires: 14 });
+  Cookies.set("date", date, { expires: 14 });
   Cookies.set("count", 0, { expires: 14 });
 }
 
