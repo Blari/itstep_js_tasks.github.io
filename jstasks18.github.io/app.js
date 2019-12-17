@@ -93,6 +93,7 @@ function cookClean() {
   Cookies.remove("surname");
   Cookies.remove("count");
   Cookies.remove("date");
+  document.location.reload(true);
 }
 
 //timeDay();
