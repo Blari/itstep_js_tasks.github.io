@@ -23,8 +23,8 @@ function timeDay() {
 }
 function dateStr() {
   let date = new Date();
-  return (dateStr = `${date.getFullYear()} года ${date.getMonth() +
-    1} месяца в ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+  return `${date.getFullYear()} года ${date.getMonth() +
+    1} месяца в ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 }
 
 function cookSet() {
@@ -39,6 +39,7 @@ function cookSet() {
   Cookies.set("sername", input[1].value, { expires: 14 });
   Cookies.set("date", dateStr(), { expires: 14 });
 }
+
 function cookSet2() {
   let vis = Cookies.get("count");
 
