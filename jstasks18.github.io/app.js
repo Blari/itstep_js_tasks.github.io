@@ -95,7 +95,8 @@ function cookClean() {
 }
 
 function auth() {
-  Cookies.get("name") != undefined && Cookies.get("sername") != undefined
+  (Cookies.get("name") != undefined || Cookies.get("name") != "") &&
+  (Cookies.get("sername") != undefined || Cookies.get("sername") != "")
     ? jumbotron()
     : timeDay();
 }
