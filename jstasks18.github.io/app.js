@@ -86,11 +86,12 @@ function jumbotron() {
 
   div.append(p3);
   app.append(div);
+  document.location.reload(true);
 }
 
 function cookClean() {
   Cookies.remove("name");
-  Cookies.remove("surname");
+  Cookies.remove("sername");
   Cookies.remove("count");
   Cookies.remove("date");
   document.location.reload(true);
