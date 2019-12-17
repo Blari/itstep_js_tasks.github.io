@@ -1,6 +1,9 @@
 let btn = document.querySelectorAll(".btn");
 btn[0].addEventListener("click", cookSet);
 btn[1].addEventListener("click", cookGet);
+let send = document.querySelector(".send");
+send.addEventListener("click", jumbotron);
+
 let arr = ["Доброго утра", "Доброго дня", "Доброго вечера", "Доброй ночи"];
 
 //Приветствие в зависимости от времени
@@ -34,8 +37,7 @@ function cookSet() {
 }
 
 function cookGet() {
-  console.log("Куки");
-  console.log(Cookies.get());
+  console.log(`Куки: ${Cookies.get()}`);
 }
 
 function jumbotron() {
@@ -92,4 +94,3 @@ function cookClean() {
 }
 
 timeDay();
-jumbotron();
