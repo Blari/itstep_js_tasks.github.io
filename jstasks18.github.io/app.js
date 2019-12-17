@@ -44,6 +44,7 @@ function cookSet2() {
     ? Cookies.set("count", 0, { expires: 14 })
     : Cookies.set("count", +Cookies.get("count") + 1);
 }
+
 function jumbotron() {
   cookSet2();
   let form = document.querySelector("form");
@@ -94,8 +95,15 @@ function cookClean() {
 }
 
 function auth() {
+  // let input = document.querySelectorAll("input");
+  // let p = document.querySelector(".greetings");
+
+  // if (input[0].value === "" && input[1].value === "") {
+  //   p.innerHTML("Похоже ты не представился");
+  // } else {
   Cookies.get("name") != undefined && Cookies.get("sername") != undefined
     ? jumbotron()
     : timeDay();
 }
-auth();
+
+//auth();
