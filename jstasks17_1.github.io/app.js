@@ -58,6 +58,11 @@ function startFu() {
 
 // //Обработка ресета
 function resetFu() {
+  seconds = 0;
+  minutes = 0;
+  hours = 0;
+  ms = 0;
+
   let buttons = document.querySelectorAll(".disable");
 
   clearInterval(tic);
@@ -66,7 +71,7 @@ function resetFu() {
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].innerHTML = "00";
   }
-  console.log(alerts);
+  
   for (let j = 0; j <= alerts.length; j++) {
     $(alerts[j]).alert("close");
   }
