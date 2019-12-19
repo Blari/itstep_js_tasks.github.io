@@ -1,13 +1,5 @@
-.container .row {
-  padding-top: 0.5rem;
-}
-.container .row button {
-  margin-bottom: 10px;
-}
-#text1HelpText {
-  color: #6c757d;
-  transition: color 0.2s linear;
-}
-.progress-bar {
-  font-size: 20px;
+.container-fluid .row {
+  width: 100vw;
+  height: 100vh;
+  background: #ff8383;
 }
