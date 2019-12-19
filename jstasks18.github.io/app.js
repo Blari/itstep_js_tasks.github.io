@@ -106,4 +106,4 @@ function auth() {
     : timeDay();
 }
 
-//auth();
+auth();
