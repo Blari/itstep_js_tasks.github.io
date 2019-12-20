@@ -13,9 +13,13 @@ function findFlex() {
 function functionRef(e) {
   let row = document.querySelectorAll(".row");
   let n = findFlex();
-
   if (event.deltaY > 0) {
-    row[n].style.display = "none";
+    console.log(n);
+    n == row.length - 1 ? (n = 0) : n;
+
+    for (let i = 0; i < row.length; i++) {
+      row[i].style.display = "none";
+    }
     row[n + 1].style.display = "flex";
     cont.style.background = "#F9F7ED";
   }
