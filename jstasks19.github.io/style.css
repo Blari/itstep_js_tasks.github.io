@@ -1,3 +1,6 @@
+.container-fluid {
+  overflow: hidden;
+}
 .container-fluid .row {
   width: 100vw;
   height: 100vh;
