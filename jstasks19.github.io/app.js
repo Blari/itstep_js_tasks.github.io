@@ -14,8 +14,7 @@ function functionRef(e) {
   let row = document.querySelectorAll(".row");
   let n = findFlex();
   if (event.deltaY > 0) {
-    console.log(n);
-    n == row.length - 1 ? (n = 0) : n;
+    n == row.length - 1 ? (n = 0) : n - 1;
 
     for (let i = 0; i < row.length; i++) {
       row[i].style.display = "none";
