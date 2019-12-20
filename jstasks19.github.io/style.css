@@ -1,8 +1,11 @@
 .container-fluid {
+  background: #ff8383;
   overflow: hidden;
 }
 .container-fluid .row {
   width: 100vw;
   height: 100vh;
-  background: #ff8383;
+}
+.row-2 {
+  display: none;
 }
