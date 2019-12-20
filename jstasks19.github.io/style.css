@@ -1,6 +1,7 @@
 .container-fluid {
-  background: #ff8383;
+  background: #cdeb8b;
   overflow: hidden;
+  transition: all 1s linear;
 }
 .container-fluid .row {
   width: 100vw;
