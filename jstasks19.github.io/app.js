@@ -13,15 +13,10 @@ function findFlex() {
 function functionRef(e) {
   let row = document.querySelectorAll(".row");
   let n = findFlex();
-  console.log(n);
-  if (event.deltaY < 0) {
-    row[0].style.display = "none";
-    row[1].style.display = "flex";
-    cont.style.background = "#F9F7ED";
-  } else {
-    row[1].style.display = "none";
-    row[0].style.display = "flex";
 
-    cont.style.background = "#cdeb8b";
+  if (event.deltaY > 0) {
+    row[n].style.display = "none";
+    row[n + 1].style.display = "flex";
+    cont.style.background = "#F9F7ED";
   }
 }
