@@ -1,6 +1,14 @@
 let cont = document.querySelectorAll(".container-fluid")[0];
 cont.onwheel = functionRef;
 
+function hideRow() {
+  let row = document.querySelectorAll(".row");
+  console.log(row);
+  for (let i = 1; i < row.length; i++) {
+    row[i].style.display = "none";
+  }
+}
+
 function findFlex() {
   let row = document.getElementsByClassName("row");
   let n = 0;
@@ -23,3 +31,5 @@ function functionRef(e) {
     cont.style.background = "#F9F7ED";
   }
 }
+
+hideRow();

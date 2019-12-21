@@ -4,13 +4,6 @@
   transition: all 1s linear;
 }
 .container-fluid .row {
-  display: flex;
   width: 100vw;
   height: 100vh;
-}
-.row-2 {
-  display: none;
-}
-.row-3 {
-  display: none;
 }
