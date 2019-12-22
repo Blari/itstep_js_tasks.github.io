@@ -22,7 +22,7 @@ function clean(x) {
     mcol[x].classList.remove("fadeOutUp");
 }
 function clean2(x) {
-  x < 0 ? (x = 2) : x;
+  x == 3 ? (x = 0) : x;
   if (mcol[x].classList.contains("fadeOutDown"))
     mcol[x].classList.remove("fadeOutDown");
   if (mcol[x].classList.contains("fadeInDown"))
