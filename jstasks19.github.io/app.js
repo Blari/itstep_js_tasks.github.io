@@ -2,6 +2,7 @@ let row = document.getElementsByClassName("row");
 let cont = document.querySelectorAll(".container-fluid")[0];
 let mcol = document.getElementsByClassName("mcol");
 cont.onwheel = functionRef;
+cont.ontouchmove = functionRef;
 
 //Скрываем лишние блоки
 function hideRow(x) {
