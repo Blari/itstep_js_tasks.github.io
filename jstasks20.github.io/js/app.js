@@ -4,6 +4,11 @@ btn.addEventListener("click", () => {
   $("#ModalAdd").modal("show");
 });
 
+let colapse = document.querySelector(".collapse");
+colapse.addEventListener("click", () => {
+  $("#collapse").collapse("toggle");
+});
+
 //Клик по модальке
 let modal = document.querySelector(".modal");
 modal.onclick = function(event) {

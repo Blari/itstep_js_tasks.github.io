@@ -116,7 +116,7 @@
                     id="name"
                   />
                   <i
-                    class="fas fa-question-circle name"
+                    class="fas fa-info-circle name"
                     data-container="body"
                     data-toggle-name="popover"
                     data-trigger="hover"
@@ -135,7 +135,7 @@
                     class="form-control form-control-sm"
                     id="login"
                   /><i
-                    class="fas fa-question-circle login"
+                    class="fas fa-info-circle login"
                     data-container="body"
                     data-toggle-login="popover"
                     data-trigger="hover"
@@ -154,7 +154,7 @@
                     id="password"
                     value="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                   /><i
-                    class="fas fa-question-circle password"
+                    class="fas fa-info-circle password"
                     data-container="body"
                     data-toggle-password="popover"
                     data-trigger="hover"
@@ -173,7 +173,7 @@
                     class="form-control form-control-sm"
                     id="email"
                   /><i
-                    class="fas fa-question-circle email"
+                    class="fas fa-info-circle email"
                     data-container="body"
                     data-toggle-email="popover"
                     data-trigger="hover"
@@ -184,21 +184,25 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="adsress" class="col-form-label">Adsress:</label>
-                <input
-                  type="text"
-                  class="form-control form-control-sm"
-                  id="adsress"
-                />
+                <label for="adsress" class="col-form-label"
+                  ><b>Adsress</b></label
+                >
+                <div class="form-group collapse" id="collapse">
+                  <label for="adsress" class="col-form-label">Adsress:</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    id="adsress"
+                  />
+                  <label for="phone" class="col-form-label">Phone:</label>
+                  <input
+                    type="tel"
+                    class="form-control form-control-sm"
+                    id="phone"
+                  />
+                </div>
               </div>
-              <div class="form-group">
-                <label for="phone" class="col-form-label">Phone:</label>
-                <input
-                  type="tel"
-                  class="form-control form-control-sm"
-                  id="phone"
-                />
-              </div>
+
               <div class="form-group">
                 <label for="salary" class="col-form-label">Salary:</label>
                 <div class="input_span d-flex align-middle">
@@ -207,7 +211,7 @@
                     class="form-control form-control-sm"
                     id="salary"
                   /><i
-                    class="fas fa-question-circle salary"
+                    class="fas fa-info-circle salary"
                     data-container="body"
                     data-toggle-salary="popover"
                     data-trigger="hover"
