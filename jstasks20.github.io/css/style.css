@@ -12,3 +12,8 @@
   padding-left: 10px;
   line-height: 16px;
 }
+.form-group .collapse-triger i {
+  transition: all 200ms linear;
+  margin-left: 10px;
+  transform: rotate(180deg);
+}

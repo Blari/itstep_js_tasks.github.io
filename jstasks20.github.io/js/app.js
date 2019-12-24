@@ -3,10 +3,16 @@ let btn = document.querySelector(".modalAdd");
 btn.addEventListener("click", () => {
   $("#ModalAdd").modal("show");
 });
-
-let colapse = document.querySelector(".collapse");
+//collapse
+let colapse = document.querySelector(".collapse-triger");
 colapse.addEventListener("click", () => {
   $("#collapse").collapse("toggle");
+  let angel = document.querySelector(".fa-angle-up");
+
+  let deg = angel.style.transform;
+  deg === `rotate(180deg)` || deg === ""
+    ? (angel.style.transform = `rotate(0deg)`)
+    : (angel.style.transform = `rotate(180deg)`);
 });
 
 //Клик по модальке
@@ -30,8 +36,3 @@ function pop(target) {
     ? $('[data-toggle-salary="popover"]').popover("show")
     : null;
 }
-
-// let fas = document.querySelector(".fas");
-// fas.addEventListener("click", () => {
-//   $('[data-toggle-name="popover"]').popover("show");
-// });
