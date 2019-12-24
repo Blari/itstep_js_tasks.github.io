@@ -1,0 +1,6 @@
+.container-fluid {
+  margin-top: 10px;
+}
+.container-fluid .row {
+  margin-bottom: 10px;
+}
