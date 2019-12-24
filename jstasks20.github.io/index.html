@@ -183,26 +183,6 @@
                   ></i>
                 </div>
               </div>
-              <div class="form-group">
-                <p class="collapse-triger">
-                  <b>Address</b><i class="fas fa-angle-up"></i>
-                </p>
-
-                <div class="form-group collapse" id="collapse">
-                  <label for="adsress" class="col-form-label">Address:</label>
-                  <input
-                    type="text"
-                    class="form-control form-control-sm"
-                    id="adsress"
-                  />
-                  <label for="phone" class="col-form-label">Phone:</label>
-                  <input
-                    type="tel"
-                    class="form-control form-control-sm"
-                    id="phone"
-                  />
-                </div>
-              </div>
 
               <div class="form-group">
                 <label for="salary" class="col-form-label">Salary:</label>
@@ -220,6 +200,124 @@
                     title="Salary"
                     data-content="Max six digits."
                   ></i>
+                </div>
+              </div>
+
+              <div
+                class="input_span d-flex align-middle justify-content-center"
+              >
+                <label class="col-form-label">Status:&nbsp;</label>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-success active">
+                    <input
+                      type="radio"
+                      name="options"
+                      id="option1"
+                      autocomplete="off"
+                      checked
+                    />
+                    Active
+                  </label>
+                  <label class="btn btn-warning">
+                    <input
+                      type="radio"
+                      name="options"
+                      id="option2"
+                      autocomplete="off"
+                    />
+                    Inactive
+                  </label>
+                </div>
+              </div>
+              <hr />
+              <div class="form-group">
+                <p class="collapse-triger">
+                  <b>Address</b><i class="fas fa-angle-up"></i>
+                </p>
+
+                <div class="form-group collapse" id="collapse">
+                  <label for="zip" class="col-form-zip">Zip Code:</label>
+                  <div class="input_span d-flex align-middle">
+                    <input
+                      type="number"
+                      class="form-control form-control-sm"
+                      id="zip"
+                    /><i
+                      class="fas fa-info-circle zip"
+                      data-container="body"
+                      data-toggle-zip="popover"
+                      data-trigger="hover"
+                      data-placement="top"
+                      title="Zip Code"
+                      data-content="Max eight number."
+                    ></i>
+                  </div>
+                  <label for="adsress" class="col-form-city">City:</label>
+                  <div class="input_span d-flex align-middle">
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      id="city"
+                    /><i
+                      class="fas fa-info-circle city"
+                      data-container="body"
+                      data-toggle-city="popover"
+                      data-trigger="hover"
+                      data-placement="top"
+                      title="City"
+                      data-content="Max two words."
+                    ></i>
+                  </div>
+                  <label for="phone" class="col-form-label">Street:</label>
+                  <div class="input_span d-flex align-middle">
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      id="street"
+                    /><i
+                      class="fas fa-info-circle street"
+                      data-container="body"
+                      data-toggle-street="popover"
+                      data-trigger="hover"
+                      data-placement="top"
+                      title="Street"
+                      data-content="Max two words."
+                    ></i>
+                  </div>
+                  <label for="house" class="col-form-label">House:</label>
+                  <div class="input_span d-flex align-middle">
+                    <input
+                      type="number"
+                      class="form-control form-control-sm"
+                      id="house"
+                    /><i
+                      class="fas fa-info-circle house"
+                      data-container="body"
+                      data-toggle-house="popover"
+                      data-trigger="hover"
+                      data-placement="top"
+                      title="House"
+                      data-content="Number of house."
+                    ></i>
+                  </div>
+                  <label for="house" class="col-form-label"
+                    >Phone number:</label
+                  >
+                  <div class="input_span d-flex align-middle">
+                    <input
+                      type="number"
+                      class="form-control form-control-sm"
+                      id="number"
+                    /><i
+                      class="fas fa-info-circle number"
+                      data-container="body"
+                      data-toggle-number="popover"
+                      data-trigger="hover"
+                      data-placement="top"
+                      title="Phone number"
+                      data-content="Phone number"
+                    ></i>
+                  </div>
                 </div>
               </div>
             </form>

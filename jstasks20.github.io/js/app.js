@@ -34,5 +34,15 @@ function pop(target) {
     ? $('[data-toggle-email="popover"]').popover("show")
     : target.classList.contains("salary")
     ? $('[data-toggle-salary="popover"]').popover("show")
+    : target.classList.contains("zip")
+    ? $('[data-toggle-zip="popover"]').popover("show")
+    : target.classList.contains("city")
+    ? $('[data-toggle-city="popover"]').popover("show")
+    : target.classList.contains("street")
+    ? $('[data-toggle-street="popover"]').popover("show")
+    : target.classList.contains("house")
+    ? $('[data-toggle-house="popover"]').popover("show")
+    : target.classList.contains("number")
+    ? $('[data-toggle-number="popover"]').popover("show")
     : null;
 }
