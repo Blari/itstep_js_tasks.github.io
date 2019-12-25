@@ -23,6 +23,7 @@ modal.onclick = function(event) {
   pop(target);
 };
 
+//Всплывающие подсказки
 function pop(target) {
   target.classList.contains("name")
     ? $('[data-toggle-name="popover"]').popover("show")
@@ -45,4 +46,36 @@ function pop(target) {
     : target.classList.contains("number")
     ? $('[data-toggle-number="popover"]').popover("show")
     : null;
+}
+
+//regExp check
+let sendBtn = document.querySelector(".sendBtn");
+sendBtn.addEventListener("click", regExpCheck);
+function regExpCheck() {
+  let name = /^[А-Яа-яa-zA-Z_]{2,16}$/;
+  let login = /[А-Яа-яa-zA-Z0-9_]/g;
+
+  nameInput = document.querySelector("#name");
+  if (!name.test(nameInput.value)) {
+    nameInput.classList.add(`animated`);
+    nameInput.classList.add(`shake`);
+    $('[data-toggle-name="popover"]').popover("show");
+    setTimeout(() => {
+      nameInput.classList.remove(`animated`);
+      nameInput.classList.remove(`shake`);
+      $('[data-toggle-name="popover"]').popover("hide");
+    }, 2000);
+  }
+
+  loginInput = document.querySelector("#login");
+  if (!login.test(loginInput.value)) {
+    loginInput.classList.add(`animated`);
+    loginInput.classList.add(`shake`);
+    $('[data-toggle-login="popover"]').popover("show");
+    setTimeout(() => {
+      loginInput.classList.remove(`animated`);
+      loginInput.classList.remove(`shake`);
+      $('[data-toggle-login="popover"]').popover("hide");
+    }, 2000);
+  }
 }
