@@ -49,33 +49,42 @@ function pop(target) {
 }
 
 //regExp check
+function testReg(nameInput, name, dataName) {
+  nameInput = document.querySelector(nameInput);
+  if (!name.test(nameInput.value)) {
+    nameInput.classList.add(`animated`);
+    nameInput.classList.add(`shake`);
+    $(`[data-toggle-${dataName}="popover"]`).popover("show");
+    setTimeout(() => {
+      nameInput.classList.remove(`animated`);
+      nameInput.classList.remove(`shake`);
+      $(`[data-toggle-${dataName}="popover"]`).popover("hide");
+    }, 2000);
+  }
+}
+
 let sendBtn = document.querySelector(".sendBtn");
 sendBtn.addEventListener("click", regExpCheck);
 function regExpCheck() {
   let name = /^[А-Яа-яa-zA-Z_]{2,16}$/;
   let login = /[А-Яа-яa-zA-Z0-9_]/g;
+  let password = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
+  let email = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+  let salary = /^[1-9]+(\.[0-9]{1,2})?$/g;
+  let zip = /^\d{8}(\-?\d{4})?$/gm;
+  let city = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
+  //let street = /^\d+\s[A-z]+\s[A-z]+/;
+  let house = /\d{1,3}/;
+  let number = /([+(\d]{1})(([\d+() -.]){5,16})([+(\d]{1})/gm;
 
-  nameInput = document.querySelector("#name");
-  if (!name.test(nameInput.value)) {
-    nameInput.classList.add(`animated`);
-    nameInput.classList.add(`shake`);
-    $('[data-toggle-name="popover"]').popover("show");
-    setTimeout(() => {
-      nameInput.classList.remove(`animated`);
-      nameInput.classList.remove(`shake`);
-      $('[data-toggle-name="popover"]').popover("hide");
-    }, 2000);
-  }
-
-  loginInput = document.querySelector("#login");
-  if (!login.test(loginInput.value)) {
-    loginInput.classList.add(`animated`);
-    loginInput.classList.add(`shake`);
-    $('[data-toggle-login="popover"]').popover("show");
-    setTimeout(() => {
-      loginInput.classList.remove(`animated`);
-      loginInput.classList.remove(`shake`);
-      $('[data-toggle-login="popover"]').popover("hide");
-    }, 2000);
-  }
+  testReg(`#name`, name, `name`);
+  testReg(`#login`, login, `login`);
+  testReg(`#password`, password, `password`);
+  testReg(`#email`, email, `email`);
+  testReg(`#salary`, salary, `salary`);
+  testReg(`#zip`, zip, `zip`);
+  testReg(`#city`, city, `city`);
+  testReg(`#street`, city, `street`);
+  testReg(`#house`, house, `house`);
+  testReg(`#number`, number, `number`);
 }
