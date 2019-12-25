@@ -70,11 +70,11 @@ function regExpCheck() {
   let login = /[А-Яа-яa-zA-Z0-9_]/g;
   let password = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
   let email = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
-  let salary = /^[1-9]+(\.[0-9]{1,2})?$/g;
+  let salary = /\d{1,6}/;
   let zip = /^\d{8}(\-?\d{4})?$/gm;
   let city = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
   //let street = /^\d+\s[A-z]+\s[A-z]+/;
-  let house = /\d{1,3}/;
+  let house = /\d{1,6}/;
   let number = /([+(\d]{1})(([\d+() -.]){5,16})([+(\d]{1})/gm;
 
   testReg(`#name`, name, `name`);
