@@ -60,6 +60,7 @@ function testReg(nameInput, name, dataName) {
       nameInput.classList.remove(`shake`);
       $(`[data-toggle-${dataName}="popover"]`).popover("hide");
     }, 2000);
+    return 1;
   }
 }
 
