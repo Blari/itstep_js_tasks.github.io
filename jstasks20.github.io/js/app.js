@@ -49,6 +49,7 @@ function pop(target) {
 }
 
 //regExp check
+let sum = 0;
 function testReg(nameInput, name, dataName) {
   nameInput = document.querySelector(nameInput);
   if (!name.test(nameInput.value)) {
@@ -60,8 +61,7 @@ function testReg(nameInput, name, dataName) {
       nameInput.classList.remove(`shake`);
       $(`[data-toggle-${dataName}="popover"]`).popover("hide");
     }, 2000);
-    return 1;
-  }
+  } else sum++;
 }
 
 let sendBtn = document.querySelector(".sendBtn");
@@ -72,7 +72,7 @@ function regExpCheck() {
   let password = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
   let email = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
   let salary = /\d{1,6}/;
-  let zip = /^\d{8}(\-?\d{4})?$/gm;
+  let zip = /^\d{1,8}/;
   let city = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
   //let street = /^\d+\s[A-z]+\s[A-z]+/;
   let house = /\d{1,6}/;
@@ -88,4 +88,29 @@ function regExpCheck() {
   testReg(`#street`, city, `street`);
   testReg(`#house`, house, `house`);
   testReg(`#number`, number, `number`);
+
+  sum > 10 ? (sum = 10) : sum < 10 ? (sum = 0) : null;
+  getData();
+}
+
+function getData() {
+  let objData = {};
+  let form = document.forms[0].elements;
+  let address = `${form.city.value}, ${form.street.value}, ${form.house.value}`;
+  let status;
+  form.active.checked ? (status = "Active") : (status = "Inactive");
+  let date = new Date();
+  objData = {
+    name: form.name.value,
+    login: form.login.value,
+    password: form.password.value,
+    email: form.email.value,
+    address: address,
+    number: form.number.value,
+    salary: form.salary.value,
+    dateCreate: date,
+    dateUpd: date,
+    status: status
+  };
+  console.log(objData);
 }
