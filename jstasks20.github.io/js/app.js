@@ -90,7 +90,7 @@ function regExpCheck() {
   testReg(`#number`, number, `number`);
 
   sum > 10 ? (sum = 10) : sum < 10 ? (sum = 0) : null;
-  getData();
+  sum === 10 ? getData() : null;
 }
 
 function getData() {
@@ -112,5 +112,23 @@ function getData() {
     dateUpd: date,
     status: status
   };
-  console.log(objData);
+  let tbody = document.querySelector("tbody");
+  let trData = `<th scope="row">${1}</th>
+  <td>${objData.name}</td>
+  <td>${objData.login}</td>
+  <td>${objData.password}</td>
+  <td>${objData.email}</td>
+  <td>
+  ${objData.address}
+  </td>
+  <td>${objData.number}</td>
+  <td>${objData.salary}</td>
+  <td>${objData.dateCreate}</td>
+  <td>${objData.dateCreate}</td>
+  <td>${objData.status}</td>`;
+
+  let tr = document.createElement("tr");
+  tr.innerHTML = trData;
+  tbody.append(tr);
+  $("#ModalAdd").modal("hide");
 }
