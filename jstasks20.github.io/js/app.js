@@ -1,3 +1,6 @@
+let mainIndex;
+lscache.get(1) === null ? (mainIndex = 1) : getDataFromStorage();
+
 //Запуск модальки
 let btn = document.querySelector(".modalAdd");
 btn.addEventListener("click", () => {
@@ -73,7 +76,7 @@ function regExpCheck() {
   let email = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
   let salary = /\d{1,6}/;
   let zip = /^\d{1,8}/;
-  let city = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
+  let city = /^[А-Яа-яa-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
   //let street = /^\d+\s[A-z]+\s[A-z]+/;
   let house = /\d{1,6}/;
   let number = /([+(\d]{1})(([\d+() -.]){5,16})([+(\d]{1})/gm;
@@ -92,7 +95,7 @@ function regExpCheck() {
   sum > 10 ? (sum = 10) : sum < 10 ? (sum = 0) : null;
   sum === 10 ? getData() : null;
 }
-
+//Собираем данные из модальки
 function getData() {
   let objData = {};
   let form = document.forms[0].elements;
@@ -100,7 +103,9 @@ function getData() {
   let status;
   form.active.checked ? (status = "Active") : (status = "Inactive");
   let date = new Date();
+
   objData = {
+    index: mainIndex,
     name: form.name.value,
     login: form.login.value,
     password: form.password.value,
@@ -112,8 +117,11 @@ function getData() {
     dateUpd: date,
     status: status
   };
+
+  lscache.set(mainIndex, objData);
+  mainIndex++;
   let tbody = document.querySelector("tbody");
-  let trData = `<th scope="row">${1}</th>
+  let trData = `<th scope="row">${objData.index}</th>
   <td>${objData.name}</td>
   <td>${objData.login}</td>
   <td>${objData.password}</td>
@@ -131,4 +139,29 @@ function getData() {
   tr.innerHTML = trData;
   tbody.append(tr);
   $("#ModalAdd").modal("hide");
+}
+
+//Забираем данные из LocalStorage
+function getDataFromStorage() {
+  mainIndex = lscache.get(localStorage.length).index + 1;
+  for (let i = 1; i <= localStorage.length; i++) {
+    let tbody = document.querySelector("tbody");
+    let trData = `<th scope="row">${lscache.get(i).index}</th>
+  <td>${lscache.get(i).name}</td>
+  <td>${lscache.get(i).login}</td>
+  <td>${lscache.get(i).password}</td>
+  <td>${lscache.get(i).email}</td>
+  <td>
+  ${lscache.get(i).address}
+  </td>
+  <td>${lscache.get(i).number}</td>
+  <td>${lscache.get(i).salary}</td>
+  <td>${lscache.get(i).dateCreate}</td>
+  <td>${lscache.get(i).dateCreate}</td>
+  <td>${lscache.get(i).status}</td>`;
+
+    let tr = document.createElement("tr");
+    tr.innerHTML = trData;
+    tbody.append(tr);
+  }
 }
