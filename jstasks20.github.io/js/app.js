@@ -103,7 +103,9 @@ function getData() {
   let status;
   form.active.checked ? (status = "Active") : (status = "Inactive");
   let date = new Date();
-  
+  let mainDate = `${date.getFullYear()}-${date.getMonth() +
+    1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
+
   let delBtn = `<button type="button" class="btn btn-warning del">del</button>`;
   let editBtn = `<button type="button" class="btn btn-primary edit">edit</button>`;
 
@@ -116,8 +118,8 @@ function getData() {
     address: address,
     number: form.number.value,
     salary: form.salary.value,
-    dateCreate: date,
-    dateUpd: date,
+    dateCreate: mainDate,
+    dateUpd: mainDate,
     status: status,
     del: delBtn,
     edit: editBtn
@@ -146,6 +148,7 @@ function getData() {
   tr.innerHTML = trData;
   tbody.append(tr);
   $("#ModalAdd").modal("hide");
+  $(".toast").toast("show");
 }
 
 //Забираем данные из LocalStorage

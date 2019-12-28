@@ -23,3 +23,6 @@
 .form-group .collapse-triger i :hover {
   cursor: pointer;
 }
+.toast {
+  margin-left: 10px;
+}
