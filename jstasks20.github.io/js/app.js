@@ -103,6 +103,9 @@ function getData() {
   let status;
   form.active.checked ? (status = "Active") : (status = "Inactive");
   let date = new Date();
+  
+  let delBtn = `<button type="button" class="btn btn-warning del">del</button>`;
+  let editBtn = `<button type="button" class="btn btn-primary edit">edit</button>`;
 
   objData = {
     index: mainIndex,
@@ -115,7 +118,9 @@ function getData() {
     salary: form.salary.value,
     dateCreate: date,
     dateUpd: date,
-    status: status
+    status: status,
+    del: delBtn,
+    edit: editBtn
   };
 
   lscache.set(mainIndex, objData);
@@ -133,7 +138,9 @@ function getData() {
   <td>${objData.salary}</td>
   <td>${objData.dateCreate}</td>
   <td>${objData.dateCreate}</td>
-  <td>${objData.status}</td>`;
+  <td>${objData.status}</td>
+  <td><button type="button" class="btn btn-primary">edit</button></td>
+  <td><button type="button" class="btn btn-warning">del</button></td>`;
 
   let tr = document.createElement("tr");
   tr.innerHTML = trData;
@@ -158,7 +165,9 @@ function getDataFromStorage() {
   <td>${lscache.get(i).salary}</td>
   <td>${lscache.get(i).dateCreate}</td>
   <td>${lscache.get(i).dateCreate}</td>
-  <td>${lscache.get(i).status}</td>`;
+  <td>${lscache.get(i).status}</td>
+  <td>${lscache.get(i).edit}</td>
+  <td>${lscache.get(i).del}</td>`;
 
     let tr = document.createElement("tr");
     tr.innerHTML = trData;
