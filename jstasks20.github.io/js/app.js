@@ -3,6 +3,12 @@ lscache.get(1) === null ? (mainIndex = 1) : getDataFromStorage();
 let clearConfirm = document.querySelector(".clearConfirm");
 clearConfirm.addEventListener("click", clearData);
 
+//ToDo Найти и удалить строку таблицы и данные из LS
+document.addEventListener("click", delBtn);
+function delBtn(e) {
+  e.target.classList.contains("del") ? console.log(222) : null;
+}
+
 let clearBtn = document.querySelector(".clearBtn");
 clearBtn.addEventListener("click", () => {
   $(".clearAllData").modal("show");
