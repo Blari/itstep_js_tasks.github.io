@@ -1,6 +1,17 @@
 let mainIndex;
 lscache.get(1) === null ? (mainIndex = 1) : getDataFromStorage();
+let clearConfirm = document.querySelector(".clearConfirm");
+clearConfirm.addEventListener("click", clearData);
 
+let clearBtn = document.querySelector(".clearBtn");
+clearBtn.addEventListener("click", () => {
+  $(".clearAllData").modal("show");
+});
+//Чистим все данные
+function clearData() {
+  lscache.flush();
+  document.location.reload(true);
+}
 //Запуск модальки
 let btn = document.querySelector(".modalAdd");
 btn.addEventListener("click", () => {
