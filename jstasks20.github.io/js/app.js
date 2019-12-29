@@ -12,7 +12,7 @@ function delBtn(e) {
   let removeRowConfirm = document.querySelector(".removeRowConfirm");
   if (e.target.classList.contains("del")) {
     el = e.target.closest("tr");
-    elNom = el.querySelector("th").innerHTML;
+    elNom = e.target.closest("tr").querySelector("th").innerHTML;
     $(".delRow").modal("show");
   }
   removeRowConfirm.onclick = function() {
