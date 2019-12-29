@@ -3,10 +3,23 @@ lscache.get(1) === null ? (mainIndex = 1) : getDataFromStorage();
 let clearConfirm = document.querySelector(".clearConfirm");
 clearConfirm.addEventListener("click", clearData);
 
-//ToDo Найти и удалить строку таблицы и данные из LS
+//Найти и удалить строку таблицы и данные из LS
+//TODO для вновь добавленных элементов кнопки не работает
 document.addEventListener("click", delBtn);
 function delBtn(e) {
-  e.target.classList.contains("del") ? console.log(222) : null;
+  let elNom;
+  let el;
+  let removeRowConfirm = document.querySelector(".removeRowConfirm");
+  if (e.target.classList.contains("del")) {
+    el = e.target.closest("tr");
+    elNom = el.querySelector("th").innerHTML;
+    $(".delRow").modal("show");
+  }
+  removeRowConfirm.onclick = function() {
+    lscache.remove(elNom);
+    el.remove();
+    $(".delRow").modal("hide");
+  };
 }
 
 let clearBtn = document.querySelector(".clearBtn");

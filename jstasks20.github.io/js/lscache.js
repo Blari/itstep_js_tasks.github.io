@@ -18,24 +18,23 @@
 /* jshint undef:true, browser:true, node:true */
 /* global define */
 
-(function (root, factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define([], factory);
-    } else if (typeof module !== "undefined" && module.exports) {
-        // CommonJS/Node module
-        module.exports = factory();
-    } else {
-        // Browser globals
-        root.lscache = factory();
-    }
-}(this, function () {
-
+(function(root, factory) {
+  if (typeof define === "function" && define.amd) {
+    // AMD. Register as an anonymous module.
+    define([], factory);
+  } else if (typeof module !== "undefined" && module.exports) {
+    // CommonJS/Node module
+    module.exports = factory();
+  } else {
+    // Browser globals
+    root.lscache = factory();
+  }
+})(this, function() {
   // Prefix for all lscache keys
-  var CACHE_PREFIX = 'lscache-';
+  var CACHE_PREFIX = "lscache-";
 
   // Suffix for the key name on the expiration items in localStorage
-  var CACHE_SUFFIX = '-cacheexpiration';
+  var CACHE_SUFFIX = "-cacheexpiration";
 
   // expiration date radix (set to Base-36 for most space savings)
   var EXPIRY_RADIX = 10;
@@ -47,7 +46,7 @@
 
   var cachedStorage;
   var cachedJSON;
-  var cacheBucket = '';
+  var cacheBucket = "";
   var warnings = false;
 
   // Determines if localStorage is supported in the browser;
@@ -56,7 +55,7 @@
   // it's not straightforward due to FF4 issues.
   // It's not run at parse-time as it takes 200ms in Android.
   function supportsStorage() {
-    var key = '__lscachetest__';
+    var key = "__lscachetest__";
     var value = key;
 
     if (cachedStorage !== undefined) {
@@ -78,22 +77,23 @@
       removeItem(key);
       cachedStorage = true;
     } catch (e) {
-        // If we hit the limit, and we don't have an empty localStorage then it means we have support
-        if (isOutOfSpace(e) && localStorage.length) {
-            cachedStorage = true; // just maxed it out and even the set test failed.
-        } else {
-            cachedStorage = false;
-        }
+      // If we hit the limit, and we don't have an empty localStorage then it means we have support
+      if (isOutOfSpace(e) && localStorage.length) {
+        cachedStorage = true; // just maxed it out and even the set test failed.
+      } else {
+        cachedStorage = false;
+      }
     }
     return cachedStorage;
   }
 
   // Check to set if the error is us dealing with being out of space
   function isOutOfSpace(e) {
-    return e && (
-      e.name === 'QUOTA_EXCEEDED_ERR' ||
-      e.name === 'NS_ERROR_DOM_QUOTA_REACHED' ||
-      e.name === 'QuotaExceededError'
+    return (
+      e &&
+      (e.name === "QUOTA_EXCEEDED_ERR" ||
+        e.name === "NS_ERROR_DOM_QUOTA_REACHED" ||
+        e.name === "QuotaExceededError")
     );
   }
 
@@ -101,7 +101,7 @@
   function supportsJSON() {
     /*jshint eqnull:true */
     if (cachedJSON === undefined) {
-      cachedJSON = (window.JSON != null);
+      cachedJSON = window.JSON != null;
     }
     return cachedJSON;
   }
@@ -112,7 +112,7 @@
    * @return {string}
    */
   function escapeRegExpSpecialCharacters(text) {
-    return text.replace(/[[\]{}()*+?.\\^$|]/g, '\\$&');
+    return text.replace(/[[\]{}()*+?.\\^$|]/g, "\\$&");
   }
 
   /**
@@ -129,7 +129,7 @@
    * @return {number}
    */
   function currentTime() {
-    return Math.floor((new Date().getTime())/expiryMilliseconds);
+    return Math.floor(new Date().getTime() / expiryMilliseconds);
   }
 
   /**
@@ -151,9 +151,11 @@
   }
 
   function eachKey(fn) {
-    var prefixRegExp = new RegExp('^' + CACHE_PREFIX + escapeRegExpSpecialCharacters(cacheBucket) + '(.*)');
+    var prefixRegExp = new RegExp(
+      "^" + CACHE_PREFIX + escapeRegExpSpecialCharacters(cacheBucket) + "(.*)"
+    );
     // Loop in reverse as removing items will change indices of tail
-    for (var i = localStorage.length-1; i >= 0 ; --i) {
+    for (var i = localStorage.length - 1; i >= 0; --i) {
       var key = localStorage.key(i);
       key = key && key.match(prefixRegExp);
       key = key && key[1];
@@ -188,13 +190,14 @@
 
   function warn(message, err) {
     if (!warnings) return;
-    if (!('console' in window) || typeof window.console.warn !== 'function') return;
+    if (!("console" in window) || typeof window.console.warn !== "function")
+      return;
     window.console.warn("lscache - " + message);
     if (err) window.console.warn("lscache - The error was: " + err.message);
   }
 
   function calculateMaxDate(expiryMilliseconds) {
-    return Math.floor(8.64e15/expiryMilliseconds);
+    return Math.floor(8.64e15 / expiryMilliseconds);
   }
 
   var lscache = {
@@ -234,19 +237,20 @@
             if (expiration) {
               expiration = parseInt(expiration, EXPIRY_RADIX);
             } else {
-              // TODO: Store date added for non-expiring items for smarter removal
               expiration = maxDate;
             }
             storedKeys.push({
               key: key,
-              size: (getItem(key) || '').length,
+              size: (getItem(key) || "").length,
               expiration: expiration
             });
           });
           // Sorts the keys with oldest expiration time last
-          storedKeys.sort(function(a, b) { return (b.expiration-a.expiration); });
+          storedKeys.sort(function(a, b) {
+            return b.expiration - a.expiration;
+          });
 
-          var targetSize = (value||'').length;
+          var targetSize = (value || "").length;
           while (storedKeys.length && targetSize > 0) {
             storedKey = storedKeys.pop();
             warn("Cache is full, removing item with key '" + key + "'");
@@ -257,7 +261,12 @@
             setItem(key, value);
           } catch (e) {
             // value may be larger than total quota
-            warn("Could not add item with key '" + key + "', perhaps it's too big?", e);
+            warn(
+              "Could not add item with key '" +
+                key +
+                "', perhaps it's too big?",
+              e
+            );
             return false;
           }
         } else {
@@ -269,7 +278,10 @@
 
       // If a time is specified, store expiration info in localStorage
       if (time) {
-        setItem(expirationKey(key), (currentTime() + time).toString(EXPIRY_RADIX));
+        setItem(
+          expirationKey(key),
+          (currentTime() + time).toString(EXPIRY_RADIX)
+        );
       } else {
         // In case they previously set a time, remove that info from localStorage.
         removeItem(expirationKey(key));
@@ -286,7 +298,9 @@
       if (!supportsStorage()) return null;
 
       // Return the de-serialized item if not expired
-      if (flushExpiredItem(key)) { return null; }
+      if (flushExpiredItem(key)) {
+        return null;
+      }
 
       // Tries to de-serialize stored value if its an object, and returns the normal value otherwise.
       var value = getItem(key);
@@ -357,7 +371,7 @@
      * Resets the string being appended to CACHE_PREFIX so lscache will use the default storage behavior.
      */
     resetBucket: function() {
-      cacheBucket = '';
+      cacheBucket = "";
     },
 
     /**
@@ -379,8 +393,8 @@
      * @param {number} milliseconds
      */
     setExpiryMilliseconds: function(milliseconds) {
-        expiryMilliseconds = milliseconds;
-        maxDate = calculateMaxDate(expiryMilliseconds);
+      expiryMilliseconds = milliseconds;
+      maxDate = calculateMaxDate(expiryMilliseconds);
     },
 
     /**
@@ -393,4 +407,4 @@
 
   // Return the module
   return lscache;
-}));
+});
