@@ -171,8 +171,8 @@ function getData() {
   <td>${objData.dateCreate}</td>
   <td>${objData.dateCreate}</td>
   <td>${objData.status}</td>
-  <td><button type="button" class="btn btn-primary">edit</button></td>
-  <td><button type="button" class="btn btn-warning">del</button></td>`;
+  <td><button type="button" class="btn btn-primary edit">edit</button></td>
+  <td><button type="button" class="btn btn-warning del">del</button></td>`;
 
   let tr = document.createElement("tr");
   tr.innerHTML = trData;
