@@ -4,7 +4,6 @@ let clearConfirm = document.querySelector(".clearConfirm");
 clearConfirm.addEventListener("click", clearData);
 
 //Найти и удалить строку таблицы и данные из LS
-//TODO для вновь добавленных элементов кнопки не работает
 document.addEventListener("click", delBtn);
 function delBtn(e) {
   let elNom;
