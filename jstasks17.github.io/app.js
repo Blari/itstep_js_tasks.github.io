@@ -94,8 +94,8 @@ function newYearTime() {
   let pb = document.querySelector(".progress-bar");
 
   let date = new Date();
-  let start = new Date("January 01, 2019 00:00:00");
-  let nyDate = new Date("January 01, 2020 00:00:00");
+  let start = new Date("January 01, 2020 00:00:00");
+  let nyDate = new Date("January 01, 2021 00:00:00");
   let distance = nyDate.getTime() - date.getTime();
   let year = nyDate.getTime() - start.getTime();
 
