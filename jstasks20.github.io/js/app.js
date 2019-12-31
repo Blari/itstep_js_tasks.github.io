@@ -13,7 +13,6 @@ function delBtn(e) {
   if (e.target.classList.contains("del")) {
     el = e.target.closest("tr");
     elNom = e.target.closest("tr").getElementsByTagName("th")[0].innerHTML;
-    console.log(elNom);
     $(".delRow").modal("show");
   }
   removeRowConfirm.onclick = function() {
