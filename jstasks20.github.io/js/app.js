@@ -6,6 +6,7 @@ clearConfirm.addEventListener("click", clearData);
 //Найти и удалить строку таблицы и данные из LS
 document.addEventListener("click", delBtn);
 function delBtn(e) {
+  let lsData;
   let elNom;
   let el;
   let removeRowConfirm = document.querySelector(".removeRowConfirm");
@@ -13,15 +14,47 @@ function delBtn(e) {
     el = e.target.closest("tr");
     elNom = e.target.closest("tr").getElementsByTagName("th")[0].innerHTML;
     $(".delRow").modal("show");
+    removeRowConfirm.onclick = function() {
+      lscache.remove(elNom);
+      el.remove();
+      $(".delRow").modal("hide");
+    };
   }
+
   //TODO кнопка редактирования записи
   else if (e.target.classList.contains("edit")) {
+    el = e.target.closest("tr");
+    elNom = e.target.closest("tr").getElementsByTagName("th")[0].innerHTML;
+    lsData = lscache.get(elNom);
+    document.getElementById("name").value = lsData.name;
+    document.getElementById("login").value = lsData.login;
+    document.getElementById("password").value = lsData.password;
+    document.getElementById("email").value = lsData.email;
+
+    let mainAdr = lsData.address.replace(/\s/g, "");
+    adr = mainAdr.split(",");
+
+    document.getElementById("zip").value = adr[0];
+    document.getElementById("city").value = adr[1];
+    document.getElementById("street").value = adr[2];
+    document.getElementById("house").value = adr[3];
+
+    document.getElementById("number").value = lsData.number;
+    document.getElementById("salary").value = lsData.salary;
+    if (lsData.status === "Active") {
+      document.getElementById("active").checked = true;
+    } else {
+      document.getElementById("inactive").checked = true;
+    }
+
+    $("#ModalAdd").modal("show");
+    //TODO добавить добавление изменений в таблицу
+    let sendBtn = document.querySelector(".sendBtn");
+    sendBtn.onclick = function() {
+      console.log(12122);
+      $(".delRow").modal("hide");
+    };
   }
-  removeRowConfirm.onclick = function() {
-    lscache.remove(elNom);
-    el.remove();
-    $(".delRow").modal("hide");
-  };
 }
 
 let clearBtn = document.querySelector(".clearBtn");
@@ -131,7 +164,7 @@ function regExpCheck() {
 function getData() {
   let objData = {};
   let form = document.forms[0].elements;
-  let address = `${form.city.value}, ${form.street.value}, ${form.house.value}`;
+  let address = `${form.zip.value}, ${form.city.value}, ${form.street.value}, ${form.house.value}`;
   let status;
   form.active.checked ? (status = "Active") : (status = "Inactive");
   let date = new Date();
