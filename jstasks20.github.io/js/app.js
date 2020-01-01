@@ -14,6 +14,9 @@ function delBtn(e) {
     elNom = e.target.closest("tr").getElementsByTagName("th")[0].innerHTML;
     $(".delRow").modal("show");
   }
+  //TODO кнопка редактирования записи
+  else if (e.target.classList.contains("edit")) {
+  }
   removeRowConfirm.onclick = function() {
     lscache.remove(elNom);
     el.remove();
