@@ -49,6 +49,7 @@ function delBtn(e) {
     $("#ModalAdd").modal("show");
     //TODO добавить проверку данных при изменении
     let updBtn = document.querySelector(".updateDate");
+
     updBtn.onclick = function() {
       let objData = {};
       let form = document.forms[0].elements;
@@ -64,7 +65,7 @@ function delBtn(e) {
       let editBtn = `<button type="button" class="btn btn-primary edit">edit</button>`;
 
       objData = {
-        index: elNom,
+        index: +elNom,
         name: form.name.value,
         login: form.login.value,
         password: form.password.value,
