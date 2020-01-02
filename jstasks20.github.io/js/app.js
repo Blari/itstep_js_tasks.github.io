@@ -19,10 +19,9 @@ function delBtn(e) {
       el.remove();
       $(".delRow").modal("hide");
     };
-  }
-
-  //TODO кнопка редактирования записи
-  else if (e.target.classList.contains("edit")) {
+  } else if (e.target.classList.contains("edit")) {
+    document.querySelector(".sendBtn").setAttribute("disabled", "");
+    document.querySelector(".updateDate").removeAttribute("disabled");
     el = e.target.closest("tr");
     elNom = e.target.closest("tr").getElementsByTagName("th")[0].innerHTML;
     lsData = lscache.get(elNom);
@@ -48,11 +47,62 @@ function delBtn(e) {
     }
 
     $("#ModalAdd").modal("show");
-    //TODO добавить добавление изменений в таблицу
-    let sendBtn = document.querySelector(".sendBtn");
-    sendBtn.onclick = function() {
-      console.log(12122);
-      $(".delRow").modal("hide");
+    //TODO добавить проверку данных при изменении
+    let updBtn = document.querySelector(".updateDate");
+    updBtn.onclick = function() {
+      let objData = {};
+      let form = document.forms[0].elements;
+      let address = `${form.zip.value}, ${form.city.value}, ${form.street.value}, ${form.house.value}`;
+      let status;
+      form.active.checked ? (status = "Active") : (status = "Inactive");
+      let date = new Date();
+      let dateUpd = `${date.getFullYear()}-${date.getMonth() +
+        1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
+      let mainDate = lscache.get(+elNom);
+
+      let delBtn = `<button type="button" class="btn btn-warning del">del</button>`;
+      let editBtn = `<button type="button" class="btn btn-primary edit">edit</button>`;
+
+      objData = {
+        index: elNom,
+        name: form.name.value,
+        login: form.login.value,
+        password: form.password.value,
+        email: form.email.value,
+        address: address,
+        number: form.number.value,
+        salary: form.salary.value,
+        dateCreate: mainDate.dateCreate,
+        dateUpd: dateUpd,
+        status: status,
+        del: delBtn,
+        edit: editBtn
+      };
+
+      lscache.set(elNom, objData);
+
+      let trData = `<th scope="row">${+objData.index}</th>
+  <td>${objData.name}</td>
+  <td>${objData.login}</td>
+  <td>${objData.password}</td>
+  <td>${objData.email}</td>
+  <td>
+  ${objData.address}
+  </td>
+  <td>${objData.number}</td>
+  <td>${objData.salary}</td>
+  <td>${objData.dateCreate}</td>
+  <td>${objData.dateUpd}</td>
+  <td>${objData.status}</td>
+  <td><button type="button" class="btn btn-primary edit">edit</button></td>
+  <td><button type="button" class="btn btn-warning del">del</button></td>`;
+      let tr = document.createElement("tr");
+      tr.innerHTML = trData;
+      let trDoc = document.getElementsByTagName("tr");
+      console.log(trDoc);
+      trDoc[elNom].insertAdjacentHTML("afterEnd", trData);
+      trDoc[elNom].remove();
+      $("#ModalAdd").modal("hide");
     };
   }
 }
@@ -69,6 +119,8 @@ function clearData() {
 //Запуск модальки
 let btn = document.querySelector(".modalAdd");
 btn.addEventListener("click", () => {
+  document.querySelector(".sendBtn").removeAttribute("disabled");
+  document.querySelector(".updateDate").setAttribute("disabled", "");
   $("#ModalAdd").modal("show");
 });
 //collapse
