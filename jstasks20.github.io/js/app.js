@@ -53,38 +53,63 @@ function delBtn(e) {
     let updBtn = document.querySelector(".updateDate");
 
     updBtn.onclick = function() {
-      let objData = {};
-      let form = document.forms[0].elements;
-      let address = `${form.zip.value}, ${form.city.value}, ${form.street.value}, ${form.house.value}`;
-      let status;
-      form.active.checked ? (status = "Active") : (status = "Inactive");
-      let date = new Date();
-      let dateUpd = `${date.getFullYear()}-${date.getMonth() +
-        1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
-      let mainDate = lscache.get(+elNom);
+      let name = /^[А-Яа-яa-zA-Z_]{2,16}$/;
+      let login = /[А-Яа-яa-zA-Z0-9_]/g;
+      let password = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
+      let email = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+      let salary = /\d{1,6}/;
+      let zip = /^\d{1,8}/;
+      let city = /^[А-Яа-яa-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
+      //let street = /^\d+\s[A-z]+\s[A-z]+/;
+      let house = /\d{1,6}/;
+      let number = /([+(\d]{1})(([\d+() -.]){5,16})([+(\d]{1})/gm;
 
-      let delBtn = `<button type="button" class="btn btn-warning del">del</button>`;
-      let editBtn = `<button type="button" class="btn btn-primary edit">edit</button>`;
+      testReg(`#name`, name, `name`);
+      testReg(`#login`, login, `login`);
+      testReg(`#password`, password, `password`);
+      testReg(`#email`, email, `email`);
+      testReg(`#salary`, salary, `salary`);
+      testReg(`#zip`, zip, `zip`);
+      testReg(`#city`, city, `city`);
+      testReg(`#street`, city, `street`);
+      testReg(`#house`, house, `house`);
+      testReg(`#number`, number, `number`);
+      console.log(sum);
+      sum > 10 ? (sum = 10) : sum < 10 ? (sum = 0) : null;
+      console.log(sum);
+      if (sum === 10) {
+        let objData = {};
+        let form = document.forms[0].elements;
+        let address = `${form.zip.value}, ${form.city.value}, ${form.street.value}, ${form.house.value}`;
+        let status;
+        form.active.checked ? (status = "Active") : (status = "Inactive");
+        let date = new Date();
+        let dateUpd = `${date.getFullYear()}-${date.getMonth() +
+          1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
+        let mainDate = lscache.get(+elNom);
 
-      objData = {
-        index: +elNom,
-        name: form.name.value,
-        login: form.login.value,
-        password: form.password.value,
-        email: form.email.value,
-        address: address,
-        number: form.number.value,
-        salary: form.salary.value,
-        dateCreate: mainDate.dateCreate,
-        dateUpd: dateUpd,
-        status: status,
-        del: delBtn,
-        edit: editBtn
-      };
+        let delBtn = `<button type="button" class="btn btn-warning del">del</button>`;
+        let editBtn = `<button type="button" class="btn btn-primary edit">edit</button>`;
 
-      lscache.set(elNom, objData);
+        objData = {
+          index: +elNom,
+          name: form.name.value,
+          login: form.login.value,
+          password: form.password.value,
+          email: form.email.value,
+          address: address,
+          number: form.number.value,
+          salary: form.salary.value,
+          dateCreate: mainDate.dateCreate,
+          dateUpd: dateUpd,
+          status: status,
+          del: delBtn,
+          edit: editBtn
+        };
 
-      let trData = `<th scope="row">${+objData.index}</th>
+        lscache.set(elNom, objData);
+
+        let trData = `<th scope="row">${+objData.index}</th>
   <td>${objData.name}</td>
   <td>${objData.login}</td>
   <td>${objData.password}</td>
@@ -100,12 +125,13 @@ function delBtn(e) {
   <td><button type="button" class="btn btn-primary edit">edit</button></td>
   <td><button type="button" class="btn btn-warning del">del</button></td>`;
 
-      let tr = document.createElement("tr");
-      tr.innerHTML = trData;
-      let trDoc = document.getElementsByTagName("tr");
-      trDoc[elNom].insertAdjacentHTML("afterEnd", trData);
-      trDoc[elNom].remove();
-      $("#ModalAdd").modal("hide");
+        let tr = document.createElement("tr");
+        tr.innerHTML = trData;
+        let trDoc = document.getElementsByTagName("tr");
+        trDoc[elNom].insertAdjacentHTML("afterEnd", trData);
+        trDoc[elNom].remove();
+        $("#ModalAdd").modal("hide");
+      }
     };
   }
 }
@@ -270,6 +296,7 @@ function getData() {
   tbody.append(tr);
   $("#ModalAdd").modal("hide");
   $(".toast").toast("show");
+  sum = 0;
 }
 
 //Забираем данные из LocalStorage при загрузке страницы
