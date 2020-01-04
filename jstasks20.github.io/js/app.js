@@ -48,6 +48,7 @@ function delBtn(e) {
 
     $("#ModalAdd").modal("show");
     //TODO добавить проверку данных при изменении
+
     let updBtn = document.querySelector(".updateDate");
 
     updBtn.onclick = function() {
@@ -97,10 +98,10 @@ function delBtn(e) {
   <td>${objData.status}</td>
   <td><button type="button" class="btn btn-primary edit">edit</button></td>
   <td><button type="button" class="btn btn-warning del">del</button></td>`;
+
       let tr = document.createElement("tr");
       tr.innerHTML = trData;
       let trDoc = document.getElementsByTagName("tr");
-      console.log(trDoc);
       trDoc[elNom].insertAdjacentHTML("afterEnd", trData);
       trDoc[elNom].remove();
       $("#ModalAdd").modal("hide");
@@ -213,6 +214,7 @@ function regExpCheck() {
   sum > 10 ? (sum = 10) : sum < 10 ? (sum = 0) : null;
   sum === 10 ? getData() : null;
 }
+
 //Собираем данные из модальки
 function getData() {
   let objData = {};
