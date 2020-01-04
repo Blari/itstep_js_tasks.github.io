@@ -10,6 +10,7 @@ function delBtn(e) {
   let elNom;
   let el;
   let removeRowConfirm = document.querySelector(".removeRowConfirm");
+
   if (e.target.classList.contains("del")) {
     el = e.target.closest("tr");
     elNom = e.target.closest("tr").getElementsByTagName("th")[0].innerHTML;
@@ -271,7 +272,7 @@ function getData() {
   $(".toast").toast("show");
 }
 
-//Забираем данные из LocalStorage
+//Забираем данные из LocalStorage при загрузке страницы
 function getDataFromStorage() {
   mainIndex = lscache.get(localStorage.length).index + 1;
   for (let i = 1; i <= localStorage.length; i++) {
@@ -287,7 +288,7 @@ function getDataFromStorage() {
   <td>${lscache.get(i).number}</td>
   <td>${lscache.get(i).salary}</td>
   <td>${lscache.get(i).dateCreate}</td>
-  <td>${lscache.get(i).dateCreate}</td>
+  <td>${lscache.get(i).dateUpd}</td>
   <td>${lscache.get(i).status}</td>
   <td>${lscache.get(i).edit}</td>
   <td>${lscache.get(i).del}</td>`;
