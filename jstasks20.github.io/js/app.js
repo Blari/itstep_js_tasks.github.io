@@ -19,6 +19,7 @@ function delBtn(e) {
       lscache.remove(elNom);
       el.remove();
       $(".delRow").modal("hide");
+      toastShow("The line was removed.");
     };
   } else if (e.target.classList.contains("edit")) {
     document.querySelector(".sendBtn").setAttribute("disabled", "");
@@ -48,7 +49,6 @@ function delBtn(e) {
     }
 
     $("#ModalAdd").modal("show");
-    //TODO добавить проверку данных при изменении
 
     let updBtn = document.querySelector(".updateDate");
 
@@ -131,6 +131,7 @@ function delBtn(e) {
         trDoc[elNom].insertAdjacentHTML("afterEnd", trData);
         trDoc[elNom].remove();
         $("#ModalAdd").modal("hide");
+        toastShow("Your data has been updated.");
       }
     };
   }
@@ -142,8 +143,13 @@ clearBtn.addEventListener("click", () => {
 });
 //Чистим все данные
 function clearData() {
+  let tbody = document.getElementsByTagName("tr");
+  for (let i = 1; i < tbody.length; i++) {
+    tbody[i].remove();
+  }
   lscache.flush();
-  document.location.reload(true);
+  $(".clearAllData").modal("hide");
+  toastShow("All data has been cleared.");
 }
 //Запуск модальки
 let btn = document.querySelector(".modalAdd");
@@ -295,7 +301,8 @@ function getData() {
   tr.innerHTML = trData;
   tbody.append(tr);
   $("#ModalAdd").modal("hide");
-  $(".toast").toast("show");
+  toastShow("Your data has been successfully added.");
+
   sum = 0;
 }
 
@@ -324,4 +331,10 @@ function getDataFromStorage() {
     tr.innerHTML = trData;
     tbody.append(tr);
   }
+}
+
+function toastShow(msg = "") {
+  let toasBody = document.querySelector(".toast-body");
+  toasBody.innerHTML = msg;
+  $(".toast").toast("show");
 }
