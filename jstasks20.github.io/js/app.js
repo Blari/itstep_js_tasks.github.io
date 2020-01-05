@@ -1,5 +1,7 @@
 let mainIndex;
-lscache.get(1) === null ? (mainIndex = 1) : getDataFromStorage();
+//TODO загрузка данных. при удалении первого элемента
+console.log(lscache.get(1));
+lscache.get(2) === null ? (mainIndex = 1) : getDataFromStorage();
 let clearConfirm = document.querySelector(".clearConfirm");
 clearConfirm.addEventListener("click", clearData);
 
