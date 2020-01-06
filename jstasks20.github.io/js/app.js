@@ -1,7 +1,9 @@
 let mainIndex;
+let keyArr = [];
 //TODO загрузка данных. при удалении первого элемента
-console.log(lscache.get(1));
-lscache.get(2) === null ? (mainIndex = 1) : getDataFromStorage();
+
+localStorage.length === 0 ? (mainIndex = 1) : getDataFromStorage();
+
 let clearConfirm = document.querySelector(".clearConfirm");
 clearConfirm.addEventListener("click", clearData);
 
@@ -143,12 +145,15 @@ let clearBtn = document.querySelector(".clearBtn");
 clearBtn.addEventListener("click", () => {
   $(".clearAllData").modal("show");
 });
+
 //Чистим все данные
 function clearData() {
-  let tbody = document.getElementsByTagName("tr");
-  for (let i = 1; i < tbody.length; i++) {
-    tbody[i].remove();
+  let tr = document.querySelectorAll("tr");
+
+  for (let i = 1; i < tr.length; i++) {
+    tr[i].remove();
   }
+
   lscache.flush();
   $(".clearAllData").modal("hide");
   toastShow("All data has been cleared.");
@@ -281,6 +286,9 @@ function getData() {
   };
 
   lscache.set(mainIndex, objData);
+
+  valueStorage();
+
   mainIndex++;
   let tbody = document.querySelector("tbody");
   let trData = `<th scope="row">${objData.index}</th>
@@ -310,8 +318,8 @@ function getData() {
 
 //Забираем данные из LocalStorage при загрузке страницы
 function getDataFromStorage() {
-  mainIndex = lscache.get(localStorage.length).index + 1;
-  for (let i = 1; i <= localStorage.length; i++) {
+  mainIndex = lscache.get(localStorage.length - 1).index + 1;
+  for (let i = 1; i <= localStorage.length - 1; i++) {
     let tbody = document.querySelector("tbody");
     let trData = `<th scope="row">${lscache.get(i).index}</th>
   <td>${lscache.get(i).name}</td>
@@ -339,4 +347,16 @@ function toastShow(msg = "") {
   let toasBody = document.querySelector(".toast-body");
   toasBody.innerHTML = msg;
   $(".toast").toast("show");
+}
+
+//Сохраняем ключи значений в LS
+function valueStorage() {
+  if (lscache.get(0) != null) {
+    keyArr = [];
+    keyArr = lscache.get(0);
+    keyArr.push(mainIndex);
+  } else {
+    keyArr.push(mainIndex);
+  }
+  lscache.set(0, keyArr);
 }
