@@ -4,6 +4,9 @@
 .container-fluid .row {
   margin-bottom: 10px;
 }
+.container-fluid .row p {
+  margin: 0;
+}
 .input_span {
   align-items: center;
 }
