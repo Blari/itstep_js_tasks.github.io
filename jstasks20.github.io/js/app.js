@@ -323,7 +323,7 @@ function getData() {
 
 //Забираем данные из LocalStorage при загрузке страницы
 function getDataFromStorage() {
-  mainIndex = mainIndex = lscache.get(0)[lscache.get(0).length - 1] + 1;
+  mainIndex = lscache.get(0)[lscache.get(0).length - 1] + 1;
 
   for (j = 0; j < lscache.get(0).length; j++) {
     let i = lscache.get(0)[j];
