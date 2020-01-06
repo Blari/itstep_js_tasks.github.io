@@ -1,6 +1,5 @@
 let mainIndex;
 let keyArr = [];
-//TODO загрузка данных. при удалении первого элемента
 
 localStorage.length === 0 ? (mainIndex = 1) : getDataFromStorage();
 
@@ -21,6 +20,13 @@ function delBtn(e) {
     $(".delRow").modal("show");
     removeRowConfirm.onclick = function() {
       lscache.remove(elNom);
+
+      //Удаляем из массива ключей ключ текущего элемента
+      let arr = [];
+      arr = lscache.get(0);
+      arr.splice(arr.indexOf(+elNom), 1);
+      lscache.set(0, arr);
+
       el.remove();
       $(".delRow").modal("hide");
       toastShow("The line was removed.");
