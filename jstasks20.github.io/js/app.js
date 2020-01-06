@@ -1,6 +1,5 @@
 let mainIndex;
 let keyArr = [];
-
 localStorage.length === 0 ? (mainIndex = 1) : getDataFromStorage();
 
 let clearConfirm = document.querySelector(".clearConfirm");
@@ -29,7 +28,7 @@ function delBtn(e) {
 
       el.remove();
       $(".delRow").modal("hide");
-      toastShow("The line was removed.");
+      toastShow("The row was removed.");
     };
   } else if (e.target.classList.contains("edit")) {
     document.querySelector(".sendBtn").setAttribute("disabled", "");
@@ -84,9 +83,7 @@ function delBtn(e) {
       testReg(`#street`, city, `street`);
       testReg(`#house`, house, `house`);
       testReg(`#number`, number, `number`);
-      console.log(sum);
       sum > 10 ? (sum = 10) : sum < 10 ? (sum = 0) : null;
-      console.log(sum);
       if (sum === 10) {
         let objData = {};
         let form = document.forms[0].elements;
@@ -325,24 +322,26 @@ function getData() {
 
 //Забираем данные из LocalStorage при загрузке страницы
 function getDataFromStorage() {
-  mainIndex = lscache.get(localStorage.length - 1).index + 1;
-  for (let i = 1; i <= localStorage.length - 1; i++) {
+  mainIndex = mainIndex = lscache.get(0)[lscache.get(0).length - 1] + 1;
+
+  for (j = 0; j < lscache.get(0).length; j++) {
+    let i = lscache.get(0)[j];
     let tbody = document.querySelector("tbody");
     let trData = `<th scope="row">${lscache.get(i).index}</th>
-  <td>${lscache.get(i).name}</td>
-  <td>${lscache.get(i).login}</td>
-  <td>${lscache.get(i).password}</td>
-  <td>${lscache.get(i).email}</td>
-  <td>
-  ${lscache.get(i).address}
-  </td>
-  <td>${lscache.get(i).number}</td>
-  <td>${lscache.get(i).salary}</td>
-  <td>${lscache.get(i).dateCreate}</td>
-  <td>${lscache.get(i).dateUpd}</td>
-  <td>${lscache.get(i).status}</td>
-  <td>${lscache.get(i).edit}</td>
-  <td>${lscache.get(i).del}</td>`;
+    <td>${lscache.get(i).name}</td>
+    <td>${lscache.get(i).login}</td>
+    <td>${lscache.get(i).password}</td>
+    <td>${lscache.get(i).email}</td>
+    <td>
+    ${lscache.get(i).address}
+    </td>
+    <td>${lscache.get(i).number}</td>
+    <td>${lscache.get(i).salary}</td>
+    <td>${lscache.get(i).dateCreate}</td>
+    <td>${lscache.get(i).dateUpd}</td>
+    <td>${lscache.get(i).status}</td>
+    <td>${lscache.get(i).edit}</td>
+    <td>${lscache.get(i).del}</td>`;
 
     let tr = document.createElement("tr");
     tr.innerHTML = trData;
