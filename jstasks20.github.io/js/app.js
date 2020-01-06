@@ -369,5 +369,7 @@ function valueStorage() {
 }
 function totalRow() {
   let row = document.querySelector(".totalRow");
-  row.innerHTML = `Total ${lscache.get(0).length} records`;
+  lscache.get(0) === null
+    ? (row.innerHTML = `Total 0 records`)
+    : (row.innerHTML = `Total ${lscache.get(0).length} records`);
 }
