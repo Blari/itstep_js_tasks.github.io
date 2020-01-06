@@ -1,5 +1,6 @@
 let mainIndex;
 let keyArr = [];
+totalRow();
 localStorage.length === 0 ? (mainIndex = 1) : getDataFromStorage();
 
 let clearConfirm = document.querySelector(".clearConfirm");
@@ -365,4 +366,8 @@ function valueStorage() {
     keyArr.push(mainIndex);
   }
   lscache.set(0, keyArr);
+}
+function totalRow() {
+  let row = document.querySelector(".totalRow");
+  row.innerHTML = `Total ${lscache.get(0).length} records`;
 }
