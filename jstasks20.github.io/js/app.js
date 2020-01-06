@@ -28,6 +28,7 @@ function delBtn(e) {
       lscache.set(0, arr);
 
       el.remove();
+      totalRow();
       $(".delRow").modal("hide");
       toastShow("The row was removed.");
     };
@@ -160,6 +161,7 @@ function clearData() {
 
   lscache.flush();
   $(".clearAllData").modal("hide");
+  totalRow();
   toastShow("All data has been cleared.");
 }
 //Запуск модальки
