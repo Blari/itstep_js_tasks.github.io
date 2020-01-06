@@ -171,6 +171,7 @@ btn.addEventListener("click", () => {
   document.querySelector(".updateDate").setAttribute("disabled", "");
   $("#ModalAdd").modal("show");
 });
+
 //collapse
 let colapse = document.querySelector(".collapse-triger");
 colapse.addEventListener("click", () => {
@@ -231,7 +232,7 @@ function testReg(nameInput, name, dataName) {
     }, 2000);
   } else sum++;
 }
-
+//Валидация данных
 let sendBtn = document.querySelector(".sendBtn");
 sendBtn.addEventListener("click", regExpCheck);
 function regExpCheck() {
