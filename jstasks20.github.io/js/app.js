@@ -133,10 +133,13 @@ function delBtn(e) {
   <td>${objData.status}</td>
   <td><button type="button" class="btn btn-primary edit">edit</button></td>
   <td><button type="button" class="btn btn-warning del">del</button></td>`;
-
+        //TODO номер элемента и порядковый номер тр-ки не совапдают,  нужно найти нужный элемент
         let tr = document.createElement("tr");
         tr.innerHTML = trData;
         let trDoc = document.getElementsByTagName("tr");
+        console.log(trDoc);
+        console.log(elNom);
+        console.log(this);
         trDoc[elNom].insertAdjacentHTML("afterEnd", trData);
         trDoc[elNom].remove();
         $("#ModalAdd").modal("hide");
@@ -317,6 +320,7 @@ function getData() {
   let tr = document.createElement("tr");
   tr.innerHTML = trData;
   tbody.append(tr);
+  totalRow();
   $("#ModalAdd").modal("hide");
   toastShow("Your data has been successfully added.");
 
