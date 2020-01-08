@@ -153,7 +153,6 @@ let clearBtn = document.querySelector(".clearBtn");
 clearBtn.addEventListener("click", () => {
   $(".clearAllData").modal("show");
 });
-
 //Чистим все данные
 function clearData() {
   let tr = document.querySelectorAll("tr");
@@ -174,7 +173,6 @@ btn.addEventListener("click", () => {
   document.querySelector(".updateDate").setAttribute("disabled", "");
   $("#ModalAdd").modal("show");
 });
-
 //collapse
 let colapse = document.querySelector(".collapse-triger");
 colapse.addEventListener("click", () => {
