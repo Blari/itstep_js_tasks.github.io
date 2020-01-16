@@ -1,0 +1,35 @@
+.container-fluid {
+  margin-top: 10px;
+}
+.container-fluid .row {
+  margin-bottom: 10px;
+}
+.container-fluid .row p {
+  margin: 0;
+}
+.input_span {
+  align-items: center;
+}
+.input_span i {
+  font-size: 20px;
+  padding-left: 10px;
+  line-height: 16px;
+}
+.form-group .collapse-triger b {
+  cursor: pointer;
+}
+.form-group .collapse-triger i {
+  transition: all 200ms linear;
+  margin-left: 10px;
+  transform: rotate(180deg);
+}
+.form-group .collapse-triger i :hover {
+  cursor: pointer;
+}
+.toast {
+  margin-left: 10px;
+}
+.toast-info {
+  margin-right: 5px;
+  font-size: 18px;
+}
