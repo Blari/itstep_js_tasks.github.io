@@ -8,7 +8,7 @@ let apicall =
 xhr.open("GET", apicall);
 xhr.responseType = "json";
 xhr.send();
-xhr.onload = function() {
+xhr.onload = function () {
   if (xhr.status != 200) {
     console.log(`Ошибка ${xhr.status}: ${xhr.statusText}`);
   } else {
